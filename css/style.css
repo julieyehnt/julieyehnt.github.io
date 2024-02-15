@@ -3,6 +3,9 @@
 body {
   background-color: gainsboro;
   font-family: Verdana, sans-serif;
+  max-width: 100%;
+  width: 100vw;
+  padding: 0 20px;
 }
 
 div {
@@ -23,7 +26,6 @@ img {
 }
 
 head {
-  width: 1240px;
   margin: 10 px auto;
   display: flex;
   font-size: 18px;
@@ -35,7 +37,6 @@ head {
 h1 {
   font-size: 18px;
   padding: 6px 0;
-  width: 1000px;
 }
 
 
@@ -65,14 +66,16 @@ main {
 
 
 @media screen and (max-width:640px) {
-  .div1{
+  .div1 {
     display: block;
     padding: 0 20px;
+    max-width: 100%;
+    text-align: center;
   }
 
-  .div2{
+  .div2 {
     display: block;
     padding: 0 20px;
-    width: 100%;
+    max-width: 100%;
   }
 }
