@@ -38,8 +38,14 @@ h1 {
   font-size: 18px;
   padding: 6px 0;
 }
-
-
+h2 {
+  font-size: 18px;
+  padding: 6px 0;
+}
+h3 {
+  font-size: 18px;
+  padding: 6px 0;
+}
 .categoryb {
   list-style-type: square;
   color: #292725e4;
@@ -63,7 +69,11 @@ main {
   color: #7c5d48;
   margin: 20px 0 16px 20px;
 }
-
+.categorye ul li {
+  list-style-type: square;
+  color: #7c5d48;
+  margin: 20px 0 16px 20px;
+}
 
 @media screen and (max-width:640px) {
   .div1 {
