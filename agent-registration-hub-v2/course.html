@@ -1612,21 +1612,21 @@
             <div class="prestep-handle"></div>
             <h2 class="prestep-title">報名前，先確認一件事</h2>
             <p class="prestep-subtitle">選對身份，才不會影響你和顧問之間的服務關係。</p>
-            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="agent">
+            <button type="button" class="prestep-choice" data-agent-referral-placeholder="1" data-referral-kind="agent">
               <span class="prestep-choice-icon">🤝</span>
               <span>
                 <span class="prestep-choice-title">有 Agent 介紹我</span>
                 <span class="prestep-choice-copy">由他為你報名並轉交 QR code</span>
               </span>
             </button>
-            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="direct">
+            <button type="button" class="prestep-choice" data-direct-registration="1" data-referral-kind="direct">
               <span class="prestep-choice-icon">✍️</span>
               <span>
                 <span class="prestep-choice-title">自行找到活動</span>
                 <span class="prestep-choice-copy">在這裡報名，活動團隊會後續聯繫</span>
               </span>
             </button>
-            <div class="prestep-helper">你是泛宇顧問嗎？ <a href="#" class="prestep-link">登入後可替客戶報名</a></div>
+            <div class="prestep-helper">你是泛宇顧問嗎？ <a href="#" class="prestep-link" data-agent-login-flow="1">登入後可替客戶報名</a></div>
             <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
           </div>
         </div>
@@ -1828,21 +1828,21 @@
             <div class="prestep-handle"></div>
             <h2 class="prestep-title">報名前，先確認一件事</h2>
             <p class="prestep-subtitle">選對身份，才不會影響你和顧問之間的服務關係。</p>
-            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="agent">
+            <button type="button" class="prestep-choice" data-agent-referral-placeholder="1" data-referral-kind="agent">
               <span class="prestep-choice-icon">🤝</span>
               <span>
                 <span class="prestep-choice-title">有 Agent 介紹我</span>
                 <span class="prestep-choice-copy">由他為你報名並轉交 QR code</span>
               </span>
             </button>
-            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="direct">
+            <button type="button" class="prestep-choice" data-direct-registration="1" data-referral-kind="direct">
               <span class="prestep-choice-icon">✍️</span>
               <span>
                 <span class="prestep-choice-title">自行找到活動</span>
                 <span class="prestep-choice-copy">在這裡報名，活動團隊會後續聯繫</span>
               </span>
             </button>
-            <div class="prestep-helper">你是泛宇顧問嗎？ <a href="#" class="prestep-link">登入後可替客戶報名</a></div>
+            <div class="prestep-helper">你是泛宇顧問嗎？ <a href="#" class="prestep-link" data-agent-login-flow="1">登入後可替客戶報名</a></div>
             <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
           </div>
         </div>
@@ -2431,10 +2431,23 @@
 
     ['ea', 'cpa'].forEach(course => {
       const panel = document.getElementById(`panel-${course}`);
-      panel.querySelectorAll('[data-next-step="2"]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          panel.dataset.referralKind = btn.dataset.referralKind || 'agent';
+      panel.querySelectorAll('[data-agent-login-flow="1"]').forEach(link => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          panel.dataset.referralKind = 'agent';
           setCourseFlow(course, 2);
+        });
+      });
+
+      panel.querySelectorAll('[data-agent-referral-placeholder="1"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          panel.dataset.referralKind = 'agent';
+        });
+      });
+
+      panel.querySelectorAll('[data-direct-registration="1"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          panel.dataset.referralKind = 'direct';
         });
       });
       panel.querySelectorAll('[data-complete-flow="1"]').forEach(btn => {
