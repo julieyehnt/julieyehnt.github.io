@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Agent 代客報名 Prototype Hub</title>
+  <title>Agent Registration Hub</title>
   <style>
     *{box-sizing:border-box}
     :root{
       --bg:#f4f6f7;--surface:#fff;--line:#e4e8eb;--text:#15202b;--muted:#75808d;
-      --brand:#35b24a;--brand-dark:#248f39;--nav:#0f5a60;--soft:#eef8f0
+      --brand:#35b24a;--brand-dark:#248f39;--nav:#0f5a60;--soft:#eef8f0;
+      --warn-bg:#f7fcf8;--warn-line:#cfead4;--danger:#d93025;
     }
     html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--text);background:var(--bg)}
     body{overflow:hidden}
@@ -38,7 +39,7 @@
     .view.active{display:block}
     iframe{width:100%;height:100%;border:0;background:#fff}
     .timeline{height:100%;overflow:auto;padding:34px}
-    .timeline-inner{max-width:980px;margin:0 auto}
+    .timeline-inner{max-width:1080px;margin:0 auto}
     .eyebrow{font-size:12px;font-weight:900;color:var(--brand-dark);letter-spacing:1px;margin-bottom:8px}
     h1{margin:0;font-size:30px;letter-spacing:-.5px}
     .lead{margin:10px 0 26px;color:#77818e;font-size:14px}
@@ -48,7 +49,7 @@
     .scope-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
     .date-chip{display:inline-flex;align-items:center;gap:7px;background:#eef8f0;color:#248f39;border:1px solid #cfead4;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;white-space:nowrap}
     .scope-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin-top:18px}
-    .scope-table{width:100%;min-width:760px;border-collapse:collapse;background:#fff}
+    .scope-table{width:100%;min-width:860px;border-collapse:collapse;background:#fff}
     .scope-table th,.scope-table td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
     .scope-table th:last-child,.scope-table td:last-child{border-right:0}
     .scope-table tr:last-child td{border-bottom:0}
@@ -59,16 +60,15 @@
     .ok{color:#248f39}
     .no{color:#d93025}
     .later{color:#d93025}
-    .strike{text-decoration:line-through;color:#8a94a0}
     .decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
     .decision-card{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fbfcfc}
     .decision-card.accent{border-color:#cfead4;background:#f7fcf8}
     .decision-card h3{margin:0 0 8px;font-size:15px}
     .decision-card .big-date{font-size:28px;font-weight:900;color:#248f39;letter-spacing:-.6px;margin-bottom:8px}
     .decision-card p{font-size:13px;line-height:1.65;color:#66717e}
-    .question-box{margin-top:18px;border:1px solid #f0d99b;background:#fffaf0;border-radius:12px;padding:18px}
-    .question-box strong{display:block;font-size:14px;margin-bottom:6px;color:#6a4b00}
-    @media(max-width:760px){.decision-grid{grid-template-columns:1fr}.scope-head{display:block}.date-chip{margin-top:12px}}
+    .green-box{margin-top:18px;border:1px solid #cfead4;background:#f7fcf8;border-radius:12px;padding:18px}
+    .green-box h2{margin:0 0 10px;font-size:17px;color:#1f6c2c}
+    .green-box ul{margin:10px 0 0;padding-left:18px;color:#51606e;font-size:13px;line-height:1.75}
     .mobile-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:9px;width:38px;height:38px;font-size:20px}
     @media(max-width:860px){
       .app{grid-template-columns:1fr}
@@ -79,6 +79,8 @@
       .timeline{padding:22px 14px}
       .top-title{font-size:13px}
       .top-meta{display:none}
+      .decision-grid{grid-template-columns:1fr}
+      .scope-head{display:block}.date-chip{margin-top:12px}
     }
   </style>
 </head>
@@ -92,11 +94,11 @@
       </div>
       <div class="project"><div class="project-title">Agent Registration</div></div>
       <nav class="menu">
-        <button class="menu-btn" data-view="timeline">
+        <button class="menu-btn active" data-view="timeline">
           <span class="num">01</span>
-          <span class="menu-copy"><strong>時程討論</strong><span>Timeline / milestone</span></span>
+          <span class="menu-copy"><strong>時程討論</strong><span>Timeline / scope / rollout</span></span>
         </button>
-        <button class="menu-btn active" data-view="paid">
+        <button class="menu-btn" data-view="paid">
           <span class="num">02</span>
           <span class="menu-copy"><strong>Agent 代客報名 Paid Seminar</strong><span>含 Shopify / To C / To B</span></span>
         </button>
@@ -112,23 +114,23 @@
       <header class="topbar">
         <div style="display:flex;align-items:center;gap:12px">
           <button class="mobile-toggle" id="mobileToggle">☰</button>
-          <div class="top-title" id="topTitle">02 · Agent 代客報名 Paid Seminar</div>
+          <div class="top-title" id="topTitle">01 · 時程討論</div>
         </div>
         <div class="top-meta">Workshop / Agent assisted registration</div>
       </header>
       <div class="content">
-        <section class="view" id="view-timeline">
+        <section class="view active" id="view-timeline">
           <div class="timeline">
             <div class="timeline-inner">
               <div class="eyebrow">01 · TIMELINE</div>
               <h1>時程討論</h1>
-              <p class="lead">整理 10/29 Agent 代客報名第一階段適用範圍，以及 Paid Seminar / Course 的後續上線時程。</p>
+              <p class="lead">整理 10/29 Agent 代客報名第一階段適用範圍，以及 Course / Paid Seminar 的後續上線排期建議。</p>
 
               <div class="timeline-card">
                 <div class="scope-head">
                   <div>
                     <h2>10/29｜第一階段適用範圍</h2>
-                    <p>依目前規劃，先支援免費 Seminar 與線上 Seminar；Paid Seminar、Course 及其他特殊活動類型延後。</p>
+                    <p>依目前規劃，先支援基本 seminar 類型；Course 與 Paid Seminar 依實際活動週期與影響範圍排到後續 phase。</p>
                   </div>
                   <div class="date-chip">● 10/29 Scope</div>
                 </div>
@@ -156,11 +158,7 @@
                       <tr>
                         <td>付費 Seminar<br>（如：老闆台灣講座）</td>
                         <td><span class="later">延後至下一次售票前</span></td>
-                        <td>
-                          付款通知改為提供選擇：<br>
-                          1. Agent 代客戶付款，不需留下客戶 Email。<br>
-                          2. 客戶自行付款，需留下客戶 Email，系統提供 To B Shopify 付款連結。
-                        </td>
+                        <td>需支援付款方式選擇、To B Shopify Link 與客戶付款通知流程。</td>
                       </tr>
                       <tr>
                         <td>線上 Seminar</td>
@@ -169,8 +167,8 @@
                       </tr>
                       <tr>
                         <td>Course－CPA / EA</td>
-                        <td><span class="later">延後上線</span></td>
-                        <td>需要保留客戶個資、執照號碼、Agent 介紹來源等課程專屬資料。</td>
+                        <td><span class="later">延後至下一次售票前</span></td>
+                        <td>需要保留客戶個資、執照號碼、agent 介紹來源，並給學分。</td>
                       </tr>
                       <tr>
                         <td>不公開 Seminar</td>
@@ -185,35 +183,40 @@
                       <tr>
                         <td>Summit（付費）</td>
                         <td><span class="no">❌ 不適用</span></td>
-                        <td>維持 Summit 既有售票 / 團票流程。</td>
+                        <td>使用既有售票 / 團票方式進行。</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
-                <div class="question-box">
-                  <strong>Paid Seminar｜想討論的時程調整</strong>
-                  <p>目前已錯過近期售票時點，因此想討論：是否可以不綁定 10/29 第一階段，改為在<strong>下一次 Paid Seminar 售票開始前</strong>完成 Agent 代客報名與 To B Shopify 付款流程開發？</p>
+              </div>
+
+              <div class="timeline-card" style="margin-top:18px;">
+                <div class="scope-head">
+                  <div>
+                    <h2>上線時程討論</h2>
+                    <p>依活動舉辦週期與實際使用時點，建議分階段上線，不需將所有情境綁在 10/29 一次完成。</p>
+                  </div>
+                  <div class="date-chip">● Rollout Plan</div>
                 </div>
 
-                <div class="decision-grid">
-                  <div class="decision-card">
-                    <div class="big-date">10/29</div>
-                    <h3>Agent 代客報名 Phase 1</h3>
-                    <p>上線免費 Seminar（含需 / 不需審核）與線上 Seminar 的代客報名能力。</p>
-                  </div>
-                  <div class="decision-card accent">
-                    <div class="big-date">11/10</div>
-                    <h3>Course CPA / EA</h3>
-                    <p>Course 代客報名預計上線，包含 EA / CPA 前台、最多 10 位客戶與後台 Agent Referral 資訊。</p>
-                  </div>
+                <div class="green-box" style="margin-top:0;">
+                  <ul style="margin-top:0;">
+                    <li>Phase 2 與 Phase 3 目前活動舉辦週期較長，約半年一次或單月一次，影響人數相對較小，因此可往後排。</li>
+                    <li>若強趕 10/29 上線，短期內也不會馬上使用到。</li>
+                  </ul>
+                  <ol>
+                    <li><strong>10/29｜Phase 1</strong>：涵蓋基本 Seminar 代客報名。</li>
+                    <li><strong>11 月中｜Phase 2</strong>：涵蓋 Course 代客報名。</li>
+                    <li><strong>12 月底前｜Phase 3</strong>：涵蓋 Paid Seminar 代客報名。</li>
+                  </ol>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="view active" id="view-paid">
+        <section class="view" id="view-paid">
           <iframe src="./paid.html" title="Agent 代客報名 Paid Seminar"></iframe>
         </section>
 
