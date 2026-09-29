@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop Registration Tabs Mockup</title>
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --surface: #ffffff;
+      --line: #e5e7eb;
+      --line-soft: #eef1f4;
+      --text: #111827;
+      --muted: #6b7280;
+      --brand: #36b24a;
+      --brand-dark: #23963a;
+      --teal: #0f5a60;
+      --danger: #ef4444;
+      --input-bg: #fff;
+      --success-bg: #eefaf0;
+      --success-line: #35b24a;
+      --shadow: 0 2px 8px rgba(17,24,39,.04);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .top-line {
+      height: 8px;
+      background: var(--teal);
+    }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid #d9dde3;
+    }
+
+    .site-header .inner,
+    .page-wrap {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header .inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      line-height: 1;
+      color: #4ab44f;
+      font-size: 24px;
+      letter-spacing: -.3px;
+    }
+
+    .logo small {
+      display: block;
+      color: #8a919c;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .4px;
+      margin-top: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+    }
+
+    .link-btn {
+      color: #1f2937;
+      text-decoration: none;
+    }
+
+    .pill-btn {
+      border: 0;
+      padding: 7px 14px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .page-wrap {
+      padding: 26px 0 42px;
+    }
+
+    .page-title {
+      margin: 0 0 14px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .course-tabs {
+      display: inline-flex;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 4px;
+      gap: 4px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .course-tab {
+      border: 0;
+      background: transparent;
+      color: #4b5563;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .course-tab.active {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 264px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-card {
+      padding: 28px 18px 22px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .form-title {
+      margin: 0 0 20px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .field { margin-bottom: 14px; }
+
+    .label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #374151;
+    }
+
+    .label.required::before {
+      content: "* ";
+      color: var(--danger);
+      font-weight: 800;
+    }
+
+    .input,
+    .select,
+    .textarea {
+      width: 100%;
+      height: 40px;
+      border: 1px solid #d5dbe3;
+      border-radius: 4px;
+      padding: 0 12px;
+      background: var(--input-bg);
+      font-size: 13px;
+      color: #111827;
+      outline: none;
+    }
+
+    .textarea {
+      height: 86px;
+      padding: 10px 12px;
+      resize: vertical;
+    }
+
+    .select {
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #9ca3af 50%),
+        linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+      background-position:
+        calc(100% - 17px) 17px,
+        calc(100% - 12px) 17px;
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+      color: #6b7280;
+    }
+
+    .inline-note {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #5b9dff;
+      border-radius: 4px;
+      padding: 0 10px;
+      font-size: 12px;
+      color: #375a7f;
+      background: #fbfdff;
+      margin-top: -2px;
+      margin-bottom: 10px;
+    }
+
+    .note-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #3b82f6;
+      color: #fff;
+      display: inline-grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .phone-group {
+      display: grid;
+      grid-template-columns: 108px minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .chip-row,
+    .radio-row,
+    .checkbox-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 0;
+    }
+
+    .choice {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .dot-radio,
+    .dot-check {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #c0c7d0;
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+      background: #fff;
+    }
+
+    .dot-radio.active {
+      border-color: var(--brand);
+    }
+
+    .dot-radio.active::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .dot-check {
+      border-radius: 3px;
+    }
+
+    .dot-check.active {
+      border-color: var(--brand);
+      background: #f5fff7;
+    }
+
+    .dot-check.active::after {
+      content: "✓";
+      position: absolute;
+      inset: -2px 0 0 1px;
+      font-size: 10px;
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    .divider {
+      border-top: 1px solid var(--line);
+      margin: 20px 0 18px;
+    }
+
+    .qr-block {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      margin: 8px 0 14px;
+    }
+
+    .qr {
+      width: 112px;
+      height: 112px;
+      border: 1px solid #cfd5dc;
+      border-radius: 4px;
+      background:
+        linear-gradient(90deg, #111 10%, transparent 10% 20%, #111 20% 30%, transparent 30% 40%, #111 40% 50%, transparent 50% 60%, #111 60% 70%, transparent 70% 80%, #111 80% 90%, transparent 90%),
+        linear-gradient(#111 10%, transparent 10% 20%, #111 20% 30%, transparent 30% 40%, #111 40% 50%, transparent 50% 60%, #111 60% 70%, transparent 70% 80%, #111 80% 90%, transparent 90%);
+      background-size: 16px 16px;
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .qr::after {
+      content: "QR";
+      position: absolute;
+      inset: auto 8px 8px auto;
+      background: rgba(255,255,255,.94);
+      color: #111827;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    .qr-copy {
+      font-size: 11px;
+      color: #4b5563;
+      line-height: 1.65;
+    }
+
+    .qr-copy b,
+    .qr-copy strong {
+      color: #1f2937;
+    }
+
+    .qr-copy .green {
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    .upload-box {
+      height: 120px;
+      border: 1px dashed #d7dde5;
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      color: #6b7280;
+      font-size: 12px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .upload-box .cloud {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: #eef2f7;
+      margin: 0 auto 8px;
+      font-size: 15px;
+    }
+
+    .helper {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .consent-box {
+      border: 1px solid var(--success-line);
+      background: var(--success-bg);
+      border-radius: 4px;
+      padding: 12px 12px 10px;
+      margin: 8px 0 14px;
+    }
+
+    .consent-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .consent-head strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    .tiny-copy {
+      font-size: 11px;
+      line-height: 1.65;
+      color: #4b5563;
+      margin-bottom: 10px;
+    }
+
+    .tiny-copy .tag {
+      display: inline-block;
+      color: #1f7a2e;
+      background: #e6f6e9;
+      border-radius: 4px;
+      padding: 0 4px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .linkish {
+      color: #1f7a2e;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .extra-clients {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .summary-wrap {
+      align-self: start;
+      position: sticky;
+      top: 24px;
+    }
+
+    .form-card > .divider {
+      margin-top: 24px;
+    }
+
+    .summary-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .summary-banner {
+      height: 112px;
+      padding: 18px 22px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #eaf5f3 0%, #dbedf1 100%);
+    }
+
+    .summary-banner.ea {
+      background:
+        linear-gradient(145deg, #ebf4f1 0%, #d9ebf4 100%);
+    }
+
+    .summary-banner.cpa {
+      background:
+        linear-gradient(145deg, #ecf4e6 0%, #e6efe1 100%);
+    }
+
+    .stripe {
+      position: absolute;
+      width: 180px;
+      height: 18px;
+      opacity: .9;
+      transform: rotate(-35deg);
+      background: linear-gradient(90deg, transparent, #53a6e8, #97d6ff, transparent);
+    }
+
+    .cpa .stripe {
+      background: linear-gradient(90deg, transparent, #9ac54c, #cfe681, transparent);
+    }
+
+    .s1 { top: 10px; left: -36px; }
+    .s2 { top: 36px; left: 28px; }
+    .s3 { top: 64px; left: -16px; }
+
+    .coin, .calc {
+      position: absolute;
+      border-radius: 50%;
+      box-shadow: 0 3px 5px rgba(0,0,0,.08);
+    }
+
+    .coin {
+      width: 26px;
+      height: 26px;
+      background: radial-gradient(circle at 35% 35%, #fff2a8 0%, #ffd74d 45%, #e4b824 100%);
+      border: 2px solid #f1c63d;
+    }
+
+    .coin.a { right: 74px; top: 10px; }
+    .coin.b { right: 28px; bottom: 22px; width: 22px; height: 22px; }
+    .coin.c { left: 18px; bottom: 14px; width: 18px; height: 18px; }
+
+    .calc {
+      right: 12px;
+      top: 22px;
+      width: 42px;
+      height: 54px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #66b2e8, #4e99cf);
+      border: 1px solid rgba(0,0,0,.05);
+    }
+
+    .calc::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      width: 24px;
+      height: 10px;
+      border-radius: 3px;
+      background: rgba(255,255,255,.7);
+    }
+
+    .calc::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 24px;
+      width: 24px;
+      height: 18px;
+      background-image: radial-gradient(circle, rgba(255,255,255,.9) 38%, transparent 42%);
+      background-size: 8px 8px;
+      background-position: 0 0;
+    }
+
+    .banner-title {
+      position: relative;
+      z-index: 1;
+      font-weight: 900;
+      font-size: 15px;
+      line-height: 1.02;
+      letter-spacing: -.2px;
+      color: #111827;
+      margin-top: 20px;
+    }
+
+    .banner-title span {
+      color: #1479df;
+    }
+
+    .summary-banner.cpa .banner-title span {
+      color: #2c9a20;
+    }
+
+    .summary-body {
+      padding: 14px 16px 16px;
+    }
+
+    .summary-title {
+      margin: 0 0 12px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .summary-row,
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #374151;
+      margin-bottom: 10px;
+    }
+
+    .summary-total {
+      padding-top: 10px;
+      margin-top: 12px;
+      border-top: 1px solid var(--line);
+      font-weight: 800;
+    }
+
+    .summary-total .price {
+      color: var(--brand);
+      font-size: 15px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      height: 34px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      margin: 10px 0 14px;
+      cursor: pointer;
+    }
+
+    .summary-copy {
+      font-size: 11px;
+      line-height: 1.65;
+      color: #374151;
+    }
+
+    .summary-copy strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+
+
+    .module-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .module-tab {
+      border: 0;
+      background: transparent;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #6b7280;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+    }
+
+    .module-tab.active {
+      color: var(--brand-dark);
+      border-bottom-color: var(--brand);
+    }
+
+    .module-panel { display: none; }
+    .module-panel.active { display: block; }
+
+    .course-tabs {
+      display: inline-flex;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 4px;
+      gap: 4px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .course-tab {
+      border: 0;
+      background: transparent;
+      color: #4b5563;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .course-tab.active {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .add-client-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: -4px 0 18px;
+      padding: 12px 14px;
+      border: 1px solid #dcefe0;
+      background: #f7fcf8;
+      border-radius: 6px;
+    }
+
+    .add-client-copy {
+      font-size: 12px;
+      color: #4b5563;
+      line-height: 1.45;
+    }
+
+    .add-client-copy strong {
+      display: block;
+      color: #1f2937;
+      margin-bottom: 2px;
+    }
+
+    .add-client-btn {
+      border: 1px solid var(--brand);
+      background: #fff;
+      color: var(--brand-dark);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .add-client-btn:disabled {
+      cursor: not-allowed;
+      opacity: .45;
+    }
+
+    .extra-clients {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .client-card-primary {
+      margin-top: 18px;
+    }
+
+    .client-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fbfcfd;
+      padding: 14px;
+    }
+
+    .client-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .client-card-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #1f2937;
+    }
+
+    .remove-client-btn {
+      border: 0;
+      background: transparent;
+      color: #9ca3af;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+
+
+    /* Back-office registrants mock */
+    .admin-shell {
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 2px 8px rgba(17,24,39,.03);
+    }
+    .admin-top { padding:28px 28px 18px; }
+    .admin-session-title { font-size:21px; font-weight:700; margin-bottom:32px; color:#17203b; }
+    .admin-metrics { display:flex; gap:18px; margin-bottom:34px; }
+    .metric-card { width:275px; border:1px solid #dde2e8; border-radius:10px; padding:20px; background:#fff; }
+    .metric-value { font-size:20px; font-weight:700; color:#17203b; margin-bottom:10px; }
+    .metric-label { font-size:14px; color:#7a8492; }
+    .admin-list-head { display:flex; justify-content:space-between; gap:18px; align-items:center; margin-bottom:24px; }
+    .admin-list-title { font-size:21px; font-weight:700; color:#17203b; }
+    .admin-actions { display:flex; gap:14px; align-items:center; }
+    .search-box { display:flex; width:390px; height:46px; border:1px solid #d9dee5; border-radius:999px; overflow:hidden; }
+    .search-box input { flex:1; border:0; outline:0; padding:0 16px; font-size:15px; }
+    .search-btn { width:54px; border:0; background:#35b94b; color:#fff; font-size:20px; }
+    .export-btn { border:0; border-radius:999px; background:#35b94b; color:#fff; height:46px; padding:0 22px; font-weight:700; font-size:15px; }
+    .status-tabs { display:flex; gap:28px; border-bottom:1px solid #e4e7eb; margin-bottom:18px; }
+    .status-tab { padding:0 0 12px; font-size:14px; color:#243047; position:relative; }
+    .status-tab.active { color:#35b94b; }
+    .status-tab.active:after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:#35b94b; }
+    .badge { display:inline-flex; min-width:20px; height:20px; padding:0 6px; border-radius:999px; align-items:center; justify-content:center; font-size:11px; background:#f0f2f5; margin-left:4px; }
+    .status-tab.active .badge { background:#35b94b; color:#fff; }
+    .filters { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+    .filter-pill { height:38px; border:1px solid #d9dee5; border-radius:999px; padding:0 18px; display:flex; align-items:center; gap:8px; color:#253047; font-size:14px; background:#fff; }
+    .reset-link { display:inline-block; margin-top:2px; font-size:13px; text-decoration:underline; color:#253047; }
+    .admin-table-wrap { overflow:auto; border-top:1px solid #e5e7eb; }
+    .admin-table { width:100%; min-width:1320px; border-collapse:collapse; }
+    .admin-table th, .admin-table td { border-bottom:1px solid #edf0f3; padding:18px 16px; text-align:left; vertical-align:middle; }
+    .admin-table th { font-size:13px; font-weight:600; color:#74808f; background:#fff; }
+    .admin-table td { font-size:13px; color:#1f2937; }
+    .row-name { font-size:14px; font-weight:600; margin-bottom:5px; }
+    .row-email { color:#7b8490; margin-bottom:6px; }
+    .mini-tags { display:flex; gap:6px; }
+    .mini-tag { background:#d9f3de; color:#246e31; border-radius:5px; padding:3px 7px; font-size:11px; font-weight:600; }
+    .role-tag { display:inline-block; background:#f0f1f3; border-radius:4px; padding:5px 7px; font-size:11px; }
+    .role-tag.cpa { background:#d9f3de; color:#246e31; }
+    .payment-pill { width:240px; height:44px; border:1px solid #35b94b; border-radius:999px; padding:0 16px; display:flex; align-items:center; justify-content:space-between; font-size:14px; }
+    .serial { color:#7b8490; margin-top:5px; }
+    .agent-referral-cell { min-width:190px; }
+    .referral-line { display:flex; align-items:center; gap:9px; color:#26324a; font-size:13px; }
+    .referral-dot { width:10px; height:10px; border-radius:50%; background:#2f8fd8; flex:0 0 10px; }
+    .agent-name { margin-top:6px; padding-left:19px; color:#8a929c; font-size:12px; }
+    .icon-cell { text-align:center !important; font-size:19px !important; color:#253047 !important; }
+    .ellipsis { letter-spacing:2px; font-weight:700; }
+    .check-box { width:18px; height:18px; border:1px solid #d8dde4; border-radius:5px; display:inline-block; }
+    .client-tab-strip {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 14px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .client-tab-btn {
+      border: 1px solid #d7dde5;
+      background: #fff;
+      color: #4b5563;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .16s ease;
+    }
+
+    .client-tab-btn:hover {
+      border-color: #9fd8aa;
+      background: #f7fff8;
+    }
+
+    .client-tab-btn.active {
+      border-color: var(--brand);
+      background: var(--success-bg);
+      color: var(--brand-dark);
+      box-shadow: inset 0 0 0 1px rgba(54,178,74,.08);
+    }
+
+    .client-card {
+      display: none;
+      margin-top: 0;
+    }
+
+    .client-card.active-client {
+      display: block;
+    }
+
+    .extra-clients {
+      margin-top: 0;
+    }
+
+
+    .review-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 24, 39, .16);
+      z-index: 1000;
+      display: none;
+      justify-content: flex-end;
+    }
+
+    .review-drawer-overlay.open { display: flex; }
+
+    .review-drawer {
+      width: min(430px, 92vw);
+      height: 100%;
+      background: #fff;
+      box-shadow: -8px 0 30px rgba(17, 24, 39, .10);
+      overflow-y: auto;
+      animation: drawerIn .2s ease-out;
+    }
+
+    @keyframes drawerIn {
+      from { transform: translateX(18px); opacity: .6; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .review-drawer-head {
+      height: 92px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .review-drawer-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1f2937;
+    }
+
+    .review-close {
+      border: 0;
+      background: transparent;
+      color: #7b8794;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .review-drawer-body { padding: 28px; }
+
+    .review-item { margin-bottom: 28px; }
+
+    .review-label {
+      font-size: 16px;
+      color: #7b8794;
+      margin-bottom: 10px;
+    }
+
+    .review-value {
+      font-size: 19px;
+      color: #1f2937;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .review-separator {
+      border-top: 1px solid #e5e7eb;
+      margin: 6px 0 26px;
+    }
+
+    .admin-table tbody tr { cursor: pointer; }
+    .admin-table tbody tr:hover { background: #fbfdfb; }
+
+    @media (max-width: 980px) {
+      .admin-list-head { align-items:flex-start; flex-direction:column; }
+      .admin-actions { width:100%; flex-wrap:wrap; }
+      .search-box { width:min(100%, 420px); }
+      .admin-metrics { flex-wrap:wrap; }
+    }
+
+    .empty-admin {
+      min-height: 420px;
+      border: 1px dashed #d8dde5;
+      border-radius: 10px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .client-tab-strip {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 14px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .client-tab-btn {
+      border: 1px solid #d7dde5;
+      background: #fff;
+      color: #4b5563;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .16s ease;
+    }
+
+    .client-tab-btn:hover {
+      border-color: #9fd8aa;
+      background: #f7fff8;
+    }
+
+    .client-tab-btn.active {
+      border-color: var(--brand);
+      background: var(--success-bg);
+      color: var(--brand-dark);
+      box-shadow: inset 0 0 0 1px rgba(54,178,74,.08);
+    }
+
+    .client-card {
+      display: none;
+      margin-top: 0;
+    }
+
+    .client-card.active-client {
+      display: block;
+    }
+
+    .extra-clients {
+      margin-top: 0;
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .summary-wrap { order: -1; }
+    }
+
+    @media (max-width: 720px) {
+      .site-header .inner,
+      .page-wrap {
+        width: calc(100% - 20px);
+      }
+
+      .site-header .inner {
+        height: 64px;
+      }
+
+      .logo { font-size: 18px; }
+      .header-actions { gap: 12px; font-size: 12px; }
+      .form-card { padding: 18px 14px; }
+      .phone-group,
+      .qr-block { grid-template-columns: 1fr; }
+      .course-tabs { display: flex; width: 100%; }
+      .course-tab { flex: 1; }
+    }
+
+
+    /* Front-office PWA mobile prototype */
+    #frontend {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      background: #f6f7f8;
+      border: 1px solid #e5e7eb;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(17,24,39,.12);
+      min-height: 820px;
+    }
+
+    #frontend .pwa-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #eceff2;
+      padding: 14px 16px 12px;
+    }
+
+    #frontend .pwa-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #6b7280;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    #frontend .pwa-topline {
+      display: grid;
+      grid-template-columns: 34px 1fr 34px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #frontend .pwa-icon-btn {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 10px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 18px;
+      display: grid;
+      place-items: center;
+    }
+
+    #frontend .pwa-heading {
+      text-align: center;
+    }
+
+    #frontend .pwa-heading strong {
+      display: block;
+      color: #111827;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    #frontend .pwa-heading span {
+      display: block;
+      color: #8a919c;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    #frontend .course-tabs {
+      display: flex;
+      width: calc(100% - 28px);
+      margin: 14px 14px 10px;
+      padding: 4px;
+      border-radius: 12px;
+      box-shadow: none;
+      border-color: #e5e7eb;
+      background: #eef0f2;
+    }
+
+    #frontend .course-tab {
+      flex: 1;
+      min-height: 38px;
+      border-radius: 9px;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    #frontend .course-tab.active {
+      background: #fff;
+      color: var(--brand-dark);
+      box-shadow: 0 1px 4px rgba(17,24,39,.08);
+    }
+
+    #frontend .panel {
+      padding: 0 12px 86px;
+    }
+
+    #frontend .layout {
+      display: block;
+    }
+
+    #frontend .form-card,
+    #frontend .summary-card {
+      width: 100%;
+      border-radius: 16px;
+      border-color: #e6e9ed;
+      box-shadow: none;
+    }
+
+    #frontend .form-card {
+      padding: 18px 14px 16px;
+    }
+
+    #frontend .form-title {
+      font-size: 17px;
+      margin-bottom: 14px;
+    }
+
+    #frontend .add-client-bar {
+      display: block;
+      padding: 12px;
+      margin: 0 0 12px;
+      border-radius: 12px;
+    }
+
+    #frontend .add-client-copy {
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    #frontend .add-client-btn {
+      width: 100%;
+      min-height: 40px;
+      border-radius: 10px;
+      font-size: 13px;
+      background: #fff;
+    }
+
+    #frontend .client-tab-strip {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 0 10px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #frontend .client-tab-strip::-webkit-scrollbar { display: none; }
+
+    #frontend .client-tab-btn {
+      flex: 0 0 auto;
+      min-width: 76px;
+      min-height: 34px;
+      border: 1px solid #dfe3e8;
+      border-radius: 999px;
+      background: #fff;
+      color: #667085;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 12px;
+    }
+
+    #frontend .client-tab-btn.active {
+      color: #fff;
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    #frontend .client-card {
+      border: 0;
+      background: transparent;
+      padding: 2px 0 0;
+    }
+
+    #frontend .client-card-head {
+      margin: 4px 0 12px;
+    }
+
+    #frontend .client-card-title {
+      font-size: 14px;
+    }
+
+    #frontend .field { margin-bottom: 16px; }
+
+    #frontend .label {
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    #frontend .input,
+    #frontend .select,
+    #frontend .textarea {
+      min-height: 46px;
+      height: 46px;
+      border-radius: 10px;
+      font-size: 14px;
+      padding-left: 12px;
+      padding-right: 12px;
+      background-color: #fff;
+    }
+
+    #frontend .textarea {
+      height: 92px;
+      padding-top: 12px;
+    }
+
+    #frontend .select {
+      background-position:
+        calc(100% - 18px) 20px,
+        calc(100% - 13px) 20px;
+    }
+
+    #frontend .phone-group {
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    #frontend .radio-row {
+      gap: 10px 14px;
+      min-height: 34px;
+    }
+
+    #frontend .choice {
+      min-height: 32px;
+      font-size: 13px;
+    }
+
+    #frontend .inline-note {
+      min-height: 40px;
+      height: auto;
+      border-radius: 10px;
+      line-height: 1.45;
+      margin: -4px 0 14px;
+    }
+
+    #frontend .qr-block {
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #f9fafb;
+      margin: 4px 0 16px;
+    }
+
+    #frontend .qr {
+      width: 92px;
+      height: 92px;
+    }
+
+    #frontend .upload-box {
+      height: 110px;
+      border-radius: 12px;
+      background: #fafbfc;
+    }
+
+    #frontend .divider { margin: 18px 0; }
+
+    #frontend .consent-box {
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    #frontend .summary-wrap {
+      margin-top: 12px;
+    }
+
+    #frontend .summary-card {
+      overflow: hidden;
+    }
+
+    #frontend .summary-banner {
+      height: 92px;
+      padding: 12px 16px;
+    }
+
+    #frontend .banner-title {
+      font-size: 14px;
+      margin-top: 18px;
+    }
+
+    #frontend .summary-body {
+      padding: 14px;
+    }
+
+    #frontend .submit-btn {
+      height: 46px;
+      border-radius: 12px;
+      font-size: 14px;
+      margin: 12px 0 14px;
+    }
+
+    #frontend .pwa-bottom-nav {
+      position: sticky;
+      bottom: 0;
+      z-index: 25;
+      height: 66px;
+      border-top: 1px solid #e5e7eb;
+      background: rgba(255,255,255,.98);
+      backdrop-filter: blur(14px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      padding: 6px 12px 8px;
+    }
+
+    #frontend .pwa-nav-item {
+      border: 0;
+      background: transparent;
+      color: #8a919c;
+      font-size: 10px;
+      display: grid;
+      gap: 3px;
+      justify-items: center;
+    }
+
+    #frontend .pwa-nav-item .nav-icon {
+      font-size: 19px;
+      line-height: 1;
+    }
+
+    #frontend .pwa-nav-item.active {
+      color: var(--brand-dark);
+      font-weight: 800;
+    }
+
+
+    #frontend .course-flow .form-flow {
+      display: none;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .form-flow {
+      display: grid;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .prestep-shell {
+      display: none;
+    }
+
+    #frontend .prestep-shell {
+      padding: 14px 14px 0;
+      background: #edf0f3;
+      border-radius: 0 0 24px 24px;
+      min-height: calc(100vh - 210px);
+    }
+
+    #frontend .prestep-screen {
+      display: none;
+    }
+
+    #frontend .course-flow[data-flow-step="1"] .prestep-screen[data-screen="1"],
+    #frontend .course-flow[data-flow-step="2"] .prestep-screen[data-screen="2"] {
+      display: block;
+    }
+
+    #frontend .prestep-sheet {
+      background: #fff;
+      border-radius: 32px;
+      min-height: calc(100vh - 238px);
+      padding: 18px 20px 28px;
+      box-shadow: 0 2px 10px rgba(17,24,39,.04);
+    }
+
+    #frontend .prestep-handle {
+      width: 70px;
+      height: 8px;
+      border-radius: 999px;
+      background: #d8dde5;
+      margin: 2px auto 26px;
+    }
+
+    #frontend .prestep-title {
+      margin: 0 0 16px;
+      font-size: 24px;
+      line-height: 1.28;
+      font-weight: 900;
+      color: #1f2937;
+    }
+
+    #frontend .prestep-subtitle {
+      margin: 0 0 22px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #6b7a8c;
+    }
+
+    #frontend .prestep-choice {
+      width: 100%;
+      border: 1px solid #d7dce3;
+      background: #fff;
+      border-radius: 24px;
+      padding: 18px 18px 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    #frontend .prestep-choice-icon {
+      flex-shrink: 0;
+      font-size: 28px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    #frontend .prestep-choice-title {
+      display: block;
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    #frontend .prestep-choice-copy {
+      display: block;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #718096;
+    }
+
+    #frontend .prestep-helper {
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #7b8794;
+      margin: 12px 0 18px;
+    }
+
+    #frontend .prestep-link {
+      color: #2d9c42;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    #frontend .prestep-footer-btn {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #7a8795;
+      font-size: 18px;
+      padding: 14px 0 0;
+      cursor: pointer;
+    }
+
+    #frontend .flow-mode-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f2f8f2;
+      color: #2e6b39;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    #frontend .flow-mode-chip button {
+      border: 0;
+      background: transparent;
+      color: #2d9c42;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 0;
+      cursor: pointer;
+    }
+
+
+    /* Fix PWA course form layout after flow-step display rules */
+    #frontend .course-flow[data-flow-step="3"] .form-flow {
+      display: block;
+      width: 100%;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .form-flow > .form-card,
+    #frontend .course-flow[data-flow-step="3"] .form-flow > .summary-wrap {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .summary-wrap {
+      margin-top: 16px;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .summary-card {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .form-card {
+      overflow: hidden;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .flow-mode-chip {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      border-radius: 12px;
+      line-height: 1.4;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .add-client-bar,
+    #frontend .course-flow[data-flow-step="3"] .client-tab-strip,
+    #frontend .course-flow[data-flow-step="3"] .client-card,
+    #frontend .course-flow[data-flow-step="3"] .field,
+    #frontend .course-flow[data-flow-step="3"] .inline-note,
+    #frontend .course-flow[data-flow-step="3"] .qr-block,
+    #frontend .course-flow[data-flow-step="3"] .consent-box {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .input,
+    #frontend .course-flow[data-flow-step="3"] .select,
+    #frontend .course-flow[data-flow-step="3"] .textarea {
+      width: 100%;
+      min-width: 0;
+    }
+
+    #frontend .course-flow[data-flow-step="3"] .phone-group {
+      grid-template-columns: 110px minmax(0, 1fr);
+    }
+
+    @media (max-width: 420px) {
+      #frontend .course-flow[data-flow-step="3"] .phone-group,
+      #frontend .course-flow[data-flow-step="3"] .qr-block {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body { background: #f6f7f8; }
+      .page-wrap { width: 100%; padding: 0 0 24px; }
+      .module-tabs { padding: 0 12px; margin-bottom: 10px; background: #fff; }
+      #frontend {
+        max-width: none;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+      }
+      #frontend .pwa-header { top: 0; }
+      .site-header { display: none; }
+      .top-line { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="top-line"></div>
+  <header class="site-header">
+    <div class="inner">
+      <div class="logo">TransGlobal<small>A Fit For Finance!</small></div>
+      <div class="header-actions">
+        <a href="#" class="link-btn">取消</a>
+        <button class="pill-btn">聯絡我們</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="module-tabs" role="tablist" aria-label="Module tabs">
+      <button class="module-tab active" data-module="frontend">前台</button>
+      <button class="module-tab" data-module="backend">後台</button>
+    </div>
+
+    <section id="frontend" class="module-panel active">
+      <div class="pwa-header">
+        <div class="pwa-status"><span>9:41</span><span>● ● ●</span></div>
+        <div class="pwa-topline">
+          <button class="pwa-icon-btn" type="button" aria-label="返回">‹</button>
+          <div class="pwa-heading"><strong>Course Registration</strong><span>Agent assisted registration</span></div>
+          <button class="pwa-icon-btn" type="button" aria-label="更多">⋯</button>
+        </div>
+      </div>
+      <div class="course-tabs" role="tablist" aria-label="Course tabs">
+        <button class="course-tab active" data-target="panel-ea">EA</button>
+        <button class="course-tab" data-target="panel-cpa">CPA</button>
+      </div>
+
+    <section id="panel-ea" class="panel active course-flow" data-flow-step="1" data-registration-kind="client" data-referral-kind="">
+      <div class="prestep-shell">
+        <div class="prestep-screen" data-screen="1">
+          <div class="prestep-sheet">
+            <div class="prestep-handle"></div>
+            <h2 class="prestep-title">報名前，先確認一件事</h2>
+            <p class="prestep-subtitle">選對身份，才不會影響你和顧問之間的服務關係。</p>
+            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="agent">
+              <span class="prestep-choice-icon">🤝</span>
+              <span>
+                <span class="prestep-choice-title">有 Agent 介紹我</span>
+                <span class="prestep-choice-copy">由他為你報名並轉交 QR code</span>
+              </span>
+            </button>
+            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="direct">
+              <span class="prestep-choice-icon">✍️</span>
+              <span>
+                <span class="prestep-choice-title">自行找到活動</span>
+                <span class="prestep-choice-copy">在這裡報名，活動團隊會後續聯繫</span>
+              </span>
+            </button>
+            <div class="prestep-helper">你是泛宇顧問嗎？ <a href="#" class="prestep-link">登入後可替客戶報名</a></div>
+            <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
+          </div>
+        </div>
+        <div class="prestep-screen" data-screen="2">
+          <div class="prestep-sheet">
+            <div class="prestep-handle"></div>
+            <h2 class="prestep-title">這次報名是給誰的？</h2>
+            <p class="prestep-subtitle">你目前以 Wade Warren（#TG–10482）登入。</p>
+            <button type="button" class="prestep-choice" data-complete-flow="1" data-registration-kind="self">
+              <span class="prestep-choice-icon">🎟️</span>
+              <span>
+                <span class="prestep-choice-title">自己報名</span>
+                <span class="prestep-choice-copy">以你本人的身份參加</span>
+              </span>
+            </button>
+            <button type="button" class="prestep-choice" data-complete-flow="1" data-registration-kind="client">
+              <span class="prestep-choice-icon">👥</span>
+              <span>
+                <span class="prestep-choice-title">幫客戶報名</span>
+                <span class="prestep-choice-copy">只填姓名，最多 10 位</span>
+              </span>
+            </button>
+            <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
+          </div>
+        </div>
+      </div>
+      <div class="layout form-flow">
+        <div class="card form-card">
+          <h2 class="form-title">請填寫您的報名資料</h2>
+          <div class="flow-mode-chip">目前模式：<span class="flow-mode-text">幫客戶報名</span><button type="button" class="flow-edit-btn">重新選擇</button></div>
+          <div class="add-client-bar">
+            <div class="add-client-copy"><strong>代客報名</strong>目前 1 位客戶，最多可新增至 10 位。</div>
+            <button class="add-client-btn" data-course="ea">＋ 新增更多客戶</button>
+          </div>
+          <div id="client-tabs-ea" class="client-tab-strip" aria-label="EA 客戶分頁">
+            <button type="button" class="client-tab-btn active" data-client="1">客戶 1</button>
+          </div>
+          <div class="client-card client-card-primary active-client" data-client-number="1">
+            <div class="client-card-head">
+              <div class="client-card-title">客戶 1</div>
+            </div>
+
+          <div class="field">
+            <label class="label">Note（代客報名）</label>
+            <textarea class="textarea" placeholder="請輸入備註"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="label required">法定名字</label>
+            <input class="input" value="念庭" />
+          </div>
+          <div class="field">
+            <label class="label required">法定姓氏</label>
+            <input class="input" value="葉" />
+          </div>
+          <div class="inline-note"><span class="note-icon">i</span>請確認您的法定姓名皆與 EA 證照上的姓名一致。</div>
+          <div class="field">
+            <label class="label required">偏好名字</label>
+            <input class="input" placeholder="請輸入" />
+          </div>
+          <div class="field">
+            <label class="label required">電話號碼</label>
+            <div class="phone-group">
+              <input class="input" value="TW  +886" />
+              <input class="input" placeholder="請輸入" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label required">電子郵件</label>
+            <input class="input" value="julieyehnt@gmail.com" />
+          </div>
+          <div class="field">
+            <label class="label required">您居住在哪個城市？</label>
+            <input class="input" placeholder="請輸入" />
+          </div>
+          <div class="field">
+            <label class="label required">您居住在哪一州？</label>
+            <input class="select" value="" placeholder="請選擇" />
+          </div>
+          <div class="field">
+            <label class="label required">您的身份類別</label>
+            <div class="radio-row">
+              <span class="choice"><span class="dot-radio active"></span>EA</span>
+              <span class="choice"><span class="dot-radio"></span>TG Agent（非 EA）</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label required">您的 EA 證照號碼？</label>
+            <input class="input" placeholder="請輸入" />
+          </div>
+          <div class="field">
+            <label class="label required">您的 EA 證照由哪一州核發？</label>
+            <input class="select" placeholder="請選擇" />
+          </div>
+          <div class="field">
+            <label class="label required">您的 FTIN 號碼？</label>
+            <input class="input" placeholder="請輸入" />
+          </div>
+          <div class="field">
+            <label class="label required">您需要住宿嗎？</label>
+            <div class="radio-row">
+              <span class="choice"><span class="dot-radio"></span>不需要</span>
+              <span class="choice"><span class="dot-radio active"></span>需要（房務房間以單人入住計）</span>
+            </div>
+          </div>
+
+          <div class="qr-block">
+            <div class="qr"></div>
+            <div class="qr-copy">
+              <strong>請於銀行 App 掃碼付款：</strong>
+              <b>TRANSGLOBAL INSURANCE AGENCY, INC. philip.hu@transglobalus.com</b><br>
+              泛宇保險代理<br>
+              提供 1% 回饋｜<span class="green">AE 08/14 - 週四 08/15</span>｜請透過 <span class="green">Zelle 支付 $100</span> 至指定帳號。
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label required">Zelle 帳戶名稱</label>
+            <input class="input" placeholder="請輸入" />
+            <div class="helper">於 Zelle 註冊的個人或公司名稱。若由他人代付，請提供付款人的 Zelle 帳戶名稱。</div>
+          </div>
+          <div class="field">
+            <label class="label required">Zelle 帳戶綁定的電話或電子郵件</label>
+            <input class="input" placeholder="請輸入" />
+            <div class="helper">若由他人代付，請提供該人帳戶綁定的電話號碼或電子郵件。</div>
+          </div>
+          <div class="field">
+            <label class="label required">上傳付款成功截圖</label>
+            <div class="upload-box">
+              <div>
+                <div class="cloud">☁</div>
+                Click or drag file to this area to upload
+              </div>
+            </div>
+            <div class="helper">PNG 或 JPG，檔案大小不得超過 10 MB。</div>
+          </div>
+          <div class="field">
+            <label class="label required">您吃素嗎？</label>
+            <div class="radio-row">
+              <span class="choice"><span class="dot-radio active"></span>否</span>
+              <span class="choice"><span class="dot-radio"></span>是</span>
+            </div>
+          </div>
+
+          </div>
+          <div id="extra-ea" class="extra-clients"></div>
+
+          <div class="divider"></div>
+          <h3 class="form-title" style="font-size:16px; margin-bottom:14px;">聲明與同意</h3>
+
+          <div class="consent-box">
+            <div class="consent-head">
+              <span class="dot-check"></span>
+              <div>
+                <strong>同意全部條款</strong>
+                免費課程時，使用條款與隱私政策、SMS 簡訊同意
+              </div>
+            </div>
+          </div>
+
+          <div class="tiny-copy"><span class="dot-check active" style="display:inline-block; vertical-align:middle; margin-right:6px;"></span><span class="tag">必填</span>我已閱讀並同意 <span class="linkish">使用條款</span> 與 <span class="linkish">隱私政策</span>。</div>
+          <div class="tiny-copy"><span class="dot-check" style="display:inline-block; vertical-align:middle; margin-right:6px;"></span>我同意我的資料對於 <strong>TransGlobal</strong> 關聯公司之間共享、如所述。為提供服務，您的資訊可能會在支援系統間流轉。</div>
+          <div class="tiny-copy" style="margin-bottom:0;"><span class="dot-check" style="display:inline-block; vertical-align:middle; margin-right:6px;"></span>我同意接收 <strong>TransGlobal Holding Company 及其關聯公司</strong> 的簡訊通知。訊息內容可能包含重要提醒、帳務更新、優惠資訊或與服務提供相關的通知。</div>
+        </div>
+
+        <div class="summary-wrap">
+          <div class="card summary-card">
+            <div class="summary-banner ea">
+              <div class="stripe s1"></div>
+              <div class="stripe s2"></div>
+              <div class="stripe s3"></div>
+              <div class="coin a"></div>
+              <div class="coin b"></div>
+              <div class="coin c"></div>
+              <div class="calc"></div>
+              <div class="banner-title"><span>EA</span> CONTINUED<br>EDUCATION</div>
+            </div>
+            <div class="summary-body">
+              <h3 class="summary-title">摘要</h3>
+              <div class="summary-row"><span>項目（1）</span><span>USD$100.00</span></div>
+              <div class="summary-row"><span>折扣</span><span>USD$0.00</span></div>
+              <div class="summary-total"><span>總計</span><span class="price">USD$100.00</span></div>
+              <button class="submit-btn">送出</button>
+              <div class="summary-copy">
+                <strong>說明：</strong>
+                ．送出申請前，請詳細確認所有填寫資料，送出後將無法修改。<br>
+                ．如需協助或說明，歡迎於送出前聯繫 Stacy Shi：stacy.shi@transglobalus.com 或 626-447-7888。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-cpa" class="panel course-flow" data-flow-step="1" data-registration-kind="client" data-referral-kind="">
+      <div class="prestep-shell">
+        <div class="prestep-screen" data-screen="1">
+          <div class="prestep-sheet">
+            <div class="prestep-handle"></div>
+            <h2 class="prestep-title">報名前，先確認一件事</h2>
+            <p class="prestep-subtitle">選對身份，才不會影響你和顧問之間的服務關係。</p>
+            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="agent">
+              <span class="prestep-choice-icon">🤝</span>
+              <span>
+                <span class="prestep-choice-title">有 Agent 介紹我</span>
+                <span class="prestep-choice-copy">由他為你報名並轉交 QR code</span>
+              </span>
+            </button>
+            <button type="button" class="prestep-choice" data-next-step="2" data-referral-kind="direct">
+              <span class="prestep-choice-icon">✍️</span>
+              <span>
+                <span class="prestep-choice-title">自行找到活動</span>
+                <span class="prestep-choice-copy">在這裡報名，活動團隊會後續聯繫</span>
+              </span>
+            </button>
+            <div class="prestep-helper">你是泛宇顧問嗎？ <a href="#" class="prestep-link">登入後可替客戶報名</a></div>
+            <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
+          </div>
+        </div>
+        <div class="prestep-screen" data-screen="2">
+          <div class="prestep-sheet">
+            <div class="prestep-handle"></div>
+            <h2 class="prestep-title">這次報名是給誰的？</h2>
+            <p class="prestep-subtitle">你目前以 Wade Warren（#TG–10482）登入。</p>
+            <button type="button" class="prestep-choice" data-complete-flow="1" data-registration-kind="self">
+              <span class="prestep-choice-icon">🎟️</span>
+              <span>
+                <span class="prestep-choice-title">自己報名</span>
+                <span class="prestep-choice-copy">以你本人的身份參加</span>
+              </span>
+            </button>
+            <button type="button" class="prestep-choice" data-complete-flow="1" data-registration-kind="client">
+              <span class="prestep-choice-icon">👥</span>
+              <span>
+                <span class="prestep-choice-title">幫客戶報名</span>
+                <span class="prestep-choice-copy">只填姓名，最多 10 位</span>
+              </span>
+            </button>
+            <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
+          </div>
+        </div>
+      </div>
+      <div class="layout form-flow">
+        <div class="card form-card">
+          <h2 class="form-title">請填寫您的報名資料</h2>
+          <div class="flow-mode-chip">目前模式：<span class="flow-mode-text">幫客戶報名</span><button type="button" class="flow-edit-btn">重新選擇</button></div>
+          <div class="add-client-bar">
+            <div class="add-client-copy"><strong>代客報名</strong>目前 1 位客戶，最多可新增至 10 位。</div>
+            <button class="add-client-btn" data-course="cpa">＋ 新增更多客戶</button>
+          </div>
+          <div id="client-tabs-cpa" class="client-tab-strip" aria-label="CPA 客戶分頁">
+            <button type="button" class="client-tab-btn active" data-client="1">客戶 1</button>
+          </div>
+          <div class="client-card client-card-primary active-client" data-client-number="1">
+            <div class="client-card-head">
+              <div class="client-card-title">客戶 1</div>
+            </div>
+
+          <div class="field">
+            <label class="label">Note（代客報名）</label>
+            <textarea class="textarea" placeholder="請輸入備註"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="label required">您是如何得知我們的？</label>
+            <input class="select" placeholder="請選擇" />
+          </div>
+          <div class="field">
+            <label class="label required">法定名字</label>
+            <input class="input" value="念庭" />
+          </div>
+          <div class="field">
+            <label class="label required">法定姓氏</label>
+            <input class="input" value="葉" />
+          </div>
+          <div class="inline-note"><span class="note-icon">i</span>請確認您的法定姓名皆與 CPA 證照上的姓名一致。</div>
+          <div class="field">
+            <label class="label required">偏好名字</label>
+            <input class="input" placeholder="請輸入" />
+          </div>
+          <div class="field">
+            <label class="label required">電話號碼</label>
+            <div class="phone-group">
+              <input class="input" value="TW  +886" />
+              <input class="input" placeholder="請輸入" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label required">電子郵件</label>
+            <input class="input" value="julieyehnt@gmail.com" />
+          </div>
+          <div class="field">
+            <label class="label required">您居住在哪個城市？</label>
+            <input class="input" placeholder="請輸入" />
+          </div>
+          <div class="field">
+            <label class="label required">您居住在哪一州？</label>
+            <input class="select" placeholder="請選擇" />
+          </div>
+          <div class="field">
+            <label class="label required">您的身份類別</label>
+            <div class="radio-row">
+              <span class="choice"><span class="dot-radio active"></span>CPA</span>
+              <span class="choice"><span class="dot-radio"></span>TG Agent（非 CPA）</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label required">您的 CPA 證照號碼？</label>
+            <input class="input" placeholder="請輸入" />
+          </div>
+          <div class="field">
+            <label class="label required">您的 CPA 證照由哪一州核發？</label>
+            <input class="select" placeholder="請選擇" />
+          </div>
+          <div class="field">
+            <label class="label required">您需要住宿嗎？</label>
+            <div class="radio-row">
+              <span class="choice"><span class="dot-radio"></span>不需要</span>
+              <span class="choice"><span class="dot-radio active"></span>需要（房務房間以單人入住計）</span>
+            </div>
+          </div>
+
+          <div class="qr-block">
+            <div class="qr"></div>
+            <div class="qr-copy">
+              <strong>請於銀行 App 掃碼付款：</strong>
+              <b>TRANSGLOBAL INSURANCE AGENCY, INC. philip.hu@transglobalus.com</b><br>
+              泛宇保險代理<br>
+              提供 1% 回饋｜<span class="green">AE 08/14 - 週四 08/15</span>｜請透過 <span class="green">Zelle 支付 $100</span> 至指定帳號。
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label required">Zelle 帳戶名稱</label>
+            <input class="input" placeholder="請輸入" />
+            <div class="helper">於 Zelle 註冊的個人或公司名稱。若由他人代付，請提供付款人的 Zelle 帳戶名稱。</div>
+          </div>
+          <div class="field">
+            <label class="label required">Zelle 帳戶綁定的電話或電子郵件</label>
+            <input class="input" placeholder="請輸入" />
+            <div class="helper">若由他人代付，請提供該人帳戶綁定的電話號碼或電子郵件。</div>
+          </div>
+          <div class="field">
+            <label class="label required">上傳付款成功截圖</label>
+            <div class="upload-box">
+              <div>
+                <div class="cloud">☁</div>
+                Click or drag file to this area to upload
+              </div>
+            </div>
+            <div class="helper">PNG 或 JPG，檔案大小不得超過 10 MB。</div>
+          </div>
+          <div class="field">
+            <label class="label required">您吃素嗎？</label>
+            <div class="radio-row">
+              <span class="choice"><span class="dot-radio active"></span>否</span>
+              <span class="choice"><span class="dot-radio"></span>是</span>
+            </div>
+          </div>
+
+          </div>
+          <div id="extra-cpa" class="extra-clients"></div>
+
+          <div class="divider"></div>
+          <h3 class="form-title" style="font-size:16px; margin-bottom:14px;">聲明與同意</h3>
+
+          <div class="consent-box">
+            <div class="consent-head">
+              <span class="dot-check"></span>
+              <div>
+                <strong>同意全部條款</strong>
+                免費課程時，使用條款與隱私政策、SMS 簡訊同意
+              </div>
+            </div>
+          </div>
+
+          <div class="tiny-copy"><span class="dot-check active" style="display:inline-block; vertical-align:middle; margin-right:6px;"></span><span class="tag">必填</span>我已閱讀並同意 <span class="linkish">使用條款</span> 與 <span class="linkish">隱私政策</span>。</div>
+          <div class="tiny-copy"><span class="dot-check" style="display:inline-block; vertical-align:middle; margin-right:6px;"></span>我同意我的資料對於 <strong>TransGlobal</strong> 關聯公司之間共享、如所述。為提供服務，您的資訊可能會在支援系統間流轉。</div>
+          <div class="tiny-copy" style="margin-bottom:0;"><span class="dot-check" style="display:inline-block; vertical-align:middle; margin-right:6px;"></span>我同意接收 <strong>TransGlobal Holding Company 及其關聯公司</strong> 的簡訊通知。訊息內容可能包含重要提醒、帳務更新、優惠資訊或與服務提供相關的通知。</div>
+        </div>
+
+        <div class="summary-wrap">
+          <div class="card summary-card">
+            <div class="summary-banner cpa">
+              <div class="stripe s1"></div>
+              <div class="stripe s2"></div>
+              <div class="stripe s3"></div>
+              <div class="coin a"></div>
+              <div class="coin b"></div>
+              <div class="coin c"></div>
+              <div class="calc"></div>
+              <div class="banner-title"><span>CPA</span> CONTINUED<br>EDUCATION</div>
+            </div>
+            <div class="summary-body">
+              <h3 class="summary-title">摘要</h3>
+              <div class="summary-row"><span>項目（1）</span><span>USD$100.00</span></div>
+              <div class="summary-row"><span>折扣</span><span>USD$0.00</span></div>
+              <div class="summary-total"><span>總計</span><span class="price">USD$100.00</span></div>
+              <button class="submit-btn">送出</button>
+              <div class="summary-copy">
+                <strong>說明：</strong>
+                ．送出申請前，請詳細確認所有填寫資料，送出後將無法修改。<br>
+                ．如需協助或說明，歡迎於送出前聯繫 Stacy Shi：stacy.shi@transglobalus.com 或 626-447-7888。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <div class="pwa-bottom-nav" aria-label="PWA navigation">
+        <button type="button" class="pwa-nav-item"><span class="nav-icon">⌂</span><span>首頁</span></button>
+        <button type="button" class="pwa-nav-item active"><span class="nav-icon">▣</span><span>活動</span></button>
+        <button type="button" class="pwa-nav-item"><span class="nav-icon">●</span><span>我的</span></button>
+      </div>
+    </section>
+
+    <section id="backend" class="module-panel">
+      <div class="admin-shell">
+        <div class="admin-top">
+          <div class="admin-session-title">【King Of Prussia】 08/14/2026 09:00 AM (EDT)</div>
+
+          <div class="admin-metrics">
+            <div class="metric-card">
+              <div class="metric-value">35/38</div>
+              <div class="metric-label">Actual attendees</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">92.11%</div>
+              <div class="metric-label">Attendance rate</div>
+            </div>
+          </div>
+
+          <div class="admin-list-head">
+            <div class="admin-list-title">Registrants list</div>
+            <div class="admin-actions">
+              <div class="search-box"><input placeholder="Search by name, email, serial n..."><button class="search-btn">⌕</button></div>
+              <button class="export-btn">⇩&nbsp; Export name tag⌄</button>
+            </div>
+          </div>
+
+          <div class="status-tabs">
+            <div class="status-tab active">Approved <span class="badge">35</span></div>
+            <div class="status-tab">Pending <span class="badge">0</span></div>
+            <div class="status-tab">Rejected <span class="badge">4</span></div>
+            <div class="status-tab">Cancelled <span class="badge">0</span></div>
+          </div>
+
+          <div class="filters">
+            <div class="filter-pill">Role: <strong>All</strong>⌄</div>
+            <div class="filter-pill">Payment: <strong>All</strong>⌄</div>
+            <div class="filter-pill">Registered date: <span style="color:#9299a3">mm/dd/yyyy&nbsp;&nbsp; - &nbsp;&nbsp;mm/dd/yyyy</span>⌄</div>
+          </div>
+          <a class="reset-link" href="#">Reset filters</a>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width:42px"><span class="check-box"></span></th>
+                <th style="width:74px">Action</th>
+                <th>Name</th>
+                <th style="width:180px">Role</th>
+                <th style="width:270px">Payment</th>
+                <th style="width:235px">Registration date</th>
+                <th style="width:210px">Agent referral</th>
+                <th style="width:90px">Review</th>
+                <th style="width:100px">Check-in</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="registrant-row" data-name="XIN CHEN" data-email="xinschen@hotmail.com" data-phone="(626) 555–0142" data-serial="096039" data-lead-source="Seminar" data-note="--">
+                <td><span class="check-box"></span></td>
+                <td class="ellipsis">...</td>
+                <td>
+                  <div class="row-name">XIN CHEN</div>
+                  <div class="row-email">xinschen@hotmail.com</div>
+                  <div class="mini-tags"><span class="mini-tag">● D1 Show</span><span class="mini-tag">● D2 Show</span></div>
+                </td>
+                <td><span class="role-tag">TG Agent</span></td>
+                <td><div class="payment-pill"><span>Paid</span><span>⌄</span></div></td>
+                <td><div>2026/8/14</div><div class="serial">Serial number: 096039</div></td>
+                <td class="agent-referral-cell">
+                  <div class="referral-line"><span class="referral-dot"></span><strong>Agent Referral</strong></div>
+                  <div class="agent-name">Agent Name: Ye Mi</div>
+                </td>
+                <td class="icon-cell">◉</td>
+                <td class="icon-cell">⌾</td>
+              </tr>
+              <tr class="registrant-row" data-name="Jim Minhui Chen" data-email="josie200010013@gmail.com" data-phone="(626) 555–0188" data-serial="480038" data-lead-source="Seminar" data-note="代客報名">
+                <td><span class="check-box"></span></td>
+                <td class="ellipsis">...</td>
+                <td>
+                  <div class="row-name">Jim Minhui Chen</div>
+                  <div class="row-email">josie200010013@gmail.com</div>
+                  <div class="mini-tags"><span class="mini-tag">● D1 Show</span><span class="mini-tag">● D2 Show</span></div>
+                </td>
+                <td><span class="role-tag cpa">CPA</span></td>
+                <td><div class="payment-pill"><span>Paid</span><span>⌄</span></div></td>
+                <td><div>2026/8/14</div><div class="serial">Serial number: 480038</div></td>
+                <td class="agent-referral-cell">
+                  <div class="referral-line"><span class="referral-dot"></span><strong>Agent Referral</strong></div>
+                  <div class="agent-name">Agent Name: Ye Mi</div>
+                </td>
+                <td class="icon-cell">◉</td>
+                <td class="icon-cell">⌾</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="reviewDrawerOverlay" class="review-drawer-overlay" aria-hidden="true">
+    <aside class="review-drawer" role="dialog" aria-modal="true" aria-labelledby="reviewDrawerTitle">
+      <div class="review-drawer-head">
+        <div id="reviewDrawerTitle" class="review-drawer-title">Review detail</div>
+        <button id="reviewDrawerClose" class="review-close" aria-label="Close">×</button>
+      </div>
+      <div class="review-drawer-body">
+        <div class="review-item"><div class="review-label">Name</div><div id="reviewName" class="review-value">HUILI TAO</div></div>
+        <div class="review-item"><div class="review-label">Email</div><div id="reviewEmail" class="review-value">yaozhongdeng@ymail.com</div></div>
+        <div class="review-item"><div class="review-label">Phone</div><div id="reviewPhone" class="review-value">(626) 555–0142</div></div>
+        <div class="review-item"><div class="review-label">Serial number</div><div id="reviewSerial" class="review-value">IWX000001</div></div>
+        <div class="review-item"><div class="review-label">Lead source</div><div id="reviewLeadSource" class="review-value">Seminar</div></div>
+        <div class="review-separator"></div>
+        <div class="review-item"><div class="review-label">Note（代客報名）</div><div id="reviewNote" class="review-value">--</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const moduleTabs = document.querySelectorAll('.module-tab');
+    const modulePanels = document.querySelectorAll('.module-panel');
+    const courseTabs = document.querySelectorAll('.course-tab');
+    const coursePanels = document.querySelectorAll('.panel');
+
+    function activateModule(id) {
+      moduleTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.module === id));
+      modulePanels.forEach(panel => panel.classList.toggle('active', panel.id === id));
+    }
+
+    function activateCourse(id) {
+      courseTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.target === id));
+      coursePanels.forEach(panel => panel.classList.toggle('active', panel.id === id));
+    }
+
+    moduleTabs.forEach(tab => {
+      tab.addEventListener('click', () => activateModule(tab.dataset.module));
+    });
+
+    courseTabs.forEach(tab => {
+      tab.addEventListener('click', () => activateCourse(tab.dataset.target));
+    });
+
+    const clientCounts = { ea: 1, cpa: 1 };
+    const activeClients = { ea: 1, cpa: 1 };
+
+    function updateFlowMode(course) {
+      const panel = document.getElementById(`panel-${course}`);
+      const registrationKind = panel.dataset.registrationKind || 'client';
+      const referralKind = panel.dataset.referralKind || 'agent';
+      const addBar = panel.querySelector('.add-client-bar');
+      const strip = panel.querySelector('.client-tab-strip');
+      const flowText = panel.querySelector('.flow-mode-text');
+      const referralText = referralKind === 'agent' ? '有 Agent 介紹我' : '自行找到活動';
+      const registrationText = registrationKind === 'self' ? '自己報名' : '幫客戶報名';
+      if (flowText) flowText.textContent = `${referralText}／${registrationText}`;
+      if (registrationKind === 'self') {
+        if (addBar) addBar.style.display = 'none';
+        if (strip) strip.style.display = 'none';
+        activeClients[course] = 1;
+        activateClient(course, 1);
+      } else {
+        if (addBar) addBar.style.display = '';
+        if (strip) strip.style.display = '';
+      }
+    }
+
+    function setCourseFlow(course, step) {
+      const panel = document.getElementById(`panel-${course}`);
+      panel.dataset.flowStep = String(step);
+      if (String(step) === '3') updateFlowMode(course);
+    }
+
+    function resetCourseFlow(course) {
+      const panel = document.getElementById(`panel-${course}`);
+      panel.dataset.referralKind = '';
+      panel.dataset.registrationKind = 'client';
+      activeClients[course] = 1;
+      activateClient(course, 1);
+      setCourseFlow(course, 1);
+    }
+
+
+    function createClientCard(course, number) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'client-card';
+      wrapper.dataset.clientNumber = number;
+      const courseLabel = course.toUpperCase();
+      const cpaReferral = course === 'cpa' ? `
+        <div class="field">
+          <label class="label required">您是如何得知我們的？</label>
+          <input class="select" placeholder="請選擇" />
+        </div>` : '';
+      const ftinField = course === 'ea' ? `
+        <div class="field">
+          <label class="label required">您的 FTIN 號碼？</label>
+          <input class="input" placeholder="請輸入" />
+        </div>` : '';
+
+      wrapper.innerHTML = `
+        <div class="client-card-head">
+          <div class="client-card-title">客戶 ${number}</div>
+          <button type="button" class="remove-client-btn">移除</button>
+        </div>
+        <div class="field">
+          <label class="label">Note（代客報名）</label>
+          <textarea class="textarea" placeholder="請輸入備註"></textarea>
+        </div>
+        ${cpaReferral}
+        <div class="field">
+          <label class="label required">法定名字</label>
+          <input class="input" placeholder="請輸入" />
+        </div>
+        <div class="field">
+          <label class="label required">法定姓氏</label>
+          <input class="input" placeholder="請輸入" />
+        </div>
+        <div class="inline-note"><span class="note-icon">i</span>請確認您的法定姓名皆與 ${courseLabel} 證照上的姓名一致。</div>
+        <div class="field">
+          <label class="label required">偏好名字</label>
+          <input class="input" placeholder="請輸入" />
+        </div>
+        <div class="field">
+          <label class="label required">電話號碼</label>
+          <div class="phone-group">
+            <input class="input" value="TW  +886" />
+            <input class="input" placeholder="請輸入" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label required">電子郵件</label>
+          <input class="input" placeholder="請輸入" />
+        </div>
+        <div class="field">
+          <label class="label required">您居住在哪個城市？</label>
+          <input class="input" placeholder="請輸入" />
+        </div>
+        <div class="field">
+          <label class="label required">您居住在哪一州？</label>
+          <input class="select" placeholder="請選擇" />
+        </div>
+        <div class="field">
+          <label class="label required">您的身份類別</label>
+          <div class="radio-row">
+            <span class="choice"><span class="dot-radio active"></span>${courseLabel}</span>
+            <span class="choice"><span class="dot-radio"></span>TG Agent（非 ${courseLabel}）</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label required">您的 ${courseLabel} 證照號碼？</label>
+          <input class="input" placeholder="請輸入" />
+        </div>
+        <div class="field">
+          <label class="label required">您的 ${courseLabel} 證照由哪一州核發？</label>
+          <input class="select" placeholder="請選擇" />
+        </div>
+        ${ftinField}
+        <div class="field">
+          <label class="label required">您需要住宿嗎？</label>
+          <div class="radio-row">
+            <span class="choice"><span class="dot-radio"></span>不需要</span>
+            <span class="choice"><span class="dot-radio active"></span>需要（房務房間以單人入住計）</span>
+          </div>
+        </div>
+        <div class="qr-block">
+          <div class="qr"></div>
+          <div class="qr-copy">
+            <strong>請於銀行 App 掃碼付款：</strong>
+            <b>TRANSGLOBAL INSURANCE AGENCY, INC. philip.hu@transglobalus.com</b><br>
+            泛宇保險代理<br>
+            提供 1% 回饋｜<span class="green">AE 08/14 - 週四 08/15</span>｜請透過 <span class="green">Zelle 支付 $100</span> 至指定帳號。
+          </div>
+        </div>
+        <div class="field">
+          <label class="label required">Zelle 帳戶名稱</label>
+          <input class="input" placeholder="請輸入" />
+          <div class="helper">於 Zelle 註冊的個人或公司名稱。若由他人代付，請提供付款人的 Zelle 帳戶名稱。</div>
+        </div>
+        <div class="field">
+          <label class="label required">Zelle 帳戶綁定的電話或電子郵件</label>
+          <input class="input" placeholder="請輸入" />
+          <div class="helper">若由他人代付，請提供該人帳戶綁定的電話號碼或電子郵件。</div>
+        </div>
+        <div class="field">
+          <label class="label required">上傳付款成功截圖</label>
+          <div class="upload-box">
+            <div><div class="cloud">☁</div>Click or drag file to this area to upload</div>
+          </div>
+          <div class="helper">PNG 或 JPG，檔案大小不得超過 10 MB。</div>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label class="label required">您吃素嗎？</label>
+          <div class="radio-row">
+            <span class="choice"><span class="dot-radio active"></span>否</span>
+            <span class="choice"><span class="dot-radio"></span>是</span>
+          </div>
+        </div>`;
+
+      wrapper.querySelector('.remove-client-btn').addEventListener('click', () => {
+        const currentNumber = Number(wrapper.dataset.clientNumber);
+        wrapper.remove();
+        clientCounts[course] -= 1;
+        renumberCards(course);
+        refreshClientState(course);
+        activateClient(course, Math.max(1, Math.min(currentNumber - 1, clientCounts[course])));
+      });
+      return wrapper;
+    }
+
+    function getAllClientCards(course) {
+      const panel = document.getElementById(`panel-${course}`);
+      return [...panel.querySelectorAll('.client-card')];
+    }
+
+    function activateClient(course, number) {
+      const cards = getAllClientCards(course);
+      cards.forEach(card => {
+        card.classList.toggle('active-client', Number(card.dataset.clientNumber) === number);
+      });
+      const strip = document.getElementById(`client-tabs-${course}`);
+      [...strip.querySelectorAll('.client-tab-btn')].forEach(btn => {
+        btn.classList.toggle('active', Number(btn.dataset.client) === number);
+      });
+      activeClients[course] = number;
+    }
+
+    function rebuildClientTabs(course) {
+      const strip = document.getElementById(`client-tabs-${course}`);
+      strip.innerHTML = '';
+      for (let i = 1; i <= clientCounts[course]; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'client-tab-btn' + (i === activeClients[course] ? ' active' : '');
+        btn.dataset.client = i;
+        btn.textContent = `客戶 ${i}`;
+        btn.addEventListener('click', () => activateClient(course, i));
+        strip.appendChild(btn);
+      }
+    }
+
+    function renumberCards(course) {
+      const cards = getAllClientCards(course);
+      cards.forEach((card, index) => {
+        const number = index + 1;
+        card.dataset.clientNumber = number;
+        const title = card.querySelector('.client-card-title');
+        if (title) title.textContent = `客戶 ${number}`;
+      });
+      if (activeClients[course] > clientCounts[course]) activeClients[course] = clientCounts[course];
+      rebuildClientTabs(course);
+    }
+
+    function refreshClientState(course) {
+      const btn = document.querySelector(`.add-client-btn[data-course="${course}"]`);
+      const bar = btn.closest('.add-client-bar');
+      const copy = bar.querySelector('.add-client-copy');
+      const panel = document.getElementById(`panel-${course}`);
+      const registrationKind = panel.dataset.registrationKind || 'client';
+      if (registrationKind === 'self') {
+        copy.innerHTML = `<strong>自己報名</strong>這次將以本人身份填寫 1 份報名資料。`;
+        btn.disabled = true;
+        btn.textContent = '自己報名不需新增客戶';
+      } else {
+        copy.innerHTML = `<strong>代客報名</strong>目前 ${clientCounts[course]} 位客戶，最多可新增至 10 位。`;
+        btn.disabled = clientCounts[course] >= 10;
+        btn.textContent = clientCounts[course] >= 10 ? '已達 10 位上限' : '＋ 新增更多客戶';
+      }
+    }
+
+    ['ea', 'cpa'].forEach(course => {
+      rebuildClientTabs(course);
+      activateClient(course, 1);
+    });
+
+    document.querySelectorAll('.add-client-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const course = btn.dataset.course;
+        if (clientCounts[course] >= 10) return;
+        clientCounts[course] += 1;
+        const container = document.getElementById(`extra-${course}`);
+        container.appendChild(createClientCard(course, clientCounts[course]));
+        activeClients[course] = clientCounts[course];
+        refreshClientState(course);
+        rebuildClientTabs(course);
+        activateClient(course, clientCounts[course]);
+      });
+    });
+
+
+    ['ea', 'cpa'].forEach(course => {
+      const panel = document.getElementById(`panel-${course}`);
+      panel.querySelectorAll('[data-next-step="2"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          panel.dataset.referralKind = btn.dataset.referralKind || 'agent';
+          setCourseFlow(course, 2);
+        });
+      });
+      panel.querySelectorAll('[data-complete-flow="1"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          panel.dataset.registrationKind = btn.dataset.registrationKind || 'client';
+          setCourseFlow(course, 3);
+          refreshClientState(course);
+        });
+      });
+      panel.querySelectorAll('[data-flow-reset]').forEach(btn => {
+        btn.addEventListener('click', () => resetCourseFlow(course));
+      });
+      const editBtn = panel.querySelector('.flow-edit-btn');
+      if (editBtn) editBtn.addEventListener('click', () => resetCourseFlow(course));
+      refreshClientState(course);
+    });
+
+    const reviewDrawerOverlay = document.getElementById('reviewDrawerOverlay');
+    const reviewDrawerClose = document.getElementById('reviewDrawerClose');
+    const reviewFields = {
+      name: document.getElementById('reviewName'),
+      email: document.getElementById('reviewEmail'),
+      phone: document.getElementById('reviewPhone'),
+      serial: document.getElementById('reviewSerial'),
+      leadSource: document.getElementById('reviewLeadSource'),
+      note: document.getElementById('reviewNote')
+    };
+
+    function openReviewDrawer(row) {
+      reviewFields.name.textContent = row.dataset.name || '--';
+      reviewFields.email.textContent = row.dataset.email || '--';
+      reviewFields.phone.textContent = row.dataset.phone || '--';
+      reviewFields.serial.textContent = row.dataset.serial || '--';
+      reviewFields.leadSource.textContent = row.dataset.leadSource || '--';
+      reviewFields.note.textContent = row.dataset.note || '--';
+      reviewDrawerOverlay.classList.add('open');
+      reviewDrawerOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReviewDrawer() {
+      reviewDrawerOverlay.classList.remove('open');
+      reviewDrawerOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.registrant-row').forEach(row => {
+      row.addEventListener('click', (event) => {
+        if (event.target.closest('input, button, a, .payment-pill, .check-box')) return;
+        openReviewDrawer(row);
+      });
+    });
+
+    reviewDrawerClose.addEventListener('click', closeReviewDrawer);
+    reviewDrawerOverlay.addEventListener('click', (event) => {
+      if (event.target === reviewDrawerOverlay) closeReviewDrawer();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && reviewDrawerOverlay.classList.contains('open')) closeReviewDrawer();
+    });
+
+  </script>
+</body>
+</html>
