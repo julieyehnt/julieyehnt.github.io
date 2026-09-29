@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agent Registration Hub</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --bg:#f4f6f7;--surface:#fff;--line:#e4e8eb;--text:#15202b;--muted:#75808d;
+      --brand:#35b24a;--brand-dark:#248f39;--nav:#0f5a60;--soft:#eef8f0;
+      --warn-bg:#f7fcf8;--warn-line:#cfead4;--danger:#d93025;
+    }
+    html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--text);background:var(--bg)}
+    body{overflow:hidden}
+    .app{height:100vh;display:grid;grid-template-columns:290px minmax(0,1fr)}
+    .sidebar{background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0;z-index:10}
+    .brand-line{height:7px;background:var(--nav)}
+    .brand{padding:24px 22px 20px;border-bottom:1px solid var(--line)}
+    .brand-name{font-size:23px;font-weight:800;color:#39aa4d;letter-spacing:-.3px}
+    .brand-sub{margin-top:6px;font-size:11px;letter-spacing:1.8px;color:#487b5a;text-transform:uppercase}
+    .project{padding:18px 22px 12px}
+    .project-title{font-size:12px;font-weight:800;color:#98a1ac;letter-spacing:.7px;text-transform:uppercase}
+    .menu{padding:4px 12px 18px;display:grid;gap:6px}
+    .menu-btn{width:100%;border:0;background:transparent;border-radius:12px;padding:14px 12px;display:grid;grid-template-columns:42px 1fr;gap:10px;text-align:left;cursor:pointer;color:#4b5563}
+    .menu-btn:hover{background:#f7f9f8}
+    .menu-btn.active{background:var(--soft);color:var(--brand-dark)}
+    .num{font-size:12px;font-weight:900;letter-spacing:.7px;padding-top:2px}
+    .menu-copy strong{display:block;font-size:14px;line-height:1.35}
+    .menu-copy span{display:block;margin-top:4px;font-size:11px;line-height:1.45;color:#8a94a0}
+    .menu-btn.active .menu-copy span{color:#60916a}
+    .sidebar-foot{margin-top:auto;padding:18px 22px;border-top:1px solid var(--line);font-size:11px;color:#9aa3ad}
+    .main{min-width:0;height:100vh;display:flex;flex-direction:column}
+    .topbar{height:66px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;flex:0 0 auto}
+    .top-title{font-size:15px;font-weight:800}
+    .top-meta{font-size:12px;color:var(--muted)}
+    .content{position:relative;flex:1;min-height:0;background:#f3f5f6}
+    .view{display:none;position:absolute;inset:0}
+    .view.active{display:block}
+    iframe{width:100%;height:100%;border:0;background:#fff}
+    .timeline{height:100%;overflow:auto;padding:34px}
+    .timeline-inner{max-width:1080px;margin:0 auto}
+    .eyebrow{font-size:12px;font-weight:900;color:var(--brand-dark);letter-spacing:1px;margin-bottom:8px}
+    h1{margin:0;font-size:30px;letter-spacing:-.5px}
+    .lead{margin:10px 0 26px;color:#77818e;font-size:14px}
+    .timeline-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 2px 8px rgba(17,24,39,.04)}
+    .timeline-card h2{font-size:17px;margin:0 0 8px}
+    .timeline-card p{font-size:13px;line-height:1.7;color:#737e8b;margin:0}
+    .scope-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .date-chip{display:inline-flex;align-items:center;gap:7px;background:#eef8f0;color:#248f39;border:1px solid #cfead4;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;white-space:nowrap}
+    .scope-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin-top:18px}
+    .scope-table{width:100%;min-width:860px;border-collapse:collapse;background:#fff}
+    .scope-table th,.scope-table td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+    .scope-table th:last-child,.scope-table td:last-child{border-right:0}
+    .scope-table tr:last-child td{border-bottom:0}
+    .scope-table th{background:#f2f4f5;font-size:13px;font-weight:800;color:#29323d}
+    .scope-table td{font-size:13px;line-height:1.65;color:#485260}
+    .scope-table td:first-child{font-weight:700;color:#202a34;width:29%}
+    .scope-table td:nth-child(2){width:26%;font-weight:700}
+    .ok{color:#248f39}
+    .no{color:#d93025}
+    .later{color:#d93025}
+    .decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+    .decision-card{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fbfcfc}
+    .decision-card.accent{border-color:#cfead4;background:#f7fcf8}
+    .decision-card h3{margin:0 0 8px;font-size:15px}
+    .decision-card .big-date{font-size:28px;font-weight:900;color:#248f39;letter-spacing:-.6px;margin-bottom:8px}
+    .decision-card p{font-size:13px;line-height:1.65;color:#66717e}
+    .green-box{margin-top:18px;border:1px solid #cfead4;background:#f7fcf8;border-radius:12px;padding:18px}
+    .green-box h2{margin:0 0 10px;font-size:17px;color:#1f6c2c}
+    .green-box ul{margin:10px 0 0;padding-left:18px;color:#51606e;font-size:13px;line-height:1.75}
+    .mobile-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:9px;width:38px;height:38px;font-size:20px}
+    @media(max-width:860px){
+      .app{grid-template-columns:1fr}
+      .sidebar{position:fixed;left:0;top:0;bottom:0;width:min(310px,86vw);transform:translateX(-102%);transition:.2s ease;box-shadow:10px 0 30px rgba(17,24,39,.12)}
+      .sidebar.open{transform:translateX(0)}
+      .mobile-toggle{display:grid;place-items:center}
+      .topbar{padding:0 14px}
+      .timeline{padding:22px 14px}
+      .top-title{font-size:13px}
+      .top-meta{display:none}
+      .decision-grid{grid-template-columns:1fr}
+      .scope-head{display:block}.date-chip{margin-top:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-line"></div>
+      <div class="brand">
+        <div class="brand-name">TransGlobal</div>
+        <div class="brand-sub">All-in-one finance</div>
+      </div>
+      <div class="project"><div class="project-title">Agent Registration</div></div>
+      <nav class="menu">
+        <button class="menu-btn active" data-view="timeline">
+          <span class="num">01</span>
+          <span class="menu-copy"><strong>時程討論</strong><span>Timeline / scope / rollout</span></span>
+        </button>
+        <button class="menu-btn" data-view="paid">
+          <span class="num">02</span>
+          <span class="menu-copy"><strong>Agent 代客報名 Paid Seminar</strong><span>含 Shopify / To C / To B</span></span>
+        </button>
+        <button class="menu-btn" data-view="course">
+          <span class="num">03</span>
+          <span class="menu-copy"><strong>Agent 代客報名 Course CPA / EA</strong><span>Course registration prototype</span></span>
+        </button>
+      </nav>
+      <div class="sidebar-foot">Prototype Hub · 2026</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button class="mobile-toggle" id="mobileToggle">☰</button>
+          <div class="top-title" id="topTitle">01 · 時程討論</div>
+        </div>
+        <div class="top-meta">Workshop / Agent assisted registration</div>
+      </header>
+      <div class="content">
+        <section class="view active" id="view-timeline">
+          <div class="timeline">
+            <div class="timeline-inner">
+              <div class="eyebrow">01 · TIMELINE</div>
+              <h1>時程討論</h1>
+              <p class="lead">整理 10/29 Agent 代客報名第一階段適用範圍，以及 Course / Paid Seminar 的後續上線排期建議。</p>
+
+              <div class="timeline-card">
+                <div class="scope-head">
+                  <div>
+                    <h2>10/29｜第一階段適用範圍</h2>
+                    <p>依目前規劃，先支援基本 seminar 類型；Course 與 Paid Seminar 依實際活動週期與影響範圍排到後續 phase。</p>
+                  </div>
+                  <div class="date-chip">● 10/29 Scope</div>
+                </div>
+
+                <div class="scope-table-wrap">
+                  <table class="scope-table">
+                    <thead>
+                      <tr>
+                        <th>活動情境</th>
+                        <th>建議是否支援代客報名</th>
+                        <th>說明</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>免費 Seminar＋不需審核</td>
+                        <td><span class="ok">✅ 適用</span></td>
+                        <td>可直接沿用 Agent 代客報名流程。</td>
+                      </tr>
+                      <tr>
+                        <td>免費 Seminar＋需審核<br>（如：高資產講座）</td>
+                        <td><span class="ok">✅ 適用</span></td>
+                        <td>表單欄位由 Agent 代客戶填寫；若不符合資產要求，審核不通過，報名失敗。</td>
+                      </tr>
+                      <tr>
+                        <td>付費 Seminar<br>（如：老闆台灣講座）</td>
+                        <td><span class="later">延後至下一次售票前</span></td>
+                        <td>需支援付款方式選擇、To B Shopify Link 與客戶付款通知流程。</td>
+                      </tr>
+                      <tr>
+                        <td>線上 Seminar</td>
+                        <td><span class="ok">✅ 適用</span></td>
+                        <td>會議連結只寄給 Agent，由 Agent 自行轉達給客戶。</td>
+                      </tr>
+                      <tr>
+                        <td>Course－CPA / EA</td>
+                        <td><span class="later">延後至下一次售票前</span></td>
+                        <td>需要保留客戶個資、執照號碼、agent 介紹來源，並給學分。</td>
+                      </tr>
+                      <tr>
+                        <td>不公開 Seminar</td>
+                        <td><span class="no">❌ 不適用</span></td>
+                        <td>目前通常由主辦方邀約，受邀者才能入場。</td>
+                      </tr>
+                      <tr>
+                        <td>Agent Only</td>
+                        <td><span class="no">❌ 不適用</span></td>
+                        <td>Agent 自己報名。</td>
+                      </tr>
+                      <tr>
+                        <td>Summit（付費）</td>
+                        <td><span class="no">❌ 不適用</span></td>
+                        <td>使用既有售票 / 團票方式進行。</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+
+              <div class="timeline-card" style="margin-top:18px;">
+                <div class="scope-head">
+                  <div>
+                    <h2>上線時程討論</h2>
+                    <p>依活動舉辦週期與實際使用時點，建議分階段上線，不需將所有情境綁在 10/29 一次完成。</p>
+                  </div>
+                  <div class="date-chip">● Rollout Plan</div>
+                </div>
+
+                <div class="green-box" style="margin-top:0;">
+                  <ul style="margin-top:0;">
+                    <li>Phase 2 與 Phase 3 目前活動舉辦週期較長，約半年一次或單月一次，影響人數相對較小，因此可往後排。</li>
+                    <li>若強趕 10/29 上線，短期內也不會馬上使用到；此外，目前初步規劃完成的 Scope 不包含在原先預估範圍內，需要 RD 另外估時，並採分階段上線。</li>
+                  </ul>
+                  <ol>
+                    <li><strong>10/29｜Phase 1</strong>：涵蓋基本 Seminar 代客報名。</li>
+                    <li><strong>11 月中｜Phase 2</strong>：涵蓋 Course 代客報名。</li>
+                    <li><strong>12 月底前｜Phase 3</strong>：涵蓋 Paid Seminar 代客報名。</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="view-paid">
+          <iframe src="./paid.html" title="Agent 代客報名 Paid Seminar"></iframe>
+        </section>
+
+        <section class="view" id="view-course">
+          <iframe src="./course.html" title="Agent 代客報名 Course CPA EA"></iframe>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    const buttons=[...document.querySelectorAll('.menu-btn')];
+    const views=[...document.querySelectorAll('.view')];
+    const title=document.getElementById('topTitle');
+    const sidebar=document.getElementById('sidebar');
+    const names={
+      timeline:'01 · 時程討論',
+      paid:'02 · Agent 代客報名 Paid Seminar',
+      course:'03 · Agent 代客報名 Course CPA / EA'
+    };
+    function activate(id, updateHash=true){
+      buttons.forEach(b=>b.classList.toggle('active',b.dataset.view===id));
+      views.forEach(v=>v.classList.toggle('active',v.id==='view-'+id));
+      title.textContent=names[id]||'Prototype Hub';
+      if(updateHash) history.replaceState(null,'','#'+id);
+      sidebar.classList.remove('open');
+    }
+    buttons.forEach(b=>b.addEventListener('click',()=>activate(b.dataset.view)));
+    document.getElementById('mobileToggle').addEventListener('click',()=>sidebar.classList.toggle('open'));
+    const initial=location.hash.replace('#','');
+    if(['timeline','paid','course'].includes(initial)) activate(initial,false);
+  </script>
+</body>
+</html>
