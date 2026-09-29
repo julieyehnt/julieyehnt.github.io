@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agent 代客報名 Prototype Hub</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --bg:#f4f6f7;--surface:#fff;--line:#e4e8eb;--text:#15202b;--muted:#75808d;
+      --brand:#35b24a;--brand-dark:#248f39;--nav:#0f5a60;--soft:#eef8f0
+    }
+    html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--text);background:var(--bg)}
+    body{overflow:hidden}
+    .app{height:100vh;display:grid;grid-template-columns:290px minmax(0,1fr)}
+    .sidebar{background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0;z-index:10}
+    .brand-line{height:7px;background:var(--nav)}
+    .brand{padding:24px 22px 20px;border-bottom:1px solid var(--line)}
+    .brand-name{font-size:23px;font-weight:800;color:#39aa4d;letter-spacing:-.3px}
+    .brand-sub{margin-top:6px;font-size:11px;letter-spacing:1.8px;color:#487b5a;text-transform:uppercase}
+    .project{padding:18px 22px 12px}
+    .project-title{font-size:12px;font-weight:800;color:#98a1ac;letter-spacing:.7px;text-transform:uppercase}
+    .menu{padding:4px 12px 18px;display:grid;gap:6px}
+    .menu-btn{width:100%;border:0;background:transparent;border-radius:12px;padding:14px 12px;display:grid;grid-template-columns:42px 1fr;gap:10px;text-align:left;cursor:pointer;color:#4b5563}
+    .menu-btn:hover{background:#f7f9f8}
+    .menu-btn.active{background:var(--soft);color:var(--brand-dark)}
+    .num{font-size:12px;font-weight:900;letter-spacing:.7px;padding-top:2px}
+    .menu-copy strong{display:block;font-size:14px;line-height:1.35}
+    .menu-copy span{display:block;margin-top:4px;font-size:11px;line-height:1.45;color:#8a94a0}
+    .menu-btn.active .menu-copy span{color:#60916a}
+    .sidebar-foot{margin-top:auto;padding:18px 22px;border-top:1px solid var(--line);font-size:11px;color:#9aa3ad}
+    .main{min-width:0;height:100vh;display:flex;flex-direction:column}
+    .topbar{height:66px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;flex:0 0 auto}
+    .top-title{font-size:15px;font-weight:800}
+    .top-meta{font-size:12px;color:var(--muted)}
+    .content{position:relative;flex:1;min-height:0;background:#f3f5f6}
+    .view{display:none;position:absolute;inset:0}
+    .view.active{display:block}
+    iframe{width:100%;height:100%;border:0;background:#fff}
+    .timeline{height:100%;overflow:auto;padding:34px}
+    .timeline-inner{max-width:980px;margin:0 auto}
+    .eyebrow{font-size:12px;font-weight:900;color:var(--brand-dark);letter-spacing:1px;margin-bottom:8px}
+    h1{margin:0;font-size:30px;letter-spacing:-.5px}
+    .lead{margin:10px 0 26px;color:#77818e;font-size:14px}
+    .timeline-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 2px 8px rgba(17,24,39,.04)}
+    .timeline-card h2{font-size:17px;margin:0 0 8px}
+    .timeline-card p{font-size:13px;line-height:1.7;color:#737e8b;margin:0}
+    .blank-board{margin-top:18px;border:1px dashed #cfd6dc;border-radius:12px;min-height:320px;display:grid;place-items:center;color:#9aa3ad;background:#fbfcfc;text-align:center;padding:24px}
+    .blank-board strong{display:block;color:#687482;margin-bottom:6px}
+    .mobile-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:9px;width:38px;height:38px;font-size:20px}
+    @media(max-width:860px){
+      .app{grid-template-columns:1fr}
+      .sidebar{position:fixed;left:0;top:0;bottom:0;width:min(310px,86vw);transform:translateX(-102%);transition:.2s ease;box-shadow:10px 0 30px rgba(17,24,39,.12)}
+      .sidebar.open{transform:translateX(0)}
+      .mobile-toggle{display:grid;place-items:center}
+      .topbar{padding:0 14px}
+      .timeline{padding:22px 14px}
+      .top-title{font-size:13px}
+      .top-meta{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-line"></div>
+      <div class="brand">
+        <div class="brand-name">TransGlobal</div>
+        <div class="brand-sub">All-in-one finance</div>
+      </div>
+      <div class="project"><div class="project-title">Agent Registration</div></div>
+      <nav class="menu">
+        <button class="menu-btn" data-view="timeline">
+          <span class="num">01</span>
+          <span class="menu-copy"><strong>時程討論</strong><span>Timeline / milestone</span></span>
+        </button>
+        <button class="menu-btn active" data-view="paid">
+          <span class="num">02</span>
+          <span class="menu-copy"><strong>Agent 代客報名 Paid Seminar</strong><span>含 Shopify / To C / To B</span></span>
+        </button>
+        <button class="menu-btn" data-view="course">
+          <span class="num">03</span>
+          <span class="menu-copy"><strong>Agent 代客報名 Course CPA / EA</strong><span>Course registration prototype</span></span>
+        </button>
+      </nav>
+      <div class="sidebar-foot">Prototype Hub · 2026</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button class="mobile-toggle" id="mobileToggle">☰</button>
+          <div class="top-title" id="topTitle">02 · Agent 代客報名 Paid Seminar</div>
+        </div>
+        <div class="top-meta">Workshop / Agent assisted registration</div>
+      </header>
+      <div class="content">
+        <section class="view" id="view-timeline">
+          <div class="timeline">
+            <div class="timeline-inner">
+              <div class="eyebrow">01 · TIMELINE</div>
+              <h1>時程討論</h1>
+              <p class="lead">此頁先保留為整體開發時程、Milestone 與依賴項目討論區。</p>
+              <div class="timeline-card">
+                <h2>時程內容待補</h2>
+                <p>目前尚未在本次整合需求中指定日期與里程碑，因此先不替你假設時程。後續可直接把 Sprint、RD 估時、上線日期與依賴項目放在這裡。</p>
+                <div class="blank-board">
+                  <div><strong>Timeline placeholder</strong>待加入時程與 milestone</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view active" id="view-paid">
+          <iframe src="./paid.html" title="Agent 代客報名 Paid Seminar"></iframe>
+        </section>
+
+        <section class="view" id="view-course">
+          <iframe src="./course.html" title="Agent 代客報名 Course CPA EA"></iframe>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    const buttons=[...document.querySelectorAll('.menu-btn')];
+    const views=[...document.querySelectorAll('.view')];
+    const title=document.getElementById('topTitle');
+    const sidebar=document.getElementById('sidebar');
+    const names={
+      timeline:'01 · 時程討論',
+      paid:'02 · Agent 代客報名 Paid Seminar',
+      course:'03 · Agent 代客報名 Course CPA / EA'
+    };
+    function activate(id, updateHash=true){
+      buttons.forEach(b=>b.classList.toggle('active',b.dataset.view===id));
+      views.forEach(v=>v.classList.toggle('active',v.id==='view-'+id));
+      title.textContent=names[id]||'Prototype Hub';
+      if(updateHash) history.replaceState(null,'','#'+id);
+      sidebar.classList.remove('open');
+    }
+    buttons.forEach(b=>b.addEventListener('click',()=>activate(b.dataset.view)));
+    document.getElementById('mobileToggle').addEventListener('click',()=>sidebar.classList.toggle('open'));
+    const initial=location.hash.replace('#','');
+    if(['timeline','paid','course'].includes(initial)) activate(initial,false);
+  </script>
+</body>
+</html>
