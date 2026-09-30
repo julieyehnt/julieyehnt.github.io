@@ -1372,7 +1372,8 @@
     }
 
     #frontend .course-flow[data-flow-step="1"] .prestep-screen[data-screen="1"],
-    #frontend .course-flow[data-flow-step="2"] .prestep-screen[data-screen="2"] {
+    #frontend .course-flow[data-flow-step="2"] .prestep-screen[data-screen="2"],
+    #frontend .course-flow[data-flow-step="4"] .prestep-screen[data-screen="4"] {
       display: block;
     }
 
@@ -1460,11 +1461,97 @@
 
     #frontend .prestep-footer-btn {
       width: 100%;
+      position: relative;
+      z-index: 5;
+      pointer-events: auto;
       border: 0;
       background: transparent;
       color: #7a8795;
       font-size: 18px;
       padding: 14px 0 0;
+      cursor: pointer;
+    }
+
+    #frontend .agent-referral-sheet {
+      padding: 28px 20px 34px;
+    }
+
+    #frontend .agent-referral-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      background: #eef6ff;
+      border: 1.5px solid #a9cfff;
+      margin-bottom: 28px;
+    }
+
+    #frontend .agent-referral-title {
+      margin: 0 0 14px;
+      font-size: 25px;
+      line-height: 1.3;
+      font-weight: 900;
+      color: #1f2937;
+    }
+
+    #frontend .agent-referral-copy {
+      margin: 0 0 20px;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #718096;
+    }
+
+    #frontend .agent-referral-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      margin-bottom: 22px;
+      border: 1.5px solid #a9cfff;
+      border-radius: 14px;
+      background: #eef6ff;
+      color: #243447;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    #frontend .agent-referral-info-icon {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #2f6fe4;
+      color: white;
+      font-weight: 900;
+      font-size: 16px;
+      margin-top: 1px;
+    }
+
+    #frontend .agent-referral-action {
+      width: 100%;
+      min-height: 54px;
+      border: 1px solid #d7dce3;
+      background: #fff;
+      border-radius: 999px;
+      color: #1f2937;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    #frontend .agent-referral-reset {
+      display: block;
+      margin: 12px auto 0;
+      border: 0;
+      background: transparent;
+      color: #7b8794;
+      text-decoration: underline;
+      font-size: 14px;
       cursor: pointer;
     }
 
@@ -1649,7 +1736,22 @@
                 <span class="prestep-choice-copy">只填姓名，最多 10 位</span>
               </span>
             </button>
+            <button type="button" class="prestep-footer-btn" data-flow-back="1" onclick="return goBackOneStep(this, event)">← 返回上一步</button>
             <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
+          </div>
+        </div>
+        <div class="prestep-screen" data-screen="4">
+          <div class="prestep-sheet agent-referral-sheet">
+            <div class="agent-referral-avatar">👤</div>
+            <h2 class="agent-referral-title">由你的顧問為你報名</h2>
+            <p class="agent-referral-copy">把想參加的場次告訴他，他會替你保留座位，並在活動前把入場 QR code 交給你。</p>
+            <div class="agent-referral-info">
+              <span class="agent-referral-info-icon">i</span>
+              <span>透過顧問報名，他會持續是你的聯絡窗口。若在這裡自行報名，後續將由活動團隊接手。</span>
+            </div>
+            <button type="button" class="agent-referral-action" data-copy-seminar-info>複製講座資訊，傳給顧問</button>
+            <button type="button" class="agent-referral-action" data-return-event-page>回到活動頁</button>
+            <button type="button" class="agent-referral-reset" data-referral-reset>重新選擇報名身份</button>
           </div>
         </div>
       </div>
@@ -1865,7 +1967,22 @@
                 <span class="prestep-choice-copy">只填姓名，最多 10 位</span>
               </span>
             </button>
+            <button type="button" class="prestep-footer-btn" data-flow-back="1" onclick="return goBackOneStep(this, event)">← 返回上一步</button>
             <button type="button" class="prestep-footer-btn" data-flow-reset>取消</button>
+          </div>
+        </div>
+        <div class="prestep-screen" data-screen="4">
+          <div class="prestep-sheet agent-referral-sheet">
+            <div class="agent-referral-avatar">👤</div>
+            <h2 class="agent-referral-title">由你的顧問為你報名</h2>
+            <p class="agent-referral-copy">把想參加的場次告訴他，他會替你保留座位，並在活動前把入場 QR code 交給你。</p>
+            <div class="agent-referral-info">
+              <span class="agent-referral-info-icon">i</span>
+              <span>透過顧問報名，他會持續是你的聯絡窗口。若在這裡自行報名，後續將由活動團隊接手。</span>
+            </div>
+            <button type="button" class="agent-referral-action" data-copy-seminar-info>複製講座資訊，傳給顧問</button>
+            <button type="button" class="agent-referral-action" data-return-event-page>回到活動頁</button>
+            <button type="button" class="agent-referral-reset" data-referral-reset>重新選擇報名身份</button>
           </div>
         </div>
       </div>
@@ -2429,6 +2546,18 @@
     });
 
 
+    function goBackOneStep(button, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      const panel = button.closest('.course-flow');
+      if (!panel) return false;
+      panel.dataset.flowStep = '1';
+      panel.dataset.referralKind = '';
+      return false;
+    }
+
     ['ea', 'cpa'].forEach(course => {
       const panel = document.getElementById(`panel-${course}`);
       panel.querySelectorAll('[data-agent-login-flow="1"]').forEach(link => {
@@ -2442,14 +2571,38 @@
       panel.querySelectorAll('[data-agent-referral-placeholder="1"]').forEach(btn => {
         btn.addEventListener('click', () => {
           panel.dataset.referralKind = 'agent';
+          setCourseFlow(course, 4);
         });
       });
 
       panel.querySelectorAll('[data-direct-registration="1"]').forEach(btn => {
         btn.addEventListener('click', () => {
+          // 自行找到活動目前不導向 Agent 的「這次報名是給誰的？」頁面。
           panel.dataset.referralKind = 'direct';
         });
       });
+      panel.querySelectorAll('[data-referral-reset]').forEach(btn => {
+        btn.addEventListener('click', () => resetCourseFlow(course));
+      });
+
+      panel.querySelectorAll('[data-return-event-page]').forEach(btn => {
+        btn.addEventListener('click', () => resetCourseFlow(course));
+      });
+
+      panel.querySelectorAll('[data-copy-seminar-info]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const seminarInfo = 'Course Registration｜EA / CPA';
+          try {
+            await navigator.clipboard.writeText(seminarInfo);
+            const original = btn.textContent;
+            btn.textContent = '已複製講座資訊';
+            setTimeout(() => { btn.textContent = original; }, 1400);
+          } catch (e) {
+            btn.textContent = '請複製講座資訊後傳給顧問';
+          }
+        });
+      });
+
       panel.querySelectorAll('[data-complete-flow="1"]').forEach(btn => {
         btn.addEventListener('click', () => {
           panel.dataset.registrationKind = btn.dataset.registrationKind || 'client';
@@ -2457,6 +2610,14 @@
           refreshClientState(course);
         });
       });
+      panel.querySelectorAll('[data-flow-back="1"]').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+          event.preventDefault();
+          setCourseFlow(course, 1);
+          panel.dataset.referralKind = '';
+        });
+      });
+
       panel.querySelectorAll('[data-flow-reset]').forEach(btn => {
         btn.addEventListener('click', () => resetCourseFlow(course));
       });
