@@ -1658,6 +1658,235 @@
       .top-line { display: none; }
     }
 
+    /* Course front-end solution switch */
+    .course-solution-switch {
+      width: min(1220px, calc(100% - 32px));
+      margin: 18px auto 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .course-solution-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .course-solution-head strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .course-solution-head span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .course-solution-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .course-solution-tab {
+      appearance: none;
+      border: 1px solid #dfe4e8;
+      border-radius: 12px;
+      background: #fafbfb;
+      padding: 13px 14px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text);
+      transition: .16s ease;
+    }
+    .course-solution-tab:hover { border-color: #b9d8bf; background: #f7fbf8; }
+    .course-solution-tab.active {
+      border-color: var(--brand);
+      background: #f1fbf3;
+      box-shadow: 0 0 0 1px rgba(54,178,74,.08);
+    }
+    .course-solution-tab .solution-no {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: #edf1f3;
+      color: #66717d;
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+    .course-solution-tab.active .solution-no { background: #dff5e3; color: #248f39; }
+    .course-solution-tab .solution-title {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+    .course-solution-tab .solution-desc {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+    .course-solution-view { display: none; }
+    .course-solution-view.active { display: block; }
+
+    .agent-link-page {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 96px;
+    }
+    .agent-link-hero {
+      background: linear-gradient(135deg, #f0fbf3 0%, #ffffff 62%);
+      border: 1px solid #d7eddc;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+    .agent-link-kicker {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: #dff5e3;
+      color: #248f39;
+      padding: 5px 9px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      margin-bottom: 10px;
+    }
+    .agent-link-hero h2 { margin: 0 0 8px; font-size: 20px; line-height: 1.35; }
+    .agent-link-hero p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .agent-link-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 14px;
+    }
+    .agent-link-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .agent-link-card h3 { margin: 0 0 5px; font-size: 14px; }
+    .agent-link-card > p { margin: 0 0 14px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .agent-profile-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0 14px;
+      border-bottom: 1px solid var(--line-soft);
+      margin-bottom: 14px;
+    }
+    .agent-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: #eef8f0; color: #248f39; font-weight: 900;
+      flex: 0 0 auto;
+    }
+    .agent-profile-row strong { display: block; font-size: 12px; }
+    .agent-profile-row span { display: block; color: var(--muted); font-size: 10px; margin-top: 3px; }
+    .agent-link-label { font-size: 10px; font-weight: 800; color: #5f6975; margin-bottom: 6px; }
+    .agent-link-field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f7f8f9;
+      border: 1px solid #e2e6ea;
+      border-radius: 10px;
+      padding: 9px 10px;
+      font-size: 10px;
+      color: #4a5562;
+      overflow: hidden;
+    }
+    .agent-link-field code {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .agent-link-actions { display: flex; gap: 8px; margin-top: 10px; }
+    .agent-link-btn {
+      flex: 1;
+      border: 1px solid #dce2e6;
+      border-radius: 9px;
+      background: #fff;
+      padding: 9px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .agent-link-btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .agent-attribution {
+      margin-top: 12px;
+      padding: 10px 11px;
+      border-radius: 10px;
+      background: #f6faf7;
+      color: #52605a;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .agent-attribution strong { color: #248f39; }
+    .link-flow-list { display: grid; gap: 10px; margin-top: 12px; }
+    .link-flow-step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 9px;
+      align-items: start;
+    }
+    .link-flow-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: #eef8f0; color: #248f39; font-size: 11px; font-weight: 900;
+    }
+    .link-flow-step strong { display: block; font-size: 11px; margin: 1px 0 3px; }
+    .link-flow-step span { display: block; color: var(--muted); font-size: 10px; line-height: 1.55; }
+
+    .course-decision-card {
+      margin-top: 14px;
+      background: #fffdf6;
+      border: 1px solid #f0dfab;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .course-decision-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 900; margin-bottom: 10px;
+    }
+    .course-decision-badge {
+      border-radius: 999px;
+      background: #fff1bd;
+      color: #8c6500;
+      padding: 4px 8px;
+      font-size: 9px;
+      font-weight: 900;
+    }
+    .course-decision-list { display: grid; gap: 8px; }
+    .course-decision-item {
+      background: rgba(255,255,255,.72);
+      border: 1px solid #f1e5bf;
+      border-radius: 10px;
+      padding: 10px 11px;
+      font-size: 11px;
+      line-height: 1.6;
+      color: #59616b;
+    }
+    .course-decision-item strong { color: #303842; }
+
+    @media (max-width: 760px) {
+      .course-solution-switch { width: calc(100% - 20px); margin-top: 10px; padding: 12px; }
+      .course-solution-tabs { grid-template-columns: 1fr; }
+      .agent-link-page { width: calc(100% - 20px); padding-top: 12px; }
+      .agent-link-grid { grid-template-columns: 1fr; }
+      .course-solution-head { display: block; }
+    }
+
   </style>
 </head>
 <body>
@@ -1679,6 +1908,28 @@
     </div>
 
     <section id="frontend" class="module-panel active">
+      <div class="course-solution-switch">
+        <div class="course-solution-head">
+          <div>
+            <strong>Course CPA / EA｜前台方案</strong>
+            <span>兩種作法可切換查看；目前既有畫面保留為方案 1。</span>
+          </div>
+        </div>
+        <div class="course-solution-tabs" role="tablist" aria-label="Course front-end solutions">
+          <button type="button" class="course-solution-tab active" data-solution="course-solution-1">
+            <span class="solution-no">方案 1 · 現況</span>
+            <span class="solution-title">沿用代客報名分流</span>
+            <span class="solution-desc">Agent 登入後選擇幫客戶報名並代填資料；需再確認 CPA / EA 哪些欄位為必填。</span>
+          </button>
+          <button type="button" class="course-solution-tab" data-solution="course-solution-2">
+            <span class="solution-no">方案 2 · 新提案</span>
+            <span class="solution-title">Agent 專屬 Link</span>
+            <span class="solution-desc">Agent 分享自己的專屬報名連結，由客戶自行填寫，送出後自動綁定 Referral Agent。</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="course-solution-1" class="course-solution-view active">
       <div class="pwa-header">
         <div class="pwa-status"><span>9:41</span><span>● ● ●</span></div>
         <div class="pwa-topline">
@@ -2158,6 +2409,91 @@
         <button type="button" class="pwa-nav-item active"><span class="nav-icon">▣</span><span>活動</span></button>
         <button type="button" class="pwa-nav-item"><span class="nav-icon">●</span><span>我的</span></button>
       </div>
+
+      </div>
+
+      <div id="course-solution-2" class="course-solution-view">
+        <div class="pwa-header">
+          <div class="pwa-status"><span>9:41</span><span>● ● ●</span></div>
+          <div class="pwa-topline">
+            <button class="pwa-icon-btn" type="button" aria-label="返回">‹</button>
+            <div class="pwa-heading"><strong>Course Registration</strong><span>Agent referral link</span></div>
+            <button class="pwa-icon-btn" type="button" aria-label="更多">⋯</button>
+          </div>
+        </div>
+
+        <div class="agent-link-page">
+          <section class="agent-link-hero">
+            <span class="agent-link-kicker">方案 2 · Agent 專屬 Link</span>
+            <h2>Agent 分享專屬連結，由客戶自行完成 Course 報名</h2>
+            <p>減少 Agent 逐位代填資料的操作；客戶透過此連結送出後，系統自動保留 Agent referral 關係。</p>
+          </section>
+
+          <div class="agent-link-grid">
+            <section class="agent-link-card">
+              <h3>我的 Course 報名連結</h3>
+              <p>Agent 登入後取得個人專屬 Link，可直接複製或分享給客戶。</p>
+
+              <div class="agent-profile-row">
+                <div class="agent-avatar">WW</div>
+                <div>
+                  <strong>Wade Warren</strong>
+                  <span>Agent ID · TG-10482</span>
+                </div>
+              </div>
+
+              <div class="agent-link-label">EA / CPA Agent referral link（示意）</div>
+              <div class="agent-link-field">
+                <code id="agentCourseReferralLink">https://event.transglobalus.com/course?ref=TG-10482</code>
+              </div>
+              <div class="agent-link-actions">
+                <button type="button" class="agent-link-btn primary" id="copyAgentCourseLink">複製連結</button>
+                <button type="button" class="agent-link-btn">分享</button>
+              </div>
+
+              <div class="agent-attribution">
+                客戶由此 Link 完成報名後，系統自動標記 <strong>Referral Agent = Wade Warren（TG-10482）</strong>。
+              </div>
+            </section>
+
+            <section class="agent-link-card">
+              <h3>客戶填寫流程</h3>
+              <p>客戶不需要 Agent 帳號，開啟專屬 Link 後自行完成 Course 報名資料。</p>
+              <div class="link-flow-list">
+                <div class="link-flow-step">
+                  <span class="link-flow-num">1</span>
+                  <div><strong>Agent 分享專屬 Link</strong><span>透過 Email、SMS、LINE 等方式提供給客戶。</span></div>
+                </div>
+                <div class="link-flow-step">
+                  <span class="link-flow-num">2</span>
+                  <div><strong>客戶自行填寫 CPA / EA 資料</strong><span>顯示 Course 所需欄位；需再確認哪些欄位為必填。</span></div>
+                </div>
+                <div class="link-flow-step">
+                  <span class="link-flow-num">3</span>
+                  <div><strong>送出並綁定 Referral Agent</strong><span>報名資料保留客戶資訊，同時記錄來源 Agent。</span></div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <section class="course-decision-card">
+            <div class="course-decision-title">
+              待確認項目
+              <span class="course-decision-badge">Decision needed</span>
+            </div>
+            <div class="course-decision-list">
+              <div class="course-decision-item"><strong>開課通知：</strong>是否由 Agent 統一收到開課通知，再由 Agent 通知客戶？或客戶也需直接收到系統通知？</div>
+              <div class="course-decision-item"><strong>My Event 管理：</strong>Agent 登入後，是否可於 My Event 查看與管理所有透過其專屬 Link 完成報名的客戶？</div>
+            </div>
+          </section>
+        </div>
+
+        <div class="pwa-bottom-nav" aria-label="PWA navigation">
+          <button type="button" class="pwa-nav-item"><span class="nav-icon">⌂</span><span>首頁</span></button>
+          <button type="button" class="pwa-nav-item active"><span class="nav-icon">▣</span><span>活動</span></button>
+          <button type="button" class="pwa-nav-item"><span class="nav-icon">●</span><span>我的</span></button>
+        </div>
+      </div>
     </section>
 
     <section id="backend" class="module-panel">
@@ -2281,6 +2617,31 @@
     const modulePanels = document.querySelectorAll('.module-panel');
     const courseTabs = document.querySelectorAll('.course-tab');
     const coursePanels = document.querySelectorAll('.panel');
+    const courseSolutionTabs = document.querySelectorAll('.course-solution-tab');
+    const courseSolutionViews = document.querySelectorAll('.course-solution-view');
+
+    function activateCourseSolution(id) {
+      courseSolutionTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.solution === id));
+      courseSolutionViews.forEach(view => view.classList.toggle('active', view.id === id));
+    }
+
+    courseSolutionTabs.forEach(tab => {
+      tab.addEventListener('click', () => activateCourseSolution(tab.dataset.solution));
+    });
+
+    const copyAgentCourseLink = document.getElementById('copyAgentCourseLink');
+    if (copyAgentCourseLink) {
+      copyAgentCourseLink.addEventListener('click', async () => {
+        const link = document.getElementById('agentCourseReferralLink')?.textContent?.trim() || '';
+        try {
+          await navigator.clipboard.writeText(link);
+          copyAgentCourseLink.textContent = '已複製';
+          setTimeout(() => { copyAgentCourseLink.textContent = '複製連結'; }, 1400);
+        } catch (error) {
+          copyAgentCourseLink.textContent = '請手動複製';
+        }
+      });
+    }
 
     function activateModule(id) {
       moduleTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.module === id));
