@@ -998,3 +998,720 @@
   <main class="page-wrap">
     <div class="module-tabs">
       <button class="module-tab active" data-module="frontend">前台</button>
+      <button class="module-tab" data-module="backend">後台</button>
+      <button class="module-tab" data-module="scope">功能流程與全部範疇</button>
+      <button class="module-tab" data-module="shopify">Shopify 設定示意</button>
+    </div>
+    <section id="frontend" class="module-panel active">
+    <!-- 保留目前 Paid Seminar 前台報名流程 -->
+    <section id="registration-flow" class="module-content active">
+      <div id="preLoginEntry" class="front-step active">
+        <div class="prelogin-screen">
+          <div class="prelogin-phone">
+            <div class="prelogin-sheet">
+              <div class="prelogin-handle"></div>
+              <h2 class="prelogin-title">報名前，先確認一件事</h2>
+              <p class="prelogin-subtitle">選對身份，才不會影響你和顧問之間的服務關係。</p>
+
+              <button type="button" class="prelogin-choice" id="hasAgentChoice">
+                <span class="prelogin-icon">🤝</span>
+                <span>
+                  <strong>有 Agent 介紹我</strong>
+                  <span>由他為你報名並轉交 QR code</span>
+                </span>
+              </button>
+
+              <button type="button" class="prelogin-choice" id="directChoice">
+                <span class="prelogin-icon">✍️</span>
+                <span>
+                  <strong>自行找到活動</strong>
+                  <span>在這裡報名，活動團隊會後續聯繫</span>
+                </span>
+              </button>
+
+              <div class="prelogin-agent-helper">
+                你是泛宇顧問嗎？
+                <button type="button" class="prelogin-agent-login" id="agentLoginBtn">登入後可替客戶報名</button>
+              </div>
+
+              <button type="button" class="prelogin-cancel">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="registrationEntry" class="front-step">
+        <div class="event-preview">
+          <div class="event-hero">
+            <div class="event-hero-kicker">ALL-IN-ONE FINANCE</div>
+            <h2>人生下半場</h2>
+            <h3>資產稅務策略</h3>
+            <span class="event-chip">資產保值秘訣</span>
+          </div>
+
+          <div class="event-body">
+            <h3>人生下半場的資產稅務策劃及財富傳承與信託講座</h3>
+            <span class="proxy-badge">支援代客報名</span>
+            <div class="event-meta">
+              <div class="event-meta-row"><span class="event-meta-icon">📅</span><span>10/17/2026（六）10:00 AM PDT</span></div>
+              <div class="event-meta-row"><span class="event-meta-icon">📍</span><span>3848 Carson St, Suite 200. Torrance</span></div>
+              <div class="event-meta-row"><span class="event-meta-icon">🎟️</span><span>FREE・尚有 38 席</span></div>
+            </div>
+          </div>
+
+          <div class="entry-sheet">
+            <div class="sheet-handle"></div>
+            <h3>這次報名是給誰的？</h3>
+            <div class="entry-sub">你目前以 Wade Warren（#TG-10482）登入。</div>
+            <button type="button" class="entry-choice">
+              <span class="entry-icon">🎟️</span>
+              <span><strong>自己報名</strong>以你本人的身份參加</span>
+            </button>
+            <button type="button" id="proxyRegistrationBtn" class="entry-choice">
+              <span class="entry-icon">👥</span>
+              <span><strong>幫客戶報名</strong>只填姓名，最多 10 位</span>
+            </button>
+            <button type="button" class="entry-cancel">取消</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="proxyRegistrationPage" class="front-step">
+        <button type="button" id="backToRegistrationEntry" class="back-entry">← 回到報名對象選擇</button>
+        <div class="front-layout">
+          <div class="card form-card">
+            <h2 class="form-title">Page 4｜代客報名頁（Paid seminar 情境）</h2>
+            <p class="form-subtitle">只需要姓名。系統不會儲存客戶的聯絡方式，也不會主動與他們聯繫。</p>
+            <div class="inline-info"><span class="note-icon">i</span><span>此活動已設定 <strong>Agent Proxy Registration</strong> 專用 Form，下方 Custom Form 欄位取用代客報名版本。</span></div>
+
+            <div class="payment-method">
+              <div class="payment-title">選擇付款方式</div>
+              <div class="payment-options">
+                <label class="payment-option active" data-payment="agent">
+                  <input type="radio" name="paymentMethod" value="agent" checked>
+                  <span class="payment-option-copy"><strong>1. 我代為幫客戶付款</strong><span class="payment-hint">不需留下客戶 Email。</span></span>
+                </label>
+                <label class="payment-option" data-payment="customer">
+                  <input type="radio" name="paymentMethod" value="customer">
+                  <span class="payment-option-copy"><strong>2. 客戶自行付款</strong><span class="payment-hint">因需要提供付款連結給客戶，選擇此項目後，每位客戶皆需留下 Email。</span></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="add-client-bar">
+              <div class="add-client-copy"><strong>代客報名</strong><span id="clientCountCopy">目前 1 位客戶，最多可新增至 10 位。</span></div>
+              <button type="button" id="addClientBtn" class="add-client-btn">＋ 新增更多客戶</button>
+            </div>
+
+            <div id="clientTabs" class="client-tabs">
+              <button class="client-tab active" data-client="1">客戶 1</button>
+            </div>
+
+            <div id="clientCards">
+              <div class="client-card active" data-client="1">
+                <div class="client-card-title">客戶 1</div>
+                <div class="two-col">
+                  <div class="field"><label class="label required">First name</label><input class="input" placeholder="請輸入"></div>
+                  <div class="field"><label class="label required">Last name</label><input class="input" placeholder="請輸入"></div>
+                </div>
+                <div class="field email-field"><label class="label required">Email</label><input class="input client-email" type="email" placeholder="請輸入客戶 Email"></div>
+                <div class="field"><label class="label">Note（選填）</label><textarea class="textarea" placeholder="例如：王太太的先生、公司同事"></textarea></div>
+                <div class="section-divider"></div>
+                <div class="custom-head">Custom Form <span class="chip">Agent Proxy</span></div>
+                <div class="field" style="margin-bottom:0">
+                  <label class="label">您目前最關心的議題</label>
+                  <select class="select"><option>請選擇</option><option>退休規劃</option><option>保險配置</option><option>資產傳承</option></select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="card summary-card">
+            <div class="summary-body">
+              <div class="summary-row"><span>報名人數</span><span id="summaryClientCount">1 位</span></div>
+              <div class="summary-total"><span>總計</span><span class="price">FREE</span></div>
+              <button class="submit-btn">送出</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    </section>
+
+    
+    
+    <section id="backend" class="module-panel">
+      <div class="backend-combined-wrap">
+
+        <section class="backend-block">
+          <div class="backend-block-head">
+            <span class="backend-block-no">1</span>
+            <div>
+              <h2>Shopify 配置方式</h2>
+              <p>保留原本 Paid Seminar 後台 Tickets 設定，以及 To C / To B Shopify Link 的配置討論。</p>
+            </div>
+          </div>
+
+          <div class="backend-shell restored-backend-shell">
+            <aside class="card backend-nav">
+              <h3>Events</h3>
+              <div class="backend-nav-item active">Seminar</div>
+              <div class="backend-nav-item">Campaigns</div>
+              <div class="backend-nav-item">Tracking</div>
+              <div class="backend-nav-item">Tickets</div>
+              <div class="backend-nav-item">Forms</div>
+              <div class="backend-nav-item">Settings</div>
+            </aside>
+
+            <section class="card editor-card">
+              <h2 class="editor-title">Edit a seminar</h2>
+
+              <div class="steps">
+                <div class="step done"><div class="dot">✓</div><span>Basic Info</span></div>
+                <div class="bar done"></div>
+                <div class="step active current"><div class="dot">2</div><span>Tickets</span></div>
+                <div class="bar"></div>
+                <div class="step"><div class="dot">3</div><span>Register Form</span></div>
+              </div>
+
+              <div class="helper">
+                Preview your event to make sure everything looks right before publishing.
+                <span>↗ Preview your event</span>
+              </div>
+
+              <div class="field">
+                <label class="label required">Select ticket</label>
+                <div class="segmented">
+                  <button id="freeBtn">Free</button>
+                  <button id="paidBtn" class="active">Paid</button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label required" for="customerLink">Shopify marketplace link (for customer)</label>
+                <input id="customerLink" class="input" type="url" value="https://transglobalus.myshopify.com/zh-tw/products/customer-ticket">
+              </div>
+
+              <div class="field">
+                <label class="label required" for="agentLink">Shopify marketplace link (for agent/ agent's customer)</label>
+                <input id="agentLink" class="input" type="url" value="https://transglobalus.myshopify.com/zh-tw/products/agent-ticket">
+              </div>
+
+              <div class="field">
+                <label class="label" for="ticketInfo">Ticket info</label>
+                <textarea id="ticketInfo" class="textarea" placeholder="Please enter"></textarea>
+              </div>
+
+              <div class="editor-actions">
+                <button class="btn">Cancel</button>
+                <button class="btn">Previous</button>
+                <button class="btn primary">Next</button>
+              </div>
+            </section>
+          </div>
+
+          <div class="shopify-discussion-grid">
+            <section class="shopify-discussion-card">
+              <div class="shopify-discussion-tag toc">To C</div>
+              <h3>一般客戶付款 Link</h3>
+              <p>沿用一般客戶自行報名後付款的 Shopify marketplace link。</p>
+              <div class="shopify-discussion-line"><strong>適用：</strong><span>一般 Customer 自行報名</span></div>
+              <div class="shopify-discussion-line"><strong>票種：</strong><span>以一般客戶購票體驗為主</span></div>
+            </section>
+
+            <section class="shopify-discussion-card">
+              <div class="shopify-discussion-tag tob">To B</div>
+              <h3>Agent / Agent's customer Link</h3>
+              <p>新增 Agent 代客報名專用 Shopify Link，可使用 Single-use link，降低 Link 外流風險。</p>
+              <div class="shopify-discussion-line"><strong>Agent 一次付清：</strong><span>Agent 審核通過後取得 To B Link，替多位客戶完成付款。</span></div>
+              <div class="shopify-discussion-line"><strong>客戶自行付款：</strong><span>系統依客戶 Email 寄送付款通知與付款 Link。</span></div>
+            </section>
+          </div>
+
+          <section class="shopify-discussion-note">
+            <div class="shopify-note-title">配置討論重點</div>
+            <div class="shopify-note-items">
+              <div><strong>付款方式：</strong>前台需支援「Agent 一次付清」或「轉交客戶付款」。</div>
+              <div><strong>To B Link：</strong>建議使用 Single-use link，避免付款 Link 被轉傳或外流。</div>
+              <div><strong>動態更新：</strong>審核通過前若替換 Shopify Link，系統應寄出最新 Link。</div>
+              <div><strong>客戶付款：</strong>選擇客戶自行付款時，每位客戶需提供 Email，用於付款通知。</div>
+            </div>
+          </section>
+
+          <section class="shopify-scheme-action">
+            <h3>方案操作示意</h3>
+            <p>對照「建立活動時先設定 Marketplace Link」與「審核個別成員時再填入專屬 Link」兩種系統操作方式。</p>
+            <button type="button" class="scheme-open-btn" id="openSchemeCompare">↗ 開啟方案比較</button>
+          </section>
+        </section>
+
+        <section class="backend-block">
+          <div class="backend-block-head">
+            <span class="backend-block-no">2</span>
+            <div>
+              <h2>非 TG Agent</h2>
+              <p>由 Admin / Sales 邀請 External Agent，完成 Email 驗證與 Profile 啟用。</p>
+            </div>
+          </div>
+
+          <div class="backend-external-wrap">
+            <section class="backend-external-card">
+              <div class="backend-external-head">
+                <h2>Invite External Agent</h2>
+                <span class="backend-role-badge">Admin / Sales</span>
+              </div>
+
+              <div class="backend-field">
+                <label>External Agent Email</label>
+                <input type="email" value="external.agent@example.com" />
+              </div>
+
+              <div class="backend-field">
+                <label>Agent Name（選填）</label>
+                <input type="text" value="Alex Chen" />
+              </div>
+
+              <button type="button" class="backend-invite-btn" id="backendInviteBtn">Send invitation</button>
+
+              <div class="backend-invite-help" id="backendInviteHelp">
+                邀請送出後，External Agent 會收到 Email Invitation。完成 Verify Email 後啟用 External Agent Profile。
+              </div>
+
+              <div class="backend-activated" id="backendActivated">
+                <div class="backend-activated-icon">✓</div>
+                <div>
+                  <strong>External Agent Profile activated</strong>
+                  <span>Email verified · External Agent access enabled</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="backend-note-card">
+              <div class="backend-note-title">
+                <span class="backend-note-icon">!</span>
+                注意事項
+              </div>
+              <div class="backend-note-list">
+                <div class="backend-note-item">
+                  <strong>僅限 Admin / Sales 發送邀請</strong>
+                  <span>External Agent 不可自行建立帳號，需由內部人員發起邀請。</span>
+                </div>
+                <div class="backend-note-item">
+                  <strong>Email 驗證完成前不可使用 Agent 功能</strong>
+                  <span>External Agent 必須先完成 Verify Email，Profile 才會轉為 Activated。</span>
+                </div>
+                <div class="backend-note-item">
+                  <strong>啟用後才可進入後續報名流程</strong>
+                  <span>Profile activated 後，External Agent 才能使用與 TG Agent 相同的代客報名功能。</span>
+                </div>
+                <div class="backend-note-item">
+                  <strong>需保留 External Agent 身分標記</strong>
+                  <span>系統需能區分 TG Agent 與 External Agent，方便後續權限、資料來源與報名紀錄辨識。</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <section id="scope" class="module-panel">
+      <div class="scope-page">
+        <section class="scope-header-card">
+          <div class="scope-eyebrow">PAID SEMINAR</div>
+          <h1>功能流程與全部範疇</h1>
+          <p>整理 Paid Seminar 相關功能流程，依議題分區呈現。</p>
+        </section>
+
+        <section class="scope-section-card">
+          <div class="scope-section-no">1</div>
+          <div class="scope-section-body">
+            <div class="scope-section-title">Shopify</div>
+            <p class="scope-section-desc">Paid Seminar 付款流程與 Shopify Link 設定。</p>
+
+            <div class="scope-flow">
+              <div class="scope-flow-step">
+                <span class="scope-flow-num">1</span>
+                <div><strong>建立 Paid Seminar</strong><span>Ticket type = Paid</span></div>
+              </div>
+              <div class="scope-flow-arrow">→</div>
+              <div class="scope-flow-step">
+                <span class="scope-flow-num">2</span>
+                <div><strong>設定 To C Shopify Link</strong><span>一般客戶自行付款</span></div>
+              </div>
+              <div class="scope-flow-arrow">→</div>
+              <div class="scope-flow-step">
+                <span class="scope-flow-num">3</span>
+                <div><strong>設定 To B Shopify Link</strong><span>Agent / Agent's customer，Single-use link</span></div>
+              </div>
+              <div class="scope-flow-arrow">→</div>
+              <div class="scope-flow-step">
+                <span class="scope-flow-num">4</span>
+                <div><strong>依付款方式寄送通知</strong><span>Agent 一次付清或轉交客戶付款</span></div>
+              </div>
+            </div>
+
+            <div class="shopify-three-flow-section">
+              <div class="shopify-three-flow-head">
+                <h3>三種流程</h3>
+                <p>依報名對象與付款方式，分為 To C 一般客戶、To B Agent 付款、To B 客戶付款三種流程。</p>
+              </div>
+
+              <div class="shopify-flow-row">
+                <div class="shopify-flow-label">
+                  <strong>To C</strong>
+                  <span>一般客戶</span>
+                </div>
+
+                <div class="shopify-flow-box flow-blue">
+                  <strong>客戶自行報名</strong>
+                  <span>送出 Paid Seminar 報名</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box">
+                  <strong>1) 報名送出</strong>
+                  <span>寄給客戶</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box">
+                  <strong>2) 審核通過</strong>
+                  <span>提供 <em class="link-pill toc">To C Link</em></span>
+                  <span>寄給客戶</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box flow-blue">
+                  <strong>3) 付款驗證通過</strong>
+                  <span>收到 QR Code</span>
+                  <span>寄給客戶</span>
+                </div>
+              </div>
+
+              <div class="shopify-flow-row">
+                <div class="shopify-flow-label">
+                  <strong>To B</strong>
+                  <span>Agent 付款</span>
+                </div>
+
+                <div class="shopify-flow-box flow-green">
+                  <strong>Agent 代客報名</strong>
+                  <span>付款方式：我代為幫客戶付款</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box">
+                  <strong>1) 報名送出</strong>
+                  <span>寄給 Agent</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box">
+                  <strong>2) 審核通過</strong>
+                  <span>提供 <em class="link-pill tob">To B Link</em></span>
+                  <span>寄給 Agent</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box flow-green">
+                  <strong>3) 付款驗證通過</strong>
+                  <span>收到 QR Code</span>
+                  <span>寄給 Agent</span>
+                </div>
+              </div>
+
+              <div class="shopify-flow-row">
+                <div class="shopify-flow-label">
+                  <strong>To B</strong>
+                  <span>客戶付款</span>
+                </div>
+
+                <div class="shopify-flow-box flow-orange">
+                  <strong>Agent 代客報名</strong>
+                  <span>付款方式：客戶自行付款</span>
+                  <span>客戶 Email 必填</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box">
+                  <strong>1) 報名送出</strong>
+                  <span>只寄給 Agent</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box">
+                  <strong>2) 審核通過</strong>
+                  <span>提供 <em class="link-pill tob">To B Link</em> 給客戶</span>
+                  <span>客戶收到付款連結；同時以 Email / PWA 通知 Agent：「客戶已收到付款連結」</span>
+                </div>
+                <div class="shopify-flow-arrow">→</div>
+
+                <div class="shopify-flow-box flow-orange">
+                  <strong>3) 付款驗證通過</strong>
+                  <span>客戶收到入場 QR Code</span>
+                  <span>同時以 Email / PWA 通知 Agent：「客戶繳款成功，已可領取入場 QR Code」</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scope-section-card">
+          <div class="scope-section-no">2</div>
+          <div class="scope-section-body">
+            <div class="scope-section-title">非 TG Agent 報名</div>
+            <p class="scope-section-desc">讓沒有 TG Agent 帳號的 External Agent 先完成邀請、Email 驗證與 Profile 啟用，再進入 Agent 報名流程。</p>
+
+            <div class="external-flow-in-scope">
+              <div class="external-flow-row">
+                <div class="external-flow-node active"><span>1</span><strong>Admin / Sales</strong></div>
+                <div class="external-flow-arrow">→</div>
+                <div class="external-flow-node"><span>2</span><strong>Invite External Agent</strong></div>
+                <div class="external-flow-arrow">→</div>
+                <div class="external-flow-node"><span>3</span><strong>Email Invitation</strong></div>
+                <div class="external-flow-arrow">→</div>
+                <div class="external-flow-node"><span>4</span><strong>Verify Email</strong></div>
+                <div class="external-flow-arrow">→</div>
+                <div class="external-flow-node success"><span>5</span><strong>External Agent Profile activated</strong></div>
+              </div>
+            </div>
+
+            <div class="scope-detail-grid">
+              <div class="scope-detail-card"><strong>Admin / Sales</strong><span>由內部人員確認需要邀請的 External Agent。</span></div>
+              <div class="scope-detail-card"><strong>Invite External Agent</strong><span>輸入 External Agent Email 並發送邀請。</span></div>
+              <div class="scope-detail-card"><strong>Email Invitation</strong><span>系統寄送邀請信與驗證連結。</span></div>
+              <div class="scope-detail-card"><strong>Verify Email</strong><span>External Agent 點擊連結完成 Email 驗證。</span></div>
+              <div class="scope-detail-card"><strong>Profile activated</strong><span>External Agent Profile 啟用後，即可進入後續 Agent 報名流程。</span></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="shopify" class="module-panel">
+      <div class="placeholder-panel">
+        <strong>Shopify 設定示意</strong>
+        <span>此頁保留原本 Shopify 設定示意位置。</span>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="schemeCompareModal" class="scheme-modal" aria-hidden="true">
+    <div class="scheme-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="schemeCompareTitle">
+      <div class="scheme-modal-head">
+        <div>
+          <div class="scheme-modal-kicker">SHOPIFY MARKETPLACE LINK</div>
+          <h2 id="schemeCompareTitle">方案比較</h2>
+        </div>
+        <button type="button" class="scheme-modal-close" id="closeSchemeCompare" aria-label="關閉">×</button>
+      </div>
+
+      <div class="scheme-modal-body">
+        <section class="scheme-option">
+          <div class="scheme-option-tag">方案 A｜活動層級設定</div>
+          <h3>建立活動時先設定 Marketplace Link</h3>
+          <p>建立 Paid Seminar 時，先在 Tickets 設定 To B Shopify Marketplace Link；後續審核通過的 Agent 使用當下活動設定的 Link。</p>
+
+          <div class="scheme-flow-mini">
+            <div class="scheme-mini-node">
+              <span>1</span>
+              <div><strong>Create Paid Seminar</strong><small>建立活動</small></div>
+            </div>
+            <div class="scheme-mini-arrow">↓</div>
+            <div class="scheme-mini-node">
+              <span>2</span>
+              <div><strong>Set To B Marketplace Link</strong><small>活動層級設定付款 Link</small></div>
+            </div>
+            <div class="scheme-mini-arrow">↓</div>
+            <div class="scheme-mini-node">
+              <span>3</span>
+              <div><strong>Approve Agent Registration</strong><small>審核通過後寄出目前 Link</small></div>
+            </div>
+          </div>
+
+          <div class="scheme-pros-cons">
+            <div class="scheme-good"><strong>優點</strong><span>開發範圍較小、沿用 To C 設定邏輯。</span></div>
+            <div class="scheme-warn"><strong>注意</strong><span>不同 Agent 使用不同價格或庫存時，需要來回活動設定頁更新 Link，較容易套錯人。</span></div>
+          </div>
+        </section>
+
+        <section class="scheme-option recommended">
+          <div class="scheme-option-tag">方案 B｜逐筆設定</div>
+          <h3>審核個別成員時再填入專屬 Link</h3>
+          <p>每一筆 Agent 代客報名在審核時，由 Admin / Sales 填入該 Agent 專屬 Shopify Link，再完成 Approve。</p>
+
+          <div class="scheme-flow-mini">
+            <div class="scheme-mini-node">
+              <span>1</span>
+              <div><strong>Review Agent Registration</strong><small>查看個別 Agent 報名資料</small></div>
+            </div>
+            <div class="scheme-mini-arrow">↓</div>
+            <div class="scheme-mini-node">
+              <span>2</span>
+              <div><strong>Enter Dedicated Link</strong><small>填入折扣／庫存對應的專屬 Link</small></div>
+            </div>
+            <div class="scheme-mini-arrow">↓</div>
+            <div class="scheme-mini-node">
+              <span>3</span>
+              <div><strong>Approve & Send</strong><small>核准後寄出這筆最新專屬 Link</small></div>
+            </div>
+          </div>
+
+          <div class="scheme-pros-cons">
+            <div class="scheme-good"><strong>優點</strong><span>彈性最高，可精準對應不同 Agent 的價格、折扣碼、庫存與付款安排。</span></div>
+            <div class="scheme-warn"><strong>注意</strong><span>每一筆都需要人工確認與設定，後台操作步驟較多。</span></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="scheme-modal-foot">
+        <span>比較目的：確認 Shopify Link 要在活動層級統一設定，或在 Agent 審核時逐筆設定。</span>
+        <button type="button" class="scheme-modal-done" id="doneSchemeCompare">關閉</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const moduleTabs=document.querySelectorAll('.module-tab');
+    const modulePanels=document.querySelectorAll('.module-panel');
+    moduleTabs.forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        moduleTabs.forEach(t=>t.classList.toggle('active',t===tab));
+        modulePanels.forEach(panel=>panel.classList.toggle('active',panel.id===tab.dataset.module));
+        if(tab.dataset.module==='frontend') showFrontendStep('prelogin');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+
+    // Existing Paid Seminar registration flow
+    const preLoginEntry=document.getElementById('preLoginEntry');
+    const registrationEntry=document.getElementById('registrationEntry');
+    const proxyRegistrationPage=document.getElementById('proxyRegistrationPage');
+    const proxyRegistrationBtn=document.getElementById('proxyRegistrationBtn');
+    const backToRegistrationEntry=document.getElementById('backToRegistrationEntry');
+    const agentLoginBtn=document.getElementById('agentLoginBtn');
+
+    function showFrontendStep(step){
+      if(preLoginEntry) preLoginEntry.classList.toggle('active',step==='prelogin');
+      if(registrationEntry) registrationEntry.classList.toggle('active',step==='entry');
+      if(proxyRegistrationPage) proxyRegistrationPage.classList.toggle('active',step==='proxy');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    if(agentLoginBtn) agentLoginBtn.addEventListener('click',()=>showFrontendStep('entry'));
+    if(proxyRegistrationBtn) proxyRegistrationBtn.addEventListener('click',()=>showFrontendStep('proxy'));
+    if(backToRegistrationEntry) backToRegistrationEntry.addEventListener('click',()=>showFrontendStep('entry'));
+
+    const paymentOptions=document.querySelectorAll('.payment-option');
+    const paymentRadios=document.querySelectorAll('input[name="paymentMethod"]');
+
+    function syncPaymentMethod(){
+      const selected=document.querySelector('input[name="paymentMethod"]:checked')?.value || 'agent';
+      paymentOptions.forEach(option=>option.classList.toggle('active',option.dataset.payment===selected));
+      document.querySelectorAll('.email-field').forEach(field=>field.classList.toggle('show',selected==='customer'));
+      document.querySelectorAll('.client-email').forEach(input=>{input.required=selected==='customer';});
+    }
+    paymentRadios.forEach(radio=>radio.addEventListener('change',syncPaymentMethod));
+
+    const addClientBtn=document.getElementById('addClientBtn');
+    const clientTabs=document.getElementById('clientTabs');
+    const clientCards=document.getElementById('clientCards');
+    const clientCountCopy=document.getElementById('clientCountCopy');
+    const summaryClientCount=document.getElementById('summaryClientCount');
+    let clientCount=1;
+
+    function activateClient(number){
+      clientTabs.querySelectorAll('.client-tab').forEach(tab=>tab.classList.toggle('active',Number(tab.dataset.client)===number));
+      clientCards.querySelectorAll('.client-card').forEach(card=>card.classList.toggle('active',Number(card.dataset.client)===number));
+    }
+
+    function createClientCard(number){
+      const card=document.createElement('div');
+      card.className='client-card';
+      card.dataset.client=number;
+      card.innerHTML=`
+        <div class="client-card-title">客戶 ${number}</div>
+        <div class="two-col">
+          <div class="field"><label class="label required">First name</label><input class="input" placeholder="請輸入"></div>
+          <div class="field"><label class="label required">Last name</label><input class="input" placeholder="請輸入"></div>
+        </div>
+        <div class="field email-field"><label class="label required">Email</label><input class="input client-email" type="email" placeholder="請輸入客戶 Email"></div>
+        <div class="field"><label class="label">Note（選填）</label><textarea class="textarea" placeholder="例如：王太太的先生、公司同事"></textarea></div>
+        <div class="section-divider"></div>
+        <div class="custom-head">Custom Form <span class="chip">Agent Proxy</span></div>
+        <div class="field" style="margin-bottom:0"><label class="label">您目前最關心的議題</label><select class="select"><option>請選擇</option><option>退休規劃</option><option>保險配置</option><option>資產傳承</option></select></div>`;
+      return card;
+    }
+
+    if(addClientBtn) addClientBtn.addEventListener('click',()=>{
+      if(clientCount>=10) return;
+      clientCount+=1;
+      const tab=document.createElement('button');
+      tab.type='button';
+      tab.className='client-tab';
+      tab.dataset.client=clientCount;
+      tab.textContent=`客戶 ${clientCount}`;
+      const tabNumber=clientCount;
+      tab.addEventListener('click',()=>activateClient(tabNumber));
+      clientTabs.appendChild(tab);
+      clientCards.appendChild(createClientCard(clientCount));
+      syncPaymentMethod();
+      clientCountCopy.textContent=`目前 ${clientCount} 位客戶，最多可新增至 10 位。`;
+      summaryClientCount.textContent=`${clientCount} 位`;
+      if(clientCount>=10){addClientBtn.disabled=true;addClientBtn.textContent='已達 10 位上限';}
+      activateClient(clientCount);
+    });
+
+    clientTabs.querySelectorAll('.client-tab').forEach(tab=>tab.addEventListener('click',()=>activateClient(Number(tab.dataset.client))));
+    syncPaymentMethod();
+    const backendInviteBtn=document.getElementById('backendInviteBtn');
+    const backendInviteHelp=document.getElementById('backendInviteHelp');
+    const backendActivated=document.getElementById('backendActivated');
+    if(backendInviteBtn){
+      backendInviteBtn.addEventListener('click',()=>{
+        backendInviteBtn.textContent='Invitation sent';
+        backendInviteHelp.textContent='Email Invitation 已送出。External Agent 完成 Verify Email 後，Profile 狀態會更新為 Activated。';
+        backendActivated.style.display='flex';
+      });
+    }
+
+    const freeBtn=document.getElementById('freeBtn');
+    const paidBtn=document.getElementById('paidBtn');
+    if(freeBtn && paidBtn){
+      [freeBtn,paidBtn].forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          freeBtn.classList.toggle('active',btn===freeBtn);
+          paidBtn.classList.toggle('active',btn===paidBtn);
+        });
+      });
+    }
+
+    const schemeCompareModal=document.getElementById('schemeCompareModal');
+    const openSchemeCompare=document.getElementById('openSchemeCompare');
+    const closeSchemeCompare=document.getElementById('closeSchemeCompare');
+    const doneSchemeCompare=document.getElementById('doneSchemeCompare');
+
+    function setSchemeCompare(open){
+      if(!schemeCompareModal) return;
+      schemeCompareModal.classList.toggle('open',open);
+      schemeCompareModal.setAttribute('aria-hidden',open ? 'false' : 'true');
+      document.body.style.overflow=open ? 'hidden' : '';
+    }
+
+    if(openSchemeCompare) openSchemeCompare.addEventListener('click',()=>setSchemeCompare(true));
+    if(closeSchemeCompare) closeSchemeCompare.addEventListener('click',()=>setSchemeCompare(false));
+    if(doneSchemeCompare) doneSchemeCompare.addEventListener('click',()=>setSchemeCompare(false));
+    if(schemeCompareModal){
+      schemeCompareModal.addEventListener('click',(event)=>{
+        if(event.target===schemeCompareModal) setSchemeCompare(false);
+      });
+    }
+    document.addEventListener('keydown',(event)=>{
+      if(event.key==='Escape' && schemeCompareModal?.classList.contains('open')) setSchemeCompare(false);
+    });
+
+  </script>
+</body>
+</html>
