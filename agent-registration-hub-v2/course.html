@@ -1731,7 +1731,7 @@
       font-size: 11px;
       line-height: 1.55;
     }
-    .course-solution-view { display: none; }
+    .course-solution-view { display: none; width: 100%; min-width: 0; overflow-x: hidden; }
     .course-solution-view.active { display: block; }
 
     .agent-link-page {
@@ -1763,8 +1763,10 @@
     .agent-link-hero p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
     .agent-link-grid {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 14px;
+      width: 100%;
+      min-width: 0;
     }
     .agent-link-card {
       background: #fff;
@@ -1772,6 +1774,9 @@
       border-radius: 16px;
       padding: 18px;
       box-shadow: var(--shadow);
+      width: 100%;
+      min-width: 0;
+      overflow: hidden;
     }
     .agent-link-card h3 { margin: 0 0 5px; font-size: 14px; }
     .agent-link-card > p { margin: 0 0 14px; color: var(--muted); font-size: 11px; line-height: 1.6; }
