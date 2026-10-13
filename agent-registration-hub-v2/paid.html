@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paid Seminar - Frontend Prototype</title>
+  <title>Paid Seminar - HTML 測試版 2026-10-13 v2</title>
   <style>
     :root{
       --bg:#f3f4f6;--surface:#fff;--line:#e5e7eb;--line-soft:#eef1f4;
@@ -1249,6 +1249,39 @@
       }
     }
 
+
+    /* Login stays inside the existing frontend prototype frame. */
+    .tg-login-overlay[hidden]{display:none}
+    .tg-login-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(27,31,47,.5);backdrop-filter:blur(2px)}
+    .tg-login-card{position:relative;width:100%;max-width:398px;max-height:calc(100% - 32px);overflow:auto;background:#fff;border-radius:18px;padding:34px 24px 28px;color:#222640;box-shadow:0 12px 36px rgba(0,0,0,.18)}
+    .tg-login-card h2{font-size:22px;line-height:1.4;text-align:center;margin:0 16px 14px;font-weight:700}
+    .tg-login-subtitle{font-size:13px;line-height:1.7;color:#7a838b;text-align:center;margin:0 0 24px;font-weight:500}
+    .tg-login-close{position:absolute;right:14px;top:12px;background:none;border:0;color:#9093a3;font-size:28px;line-height:1;cursor:pointer}
+    .tg-login-methods{display:flex;gap:4px;padding:4px;border-radius:12px;background:#f0f2f4;margin-bottom:24px}
+    .tg-login-method{flex:1;border:0;border-radius:9px;background:transparent;color:#7a838b;font:inherit;font-size:13px;font-weight:600;padding:11px 6px;cursor:pointer}
+    .tg-login-method[aria-pressed="true"]{background:#fff;color:#23963a;box-shadow:0 1px 5px rgba(0,0,0,.08)}
+    .tg-login-field{margin-bottom:22px}
+    .tg-login-field label{display:block;font-size:14px;margin-bottom:9px}
+    .tg-login-field label span{color:#f04432}
+    .tg-login-field input{width:100%;height:48px;border:1.5px solid #e0e1e6;border-radius:10px;padding:12px 13px;font:inherit;font-size:15px;color:#222640;background:#fff}
+    .tg-login-password{position:relative}
+    .tg-login-password input{padding-right:48px}
+    .tg-password-toggle{position:absolute;right:9px;top:9px;width:30px;height:30px;background:none;border:0;color:#9093a3;cursor:pointer;display:grid;place-items:center}
+    .tg-password-toggle svg{width:22px;height:22px}
+    .tg-login-field.tg-password-field{margin-bottom:11px}
+    .tg-forgot,.tg-return{border:0;background:none;color:#36b449;font:inherit;cursor:pointer;padding:0}
+    .tg-forgot{font-size:13px}
+    .tg-login-help{font-size:12px;line-height:1.6;color:#7a838b;margin:12px 0 0}
+    .tg-login-help:empty{display:none}
+    .tg-login-submit{display:block;width:100%;border:0;border-radius:999px;background:#36b449;color:#fff;font:inherit;font-size:17px;font-weight:600;padding:13px;margin-top:30px;cursor:pointer;box-shadow:0 3px 0 #e7f5e9}
+    .tg-login-footer{text-align:center;font-size:13px;font-weight:600;margin:24px 0 0}
+    .tg-login-card button:focus-visible,.tg-login-card input:focus-visible{outline:2px solid #238441;outline-offset:2px}
+    @media(max-width:360px){
+      .tg-login-overlay{padding:12px}
+      .tg-login-card{padding:32px 18px 24px}
+      .tg-login-card h2{font-size:20px}
+    }
+
   </style>
 </head>
 <body>
@@ -1404,6 +1437,36 @@
           </aside>
         </div>
       </div>
+  <div id="tgLoginModal" class="tg-login-overlay" hidden>
+    <section class="tg-login-card" role="dialog" aria-modal="true" aria-labelledby="tgLoginTitle" aria-describedby="tgLoginSubtitle">
+      <button type="button" id="tgLoginClose" class="tg-login-close" aria-label="關閉登入，返回上一步">×</button>
+      <h2 id="tgLoginTitle">以 TG 經紀人身分登入</h2>
+      <p id="tgLoginSubtitle" class="tg-login-subtitle">使用您的 Contact ID 與密碼，進入經紀人帳戶。</p>
+      <div class="tg-login-methods" role="group" aria-label="選擇登入方式">
+        <button type="button" class="tg-login-method" data-login-method="tg" aria-pressed="true">1. TG Agent</button>
+        <button type="button" class="tg-login-method" data-login-method="invited" aria-pressed="false">2. Invited Agent</button>
+      </div>
+      <form id="tgLoginForm">
+        <div class="tg-login-field">
+          <label for="tgContactId"><span>*</span> Contact ID</label>
+          <input id="tgContactId" name="contactId" autocomplete="off" placeholder="請輸入 Contact ID" required>
+        </div>
+        <div class="tg-login-field tg-password-field">
+          <label for="tgPassword"><span>*</span> 密碼</label>
+          <div class="tg-login-password">
+            <input id="tgPassword" name="password" type="password" autocomplete="off" placeholder="請輸入密碼" required>
+            <button type="button" id="tgPasswordToggle" class="tg-password-toggle" aria-label="顯示密碼" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path id="tgPasswordSlash" d="M3 3l18 18"/></svg>
+            </button>
+          </div>
+        </div>
+        <button type="button" id="tgForgotPassword" class="tg-forgot">忘記密碼？</button>
+        <p id="tgLoginHelp" class="tg-login-help" role="status"></p>
+        <button type="submit" class="tg-login-submit">登入</button>
+      </form>
+      <p class="tg-login-footer"><span id="tgLoginFooterPrompt">不是 TG 經紀人？</span><button type="button" id="tgReturnLogin" class="tg-return">返回登入</button></p>
+    </section>
+  </div>
     </section>
 
       <section id="externalAgentAccountSetup" class="front-subview" data-front-panel="external-account">
@@ -1465,8 +1528,8 @@
       </section>
     </section>
 
-    
-    
+
+
     <section id="backend" class="module-panel">
       <div class="backend-combined-wrap">
 
@@ -1919,6 +1982,8 @@
     </div>
   </div>
 
+
+
   <script>
     const moduleTabs=document.querySelectorAll('.module-tab');
     const modulePanels=document.querySelectorAll('.module-panel');
@@ -1926,6 +1991,7 @@
       tab.addEventListener('click',()=>{
         moduleTabs.forEach(t=>t.classList.toggle('active',t===tab));
         modulePanels.forEach(panel=>panel.classList.toggle('active',panel.id===tab.dataset.module));
+        if(frontendStep==='login') showFrontendStep('prelogin');
         if(tab.dataset.module==='frontend') activateFrontendView('split-flow');
         window.scrollTo({top:0,behavior:'smooth'});
       });
@@ -1937,7 +2003,7 @@
     function activateFrontendView(view){
       frontSubtabs.forEach(tab=>tab.classList.toggle('active',tab.dataset.frontView===view));
       frontSubviews.forEach(panel=>panel.classList.toggle('active',panel.dataset.frontPanel===view));
-      if(view==='split-flow') showFrontendStep('prelogin');
+      if(view==='split-flow' || frontendStep==='login') showFrontendStep('prelogin');
       window.scrollTo({top:0,behavior:'smooth'});
     }
 
@@ -1953,15 +2019,99 @@
     const backToRegistrationEntry=document.getElementById('backToRegistrationEntry');
     const agentLoginBtn=document.getElementById('agentLoginBtn');
 
-    function showFrontendStep(step){
-      if(preLoginEntry) preLoginEntry.classList.toggle('active',step==='prelogin');
-      if(registrationEntry) registrationEntry.classList.toggle('active',step==='entry');
-      if(proxyRegistrationPage) proxyRegistrationPage.classList.toggle('active',step==='proxy');
-      window.scrollTo({top:0,behavior:'smooth'});
+    const tgLoginModal=document.getElementById('tgLoginModal');
+    const tgContactId=document.getElementById('tgContactId');
+    const tgPassword=document.getElementById('tgPassword');
+    const tgLoginHelp=document.getElementById('tgLoginHelp');
+    const tgPasswordToggle=document.getElementById('tgPasswordToggle');
+    let frontendStep='prelogin';
+    const frontendHistory=[];
+    let loginReturnFocus=null;
+    const loginMethods=document.querySelectorAll('.tg-login-method');
+    let loginMethod='tg';
+
+    function renderFrontendStep(step){
+      const modalWasOpen=!tgLoginModal.hidden;
+      const modalIsOpen=step==='login';
+      preLoginEntry.classList.toggle('active',step==='prelogin' || modalIsOpen);
+      registrationEntry.classList.toggle('active',step==='entry');
+      proxyRegistrationPage.classList.toggle('active',step==='proxy');
+      tgLoginModal.hidden=!modalIsOpen;
+      if(modalIsOpen && !modalWasOpen){
+        loginReturnFocus=document.activeElement;
+        // Only the frame's underlying flow is inactive; the page stays available.
+        document.querySelectorAll('#registration-flow > .front-step').forEach(el=>el.inert=true);
+        tgContactId.focus();
+      }else if(!modalIsOpen && modalWasOpen){
+        document.querySelectorAll('#registration-flow > .front-step').forEach(el=>el.inert=false);
+        if(step==='prelogin') loginReturnFocus?.focus();
+      }
+      frontendStep=step;
+      if(!modalIsOpen) window.scrollTo({top:0,behavior:'smooth'});
     }
-    if(agentLoginBtn) agentLoginBtn.addEventListener('click',()=>showFrontendStep('entry'));
-    if(proxyRegistrationBtn) proxyRegistrationBtn.addEventListener('click',()=>showFrontendStep('proxy'));
-    if(backToRegistrationEntry) backToRegistrationEntry.addEventListener('click',()=>showFrontendStep('entry'));
+    function showFrontendStep(step){
+      if(step==='prelogin') frontendHistory.length=0;
+      else if(step!==frontendStep) frontendHistory.push(frontendStep);
+      renderFrontendStep(step);
+    }
+    function backFrontendStep(){
+      renderFrontendStep(frontendHistory.pop() || 'prelogin');
+    }
+    loginMethods.forEach(button=>button.addEventListener('click',()=>{
+      loginMethod=button.dataset.loginMethod;
+      loginMethods.forEach(method=>method.setAttribute('aria-pressed',String(method===button)));
+      document.getElementById('tgLoginTitle').textContent=loginMethod==='tg'?'以 TG 經紀人身分登入':'以 Invited Agent 身分登入';
+      document.getElementById('tgLoginFooterPrompt').textContent=loginMethod==='tg'?'不是 TG 經紀人？':'不是 Invited Agent？';
+      tgLoginModal.dataset.loginMethod=loginMethod;
+    }));
+    agentLoginBtn.addEventListener('click',()=>showFrontendStep('login'));
+    proxyRegistrationBtn.addEventListener('click',()=>showFrontendStep('proxy'));
+    backToRegistrationEntry.addEventListener('click',backFrontendStep);
+    document.querySelectorAll('#registration-flow .prelogin-cancel, #registration-flow .entry-cancel').forEach(button=>button.addEventListener('click',backFrontendStep));
+    document.querySelector('.header-actions .link-btn').addEventListener('click',event=>{
+      event.preventDefault();
+      if(document.getElementById('frontend').classList.contains('active') && document.getElementById('registration-flow').classList.contains('active')) backFrontendStep();
+    });
+    ['tgLoginClose','tgReturnLogin'].forEach(id=>document.getElementById(id).addEventListener('click',backFrontendStep));
+    tgLoginModal.addEventListener('click',event=>{if(event.target===tgLoginModal) backFrontendStep();});
+    document.getElementById('tgLoginForm').addEventListener('submit',event=>{
+      event.preventDefault();
+      if(!tgContactId.value.trim()){
+        tgContactId.setCustomValidity('請輸入 Contact ID。');
+        tgContactId.reportValidity();
+        return;
+      }
+      // Prototype only: accept any non-empty test credentials without a network request.
+      tgPassword.value='';
+      tgPassword.type='password';
+      tgPasswordToggle.setAttribute('aria-pressed','false');
+      tgPasswordToggle.setAttribute('aria-label','顯示密碼');
+      document.getElementById('tgPasswordSlash').style.display='';
+      tgLoginHelp.textContent='';
+      document.querySelector('#registrationEntry .entry-sub').textContent=loginMethod==='tg'?'你目前以 Wade Warren（#TG-10482）登入。':'你目前以 Invited Agent 身分登入。';
+      showFrontendStep('entry');
+    });
+    tgContactId.addEventListener('input',()=>tgContactId.setCustomValidity(''));
+    tgPasswordToggle.addEventListener('click',()=>{
+      const reveal=tgPassword.type==='password';
+      tgPassword.type=reveal?'text':'password';
+      tgPasswordToggle.setAttribute('aria-pressed',String(reveal));
+      tgPasswordToggle.setAttribute('aria-label',reveal?'隱藏密碼':'顯示密碼');
+      document.getElementById('tgPasswordSlash').style.display=reveal?'none':'';
+    });
+    document.getElementById('tgForgotPassword').addEventListener('click',()=>{
+      tgLoginHelp.textContent='此為 HTML 測試版，尚未連接密碼重設服務。測試流程可使用任意非空白 Contact ID 與密碼。';
+    });
+    document.addEventListener('keydown',event=>{
+      if(tgLoginModal.hidden) return;
+      if(event.key==='Escape'){event.preventDefault();backFrontendStep();return;}
+      if(event.key==='Tab'){
+        const focusable=[...tgLoginModal.querySelectorAll('button,input')];
+        const first=focusable[0], last=focusable[focusable.length-1];
+        if(event.shiftKey && document.activeElement===first){event.preventDefault();last.focus();}
+        else if(!event.shiftKey && document.activeElement===last){event.preventDefault();first.focus();}
+      }
+    });
 
     const paymentOptions=document.querySelectorAll('.payment-option');
     const paymentRadios=document.querySelectorAll('input[name="paymentMethod"]');
