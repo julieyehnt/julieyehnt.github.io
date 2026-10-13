@@ -1052,6 +1052,203 @@
       .scheme-action-buttons .scheme-open-btn{width:100%}
     }
 
+    /* Frontend: invited External Agent account setup */
+    .external-account-shell{
+      width:430px;
+      max-width:100%;
+      margin:0 auto;
+      min-height:820px;
+      background:#f6f7f9;
+      border:1px solid #e1e5ea;
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:0 24px 60px rgba(17,24,39,.14);
+      padding:18px 14px 28px;
+    }
+    .external-account-card{
+      background:#fff;
+      border:1px solid #e1e5ea;
+      border-radius:22px;
+      padding:24px 20px;
+      min-height:720px;
+    }
+    .external-account-kicker{
+      display:inline-flex;
+      border-radius:999px;
+      background:#e8f6eb;
+      color:#248f39;
+      padding:5px 9px;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.08em;
+      margin-bottom:12px;
+    }
+    .external-account-card h2{
+      margin:0 0 8px;
+      font-size:23px;
+      line-height:1.35;
+      color:#17203b;
+    }
+    .external-account-lead{
+      margin:0 0 18px;
+      color:#6b7280;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .external-invite-status{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px;
+      border:1px solid #cfe7d4;
+      background:#f4fbf5;
+      border-radius:12px;
+      margin-bottom:20px;
+    }
+    .external-invite-check{
+      width:30px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:#dff5e3;
+      color:#248f39;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .external-invite-status strong{
+      display:block;
+      font-size:11px;
+      color:#273142;
+      margin-bottom:2px;
+    }
+    .external-invite-status span:last-child{
+      display:block;
+      color:#6b7280;
+      font-size:10px;
+    }
+    .external-account-form{
+      display:grid;
+      gap:14px;
+    }
+    .external-account-field label{
+      display:block;
+      font-size:12px;
+      font-weight:800;
+      color:#374151;
+      margin-bottom:7px;
+    }
+    .external-account-field input{
+      width:100%;
+      height:46px;
+      border:1px solid #d7dee7;
+      border-radius:11px;
+      padding:0 12px;
+      background:#fff;
+      color:#111827;
+      font-size:13px;
+      outline:none;
+    }
+    .external-account-field input[readonly]{
+      background:#f7f8fa;
+      color:#6b7280;
+    }
+    .external-account-field input:focus{
+      border-color:#9fd2a8;
+      box-shadow:0 0 0 3px rgba(54,178,74,.08);
+    }
+    .external-account-field > span{
+      display:block;
+      margin-top:5px;
+      color:#8a919c;
+      font-size:9px;
+      line-height:1.5;
+    }
+    .external-account-submit{
+      width:100%;
+      height:46px;
+      border:0;
+      border-radius:12px;
+      background:var(--brand);
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      cursor:pointer;
+      margin-top:2px;
+    }
+    .external-account-error{
+      min-height:16px;
+      color:#d14343;
+      font-size:10px;
+      line-height:1.5;
+    }
+    .external-account-success{
+      display:none;
+      align-items:flex-start;
+      gap:10px;
+      margin-top:18px;
+      padding:13px;
+      border:1px solid #b8dfbf;
+      border-radius:12px;
+      background:#f4fbf5;
+    }
+    .external-account-success.show{display:flex}
+    .external-account-success-icon{
+      width:30px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--brand);
+      color:#fff;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .external-account-success strong{
+      display:block;
+      font-size:12px;
+      color:#1f5130;
+      margin-bottom:3px;
+    }
+    .external-account-success span:last-child{
+      display:block;
+      font-size:10px;
+      line-height:1.55;
+      color:#5f6d63;
+    }
+    .external-account-note{
+      margin-top:18px;
+      padding:12px;
+      border-radius:12px;
+      background:#f7f8fa;
+      color:#667085;
+    }
+    .external-account-note strong{
+      display:block;
+      font-size:10px;
+      color:#374151;
+      margin-bottom:3px;
+    }
+    .external-account-note span{
+      display:block;
+      font-size:9px;
+      line-height:1.6;
+    }
+    @media(max-width:520px){
+      .external-account-shell{
+        width:100%;
+        min-height:calc(100vh - 110px);
+        border:0;
+        border-radius:0;
+        box-shadow:none;
+        padding:12px;
+      }
+      .external-account-card{
+        border-radius:18px;
+        min-height:calc(100vh - 140px);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1071,8 +1268,12 @@
       <button class="module-tab" data-module="shopify">Shopify 設定示意</button>
     </div>
     <section id="frontend" class="module-panel active">
+      <div class="front-subtabs" role="tablist" aria-label="Paid Seminar frontend flows">
+        <button type="button" class="front-subtab active" data-front-view="split-flow">1. 分流功能</button>
+        <button type="button" class="front-subtab" data-front-view="external-account">2. 被邀請 Agent 設定帳號</button>
+      </div>
     <!-- 保留目前 Paid Seminar 前台報名流程 -->
-    <section id="registration-flow" class="module-content active">
+    <section id="registration-flow" class="front-subview active" data-front-panel="split-flow">
       <div id="preLoginEntry" class="front-step active">
         <div class="prelogin-screen">
           <div class="prelogin-phone">
@@ -1204,6 +1405,64 @@
         </div>
       </div>
     </section>
+
+      <section id="externalAgentAccountSetup" class="front-subview" data-front-panel="external-account">
+        <div class="external-account-shell">
+          <div class="external-account-card">
+            <div class="external-account-kicker">INVITED AGENT</div>
+            <h2>設定你的 Agent 帳號</h2>
+            <p class="external-account-lead">你已完成 Email 驗證。請設定登入帳號與密碼，完成後即可使用 TG Agent 身分登入並進行代客報名。</p>
+
+            <div class="external-invite-status">
+              <span class="external-invite-check">✓</span>
+              <div>
+                <strong>Email Invitation verified</strong>
+                <span>external.agent@example.com</span>
+              </div>
+            </div>
+
+            <div class="external-account-form">
+              <div class="external-account-field">
+                <label>Email</label>
+                <input type="email" value="external.agent@example.com" readonly>
+                <span>此 Email 由邀請連結帶入，不可修改。</span>
+              </div>
+
+              <div class="external-account-field">
+                <label>Agent Name</label>
+                <input type="text" value="Alex Chen">
+              </div>
+
+              <div class="external-account-field">
+                <label>Password</label>
+                <input id="externalAgentPassword" type="password" placeholder="請設定密碼">
+                <span>至少 8 個字元。</span>
+              </div>
+
+              <div class="external-account-field">
+                <label>Confirm Password</label>
+                <input id="externalAgentPasswordConfirm" type="password" placeholder="再次輸入密碼">
+              </div>
+
+              <button type="button" id="activateExternalAgentAccount" class="external-account-submit">建立帳號並啟用</button>
+              <div id="externalAccountError" class="external-account-error"></div>
+            </div>
+
+            <div id="externalAccountSuccess" class="external-account-success">
+              <span class="external-account-success-icon">✓</span>
+              <div>
+                <strong>Agent 帳號已啟用</strong>
+                <span>現在可使用 TG Agent 身分登入，並使用 Paid Seminar 代客報名功能。</span>
+              </div>
+            </div>
+
+            <div class="external-account-note">
+              <strong>啟用後身分</strong>
+              <span>External Agent 完成帳號設定後，前台操作方式與 TG Agent 相同；系統後台仍保留 External Agent 來源標記供辨識。</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
 
     
@@ -1667,9 +1926,23 @@
       tab.addEventListener('click',()=>{
         moduleTabs.forEach(t=>t.classList.toggle('active',t===tab));
         modulePanels.forEach(panel=>panel.classList.toggle('active',panel.id===tab.dataset.module));
-        if(tab.dataset.module==='frontend') showFrontendStep('prelogin');
+        if(tab.dataset.module==='frontend') activateFrontendView('split-flow');
         window.scrollTo({top:0,behavior:'smooth'});
       });
+    });
+
+    const frontSubtabs=document.querySelectorAll('.front-subtab');
+    const frontSubviews=document.querySelectorAll('.front-subview');
+
+    function activateFrontendView(view){
+      frontSubtabs.forEach(tab=>tab.classList.toggle('active',tab.dataset.frontView===view));
+      frontSubviews.forEach(panel=>panel.classList.toggle('active',panel.dataset.frontPanel===view));
+      if(view==='split-flow') showFrontendStep('prelogin');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    frontSubtabs.forEach(tab=>{
+      tab.addEventListener('click',()=>activateFrontendView(tab.dataset.frontView));
     });
 
     // Existing Paid Seminar registration flow
@@ -1819,6 +2092,36 @@
     document.addEventListener('keydown',(event)=>{
       if(event.key==='Escape' && originalSchemeImageModal?.classList.contains('open')) setOriginalSchemeImage(false);
     });
+
+    const activateExternalAgentAccount=document.getElementById('activateExternalAgentAccount');
+    const externalAgentPassword=document.getElementById('externalAgentPassword');
+    const externalAgentPasswordConfirm=document.getElementById('externalAgentPasswordConfirm');
+    const externalAccountError=document.getElementById('externalAccountError');
+    const externalAccountSuccess=document.getElementById('externalAccountSuccess');
+
+    if(activateExternalAgentAccount){
+      activateExternalAgentAccount.addEventListener('click',()=>{
+        const password=externalAgentPassword?.value || '';
+        const confirm=externalAgentPasswordConfirm?.value || '';
+        externalAccountError.textContent='';
+        externalAccountSuccess?.classList.remove('show');
+
+        if(password.length<8){
+          externalAccountError.textContent='密碼至少需要 8 個字元。';
+          return;
+        }
+        if(password!==confirm){
+          externalAccountError.textContent='兩次輸入的密碼不一致。';
+          return;
+        }
+
+        externalAccountSuccess?.classList.add('show');
+        activateExternalAgentAccount.textContent='帳號已啟用';
+        activateExternalAgentAccount.disabled=true;
+        externalAgentPassword.disabled=true;
+        externalAgentPasswordConfirm.disabled=true;
+      });
+    }
 
   </script>
 </body>
