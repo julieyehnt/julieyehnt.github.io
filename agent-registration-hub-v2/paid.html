@@ -1282,6 +1282,27 @@
       .tg-login-card h2{font-size:20px}
     }
 
+
+    /* Plan 2: per-member review and purchase link. Scoped to backend. */
+    .review-scene{position:relative;border:1px solid #e2e5ea;border-radius:12px;overflow:hidden;color:#252942;background:#f6f7f8;font-size:13px}
+    .review-stage{position:relative;display:flex;min-height:680px}
+    .review-nav{width:110px;flex-shrink:0;background:white;border-right:1px solid #e6e7eb;display:flex;flex-direction:column;gap:26px;padding:22px 14px;color:#4b5267}
+    .review-nav strong{color:#348648;font-size:15px}.review-nav .selected{color:#348648}
+    .review-list{flex:1;padding:32px;min-width:0}.review-list h3{font-size:16px;margin:0 0 30px}.review-list h2{font-size:22px;margin:30px 0}
+    .review-stats{display:flex;gap:16px}.review-stats>div{border:1px solid #e2e5ea;border-radius:8px;padding:18px;min-width:160px;display:grid;gap:14px}.review-stats span{color:#858b96}
+    .review-tabs{display:flex;gap:20px;border-bottom:1px solid #ddd}.review-tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:12px 0;color:#555b6d;cursor:pointer;font:inherit}.review-tabs [aria-selected="true"]{border-color:#35ad48;color:#348648}.review-tabs b{font-size:11px;border:1px solid #ddd;border-radius:20px;padding:2px 6px}
+    .review-filter{margin:18px 0;color:#777d88;padding:10px;border:1px solid #e2e5ea;border-radius:24px;display:inline-block;font-size:11px}
+    .review-table{width:100%;border-collapse:collapse;text-align:left}.review-table td,.review-table th{padding:20px 12px;border-bottom:1px solid #e4e5e9}.review-table th{font-weight:500;color:#858b96}.review-table td span{display:block;color:#7d8490;font-size:11px;margin-top:8px}.review-row-btn{border:0;background:transparent;color:#348648;text-decoration:underline;cursor:pointer;font:inherit}
+    .review-shade{position:absolute;inset:0;background:#25273566;z-index:1}.review-shade[hidden],.register-drawer[hidden],.pay-link-overlay[hidden],.review-feedback[hidden],.pay-link-error[hidden],.review-saved-link[hidden]{display:none}
+    .register-drawer{position:absolute;right:0;top:0;bottom:0;width:54%;min-width:400px;background:#f7f7f8;z-index:2;display:flex;flex-direction:column;box-shadow:-8px 0 20px #0001}
+    .register-drawer header,.pay-link-modal header{display:flex;align-items:center;justify-content:space-between;gap:12px}.register-drawer header{padding:20px 24px;background:#fff;border-bottom:1px solid #eee}.register-drawer h3{margin:0;font-size:18px;font-weight:500}.review-icon{background:none;border:0;font-size:26px;color:#818896;cursor:pointer;padding:2px 6px}
+    .review-drawer-body{overflow:auto;padding:22px;flex:1}.review-form-card{background:white;border:1px solid #eee;border-radius:8px;padding:24px}.review-person-head{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-bottom:30px}.review-person-head span{display:block;margin-top:12px;overflow-wrap:anywhere}.review-person-head #reviewIdentity{font-size:11px;color:#7c8390}
+    .review-answers{border:1px solid #e2e5ea;border-radius:8px;border-spacing:0;width:100%;font-size:12px;text-align:left}.review-answers th{font-weight:500;color:#858b96}.review-answers td,.review-answers th{padding:16px 12px;border-bottom:1px solid #eee;overflow-wrap:anywhere}.review-answers td:first-child{width:47%}.review-answers select,.review-answers textarea{width:100%;font:inherit;background:white;border:1px solid #ddd;border-radius:5px;padding:8px;color:inherit}.review-answers textarea{min-height:65px;resize:vertical}
+    .register-drawer footer{padding:20px;display:flex;justify-content:flex-end;gap:8px;background:white;border-top:1px solid #eee}.review-btn{border:1px solid #dfe2e6;border-radius:22px;background:#f4f5f6;padding:11px 22px;color:#525967;font:inherit;cursor:pointer}.review-btn.reject{background:white;border-color:#f04a32;color:#e84028}.review-btn.approve{background:#35b448;color:white;border-color:#35b448}.review-btn:disabled{opacity:.45;cursor:default}.review-text-btn{border:0;background:none;color:#348648;text-decoration:underline;cursor:pointer}.review-demo-note{font-size:11px;color:#7d8490;margin-top:22px}.review-feedback{padding:14px;background:#eaf7ec;color:#21753a;border-radius:8px;line-height:1.8;margin-bottom:12px}.review-saved-link{margin-top:18px;padding:14px;background:#eef8f0;color:#26763d;overflow-wrap:anywhere;line-height:1.8}
+    .pay-link-overlay{position:absolute;inset:0;z-index:5;background:#20243270;display:flex;align-items:center;justify-content:center;padding:22px}.pay-link-modal{background:white;border-radius:14px;width:480px;max-width:100%;padding:24px;box-shadow:0 12px 50px #0003;max-height:95%;overflow:auto}.pay-link-modal h3{margin:0;font-size:20px;color:#191c25}.pay-link-member{display:flex;gap:14px;align-items:center;margin:22px 0}.review-avatar{display:grid;place-items:center;border-radius:50%;width:52px;height:52px;background:#e6e8eb;font-size:30px;color:#a4aab0}.pay-link-member strong{font-size:18px}.pay-link-member div>span{display:block;color:#717680;margin-top:6px}.pay-link-modal label{display:block;font-weight:600;font-size:15px;margin-bottom:10px}.pay-link-modal em{color:#e24a38}.pay-link-modal input{width:100%;box-sizing:border-box;border:1px solid #bbb;border-radius:5px;font:inherit;padding:12px}.pay-link-modal input:focus{outline:2px solid #86bff4;border-color:#3d99e8}.pay-link-modal p{color:#7a8088;font-size:12px;line-height:1.8;margin:8px 0 16px}.pay-link-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}.pay-link-actions .review-btn{border-radius:6px;padding:12px 18px}.review-btn.send{background:#087af5;color:white;border-color:#087af5}.pay-link-modal .pay-link-error{color:#c73924}
+    @media(max-width:800px){.review-nav{display:none}.review-list{padding:20px}.register-drawer{width:78%;min-width:0}.review-form-card{padding:16px}.review-drawer-body{padding:14px}.review-person-head{grid-template-columns:1fr}.review-tabs{gap:12px}.review-stats>div{min-width:0;flex:1}.register-drawer footer{padding:14px}.review-btn{padding:10px 15px}}
+    @media(max-width:500px){.register-drawer{width:100%}.review-stage{min-height:730px}.pay-link-overlay{padding:12px}.pay-link-modal{padding:20px}.pay-link-actions{flex-direction:column}.review-table-wrap{overflow:auto}}
+
   </style>
 </head>
 <body>
@@ -1534,108 +1555,30 @@
       <div class="backend-combined-wrap">
 
         <section class="backend-block">
-          <div class="backend-block-head">
-            <span class="backend-block-no">1</span>
-            <div>
-              <h2>Shopify 配置方式</h2>
-              <p>保留原本 Paid Seminar 後台 Tickets 設定，以及 To C / To B Shopify Link 的配置討論。</p>
+          <div class="backend-block-head"><span class="backend-block-no">1</span><div><h2>Shopify 配置方式</h2><p>方案二 · 審核個別成員時填入專屬購買連結，再核准並發送。</p></div></div>
+          <div id="reviewScene" class="review-scene">
+            <div id="reviewStage" class="review-stage">
+              <aside class="review-nav"><strong>TransGlobal</strong><span class="selected">▦ Events</span><span>Campaigns</span><span>Tracking</span><span>Tickets</span><span>Scan QR Code</span><span>Forms</span><span>CMS</span><span>Settings</span></aside>
+              <section class="review-list">
+                <h3>【Taipei City】 11/29/2026 10:00 AM (GMT+8)</h3>
+                <div class="review-stats"><div><strong>0 / 44</strong><span>Actual attendees</span></div><div><strong>0%</strong><span>Attendance rate</span></div></div>
+                <h2>Registrants list</h2>
+                <div class="review-tabs" role="tablist" aria-label="Registration status"><button type="button" role="tab" data-status="Approved">Approved <b id="approvedCount">0</b></button><button type="button" role="tab" data-status="Pending" aria-selected="true">Pending <b id="pendingCount">3</b></button><button type="button" role="tab" data-status="Rejected">Rejected <b id="rejectedCount">0</b></button></div>
+                <div class="review-filter">Registered date: 2026/10/14　 ·　 Lead source: All</div>
+                <div id="reviewFeedback" class="review-feedback" role="status" aria-live="polite" hidden></div>
+                <div class="review-table-wrap"><table class="review-table"><thead><tr><th>Action</th><th>Name</th><th>Registration date</th></tr></thead><tbody id="registrantRows"></tbody></table></div>
+                <p class="review-demo-note">HTML 測試版：核准與發送僅顯示測試結果，不會寄出通知。</p>
+                <button type="button" id="resetReview" class="review-text-btn">重設審核測試</button>
+              </section>
+              <div id="reviewShade" class="review-shade" hidden></div>
+              <aside id="registerDrawer" class="register-drawer" aria-label="Review register form">
+                <header><h3 id="reviewTitle">Review register form</h3><button type="button" id="closeReview" class="review-icon" aria-label="關閉審核抽屜">×</button></header>
+                <div class="review-drawer-body"><div class="review-form-card"><div class="review-person-head"><div><strong id="reviewName"></strong><span id="reviewEmail"></span><span id="reviewIdentity"></span></div><div>Last update by<span id="reviewUpdater">--</span></div></div><table class="review-answers"><thead><tr><th>Question</th><th>Answer</th></tr></thead><tbody><tr><td>How did you hear about us?</td><td><select id="reviewSource" aria-label="How did you hear about us?"><option>TransGlobal Advertisement</option><option>Agent referral</option><option>Friend referral</option></select></td></tr><tr><td>First name</td><td id="reviewFirst"></td></tr><tr><td>Last name</td><td id="reviewLast"></td></tr><tr><td>Phone number</td><td id="reviewPhone"></td></tr><tr><td>Email</td><td id="reviewAnswerEmail"></td></tr><tr><td>Member identity</td><td id="reviewRole"></td></tr><tr><td>Registration status</td><td id="reviewStatus"></td></tr><tr><td>Note</td><td><textarea id="reviewNote" aria-label="Review note" placeholder="Add a review note"></textarea></td></tr></tbody></table><div id="reviewSavedLink" class="review-saved-link" hidden></div></div></div>
+                <footer><button type="button" id="saveReview" class="review-btn">Save</button><button type="button" id="rejectReview" class="review-btn reject">Reject</button><button type="button" id="approveReview" class="review-btn approve">Approval</button></footer>
+              </aside>
             </div>
+            <div id="payLinkOverlay" class="pay-link-overlay" hidden><section class="pay-link-modal" role="dialog" aria-modal="true" aria-labelledby="payLinkTitle" aria-describedby="payLinkHint"><header><h3 id="payLinkTitle">通過審核並提供購買連結</h3><button type="button" id="closePayLink" class="review-icon" aria-label="關閉購買連結視窗">×</button></header><div class="pay-link-member"><span class="review-avatar" aria-hidden="true">♙</span><div><strong id="payLinkMember"></strong><span id="payLinkIdentity"></span></div></div><form id="payLinkForm"><label for="shopifyPayLink">Shopify pay link / Marketplace Link <em>*</em></label><input id="shopifyPayLink" type="url" required placeholder="https://example.com/product/unique123" aria-describedby="payLinkHint payLinkError"><p id="payLinkHint">此 link 將發送給該成員，請確認為該成員的專屬購買連結。</p><p id="payLinkError" class="pay-link-error" role="alert" hidden></p><div class="pay-link-actions"><button type="button" id="cancelPayLink" class="review-btn">取消</button><button type="submit" class="review-btn send">Approval ＆Send link</button></div></form></section></div>
           </div>
-
-          <div class="backend-shell restored-backend-shell">
-            <aside class="card backend-nav">
-              <h3>Events</h3>
-              <div class="backend-nav-item active">Seminar</div>
-              <div class="backend-nav-item">Campaigns</div>
-              <div class="backend-nav-item">Tracking</div>
-              <div class="backend-nav-item">Tickets</div>
-              <div class="backend-nav-item">Forms</div>
-              <div class="backend-nav-item">Settings</div>
-            </aside>
-
-            <section class="card editor-card">
-              <h2 class="editor-title">Edit a seminar</h2>
-
-              <div class="steps">
-                <div class="step done"><div class="dot">✓</div><span>Basic Info</span></div>
-                <div class="bar done"></div>
-                <div class="step active current"><div class="dot">2</div><span>Tickets</span></div>
-                <div class="bar"></div>
-                <div class="step"><div class="dot">3</div><span>Register Form</span></div>
-              </div>
-
-              <div class="helper">
-                Preview your event to make sure everything looks right before publishing.
-                <span>↗ Preview your event</span>
-              </div>
-
-              <div class="field">
-                <label class="label required">Select ticket</label>
-                <div class="segmented">
-                  <button id="freeBtn">Free</button>
-                  <button id="paidBtn" class="active">Paid</button>
-                </div>
-              </div>
-
-              <div class="field">
-                <label class="label required" for="customerLink">Shopify marketplace link (for customer)</label>
-                <input id="customerLink" class="input" type="url" value="https://transglobalus.myshopify.com/zh-tw/products/customer-ticket">
-              </div>
-
-              <div class="field">
-                <label class="label required" for="agentLink">Shopify marketplace link (for agent/ agent's customer)</label>
-                <input id="agentLink" class="input" type="url" value="https://transglobalus.myshopify.com/zh-tw/products/agent-ticket">
-              </div>
-
-              <div class="field">
-                <label class="label" for="ticketInfo">Ticket info</label>
-                <textarea id="ticketInfo" class="textarea" placeholder="Please enter"></textarea>
-              </div>
-
-              <div class="editor-actions">
-                <button class="btn">Cancel</button>
-                <button class="btn">Previous</button>
-                <button class="btn primary">Next</button>
-              </div>
-            </section>
-          </div>
-
-          <div class="shopify-discussion-grid">
-            <section class="shopify-discussion-card">
-              <div class="shopify-discussion-tag toc">To C</div>
-              <h3>一般客戶付款 Link</h3>
-              <p>沿用一般客戶自行報名後付款的 Shopify marketplace link。</p>
-              <div class="shopify-discussion-line"><strong>適用：</strong><span>一般 Customer 自行報名</span></div>
-              <div class="shopify-discussion-line"><strong>票種：</strong><span>以一般客戶購票體驗為主</span></div>
-            </section>
-
-            <section class="shopify-discussion-card">
-              <div class="shopify-discussion-tag tob">To B</div>
-              <h3>Agent / Agent's customer Link</h3>
-              <p>新增 Agent 代客報名專用 Shopify Link，可使用 Single-use link，降低 Link 外流風險。</p>
-              <div class="shopify-discussion-line"><strong>Agent 一次付清：</strong><span>Agent 審核通過後取得 To B Link，替多位客戶完成付款。</span></div>
-              <div class="shopify-discussion-line"><strong>客戶自行付款：</strong><span>系統依客戶 Email 寄送付款通知與付款 Link。</span></div>
-            </section>
-          </div>
-
-          <section class="shopify-discussion-note">
-            <div class="shopify-note-title">配置討論重點</div>
-            <div class="shopify-note-items">
-              <div><strong>付款方式：</strong>前台需支援「Agent 一次付清」或「轉交客戶付款」。</div>
-              <div><strong>To B Link：</strong>建議使用 Single-use link，避免付款 Link 被轉傳或外流。</div>
-              <div><strong>動態更新：</strong>審核通過前若替換 Shopify Link，系統應寄出最新 Link。</div>
-              <div><strong>客戶付款：</strong>選擇客戶自行付款時，每位客戶需提供 Email，用於付款通知。</div>
-            </div>
-          </section>
-
-          <section class="shopify-scheme-action">
-            <h3>方案操作示意</h3>
-            <p>對照「建立活動時先設定 Marketplace Link」與「審核個別成員時再填入專屬 Link」兩種系統操作方式。</p>
-            <div class="scheme-action-buttons">
-            <button type="button" class="scheme-open-btn" id="openOriginalSchemeImage">↗ 開啟原方案示意圖</button>
-            <button type="button" class="scheme-open-btn" id="openSchemeCompare">↗ 開啟方案比較</button>
-          </div>
-          </section>
         </section>
 
         <section class="backend-block">
@@ -2272,6 +2215,59 @@
         externalAgentPasswordConfirm.disabled=true;
       });
     }
+
+
+    // Local HTML demo only; no Shopify or email requests.
+    const reviewMembers=[
+      {first:'立利',last:'閻',email:'lili.yen@example.com',phone:'+886 912 345 678',role:"Agent's customer",agent:'Wade Warren · TG Agent'},
+      {first:'Wade',last:'Warren',email:'wade.warren@example.com',phone:'+1 555 010 1048',role:'TG Agent',agent:'Agent 一次付清'},
+      {first:'Emily',last:'Chen',email:'emily.chen@example.com',phone:'+886 912 345 679',role:'Customer',agent:'客戶自行付款'}
+    ].map(m=>({...m,status:'Pending',source:'Agent referral',note:'',link:'',updated:false}));
+    const reviewEl=id=>document.getElementById(id);
+    let selectedMember=0,reviewFilter='Pending',payReturnFocus=null;
+    function renderRegistrants(){
+      ['Approved','Pending','Rejected'].forEach(s=>{reviewEl(s.toLowerCase()+'Count').textContent=reviewMembers.filter(m=>m.status===s).length;});
+      document.querySelectorAll('.review-tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.status===reviewFilter)));
+      const rows=reviewEl('registrantRows');rows.replaceChildren();
+      reviewMembers.forEach((m,i)=>{if(m.status!==reviewFilter)return;const tr=document.createElement('tr');const action=tr.insertCell();const btn=document.createElement('button');btn.className='review-row-btn';btn.type='button';btn.textContent='Review';btn.setAttribute('aria-label','Review '+m.first+' '+m.last);btn.addEventListener('click',()=>openReview(i));action.append(btn);const name=tr.insertCell();name.textContent=m.first+' '+m.last;const email=document.createElement('span');email.textContent=m.email;name.append(email);tr.insertCell().textContent='2026/10/14';rows.append(tr);});
+      if(!rows.children.length){const tr=document.createElement('tr');const td=tr.insertCell();td.colSpan=3;td.textContent='No registrants · 此分類目前沒有成員';rows.append(tr);}
+    }
+    function openReview(index){
+      selectedMember=index;const m=reviewMembers[index];
+      const values={reviewTitle:'Review register form '+m.first+' '+m.last,reviewName:m.first+' '+m.last,reviewEmail:m.email,reviewIdentity:m.role+' · '+m.agent,reviewUpdater:m.updated?'Admin / Sales':'--',reviewFirst:m.first,reviewLast:m.last,reviewPhone:m.phone,reviewAnswerEmail:m.email,reviewRole:m.role,reviewStatus:m.status};
+      Object.entries(values).forEach(([id,value])=>reviewEl(id).textContent=value);
+      reviewEl('reviewSource').value=m.source;reviewEl('reviewNote').value=m.note;
+      reviewEl('approveReview').disabled=reviewEl('rejectReview').disabled=m.status!=='Pending';
+      reviewEl('reviewSavedLink').hidden=!m.link;reviewEl('reviewSavedLink').textContent=m.link?'Approved · 購買連結已發送（測試） '+m.link:'';
+      reviewEl('registerDrawer').hidden=false;reviewEl('reviewShade').hidden=false;
+    }
+    function closeReview(){reviewEl('registerDrawer').hidden=true;reviewEl('reviewShade').hidden=true;}
+    function saveReview(){const m=reviewMembers[selectedMember];m.source=reviewEl('reviewSource').value;m.note=reviewEl('reviewNote').value;m.updated=true;}
+    function reviewFeedback(message){reviewEl('reviewFeedback').hidden=false;reviewEl('reviewFeedback').textContent=message;}
+    function setPayLinkOpen(open){
+      if(open)payReturnFocus=document.activeElement;
+      const overlay=reviewEl('payLinkOverlay');overlay.hidden=!open;reviewEl('reviewStage').inert=open;
+      if(open){const m=reviewMembers[selectedMember];reviewEl('payLinkMember').textContent=m.first+' '+m.last;reviewEl('payLinkIdentity').textContent=m.role+' · '+m.agent;reviewEl('payLinkForm').reset();reviewEl('shopifyPayLink').setCustomValidity('');reviewEl('payLinkError').hidden=true;reviewEl('shopifyPayLink').focus();}
+      else payReturnFocus?.focus();
+    }
+    reviewEl('approveReview').addEventListener('click',()=>{if(reviewMembers[selectedMember].status==='Pending')setPayLinkOpen(true);});
+    ['closePayLink','cancelPayLink'].forEach(id=>reviewEl(id).addEventListener('click',()=>setPayLinkOpen(false)));
+    reviewEl('payLinkOverlay').addEventListener('click',e=>{if(e.target===reviewEl('payLinkOverlay'))setPayLinkOpen(false);});
+    reviewEl('shopifyPayLink').addEventListener('input',()=>{reviewEl('shopifyPayLink').setCustomValidity('');reviewEl('payLinkError').hidden=true;});
+    reviewEl('payLinkForm').addEventListener('submit',e=>{
+      e.preventDefault();const input=reviewEl('shopifyPayLink'),link=input.value.trim();let valid=false;
+      try{const url=new URL(link);valid=['https:','http:'].includes(url.protocol)&&!!url.hostname;}catch{}
+      if(!valid){input.setCustomValidity('請輸入有效的 http 或 https 專屬購買連結。');reviewEl('payLinkError').textContent='請輸入有效的 Shopify pay link / Marketplace Link。';reviewEl('payLinkError').hidden=false;input.reportValidity();return;}
+      const m=reviewMembers[selectedMember];if(m.status!=='Pending')return;
+      saveReview();m.link=link;m.status='Approved';setPayLinkOpen(false);closeReview();renderRegistrants();reviewFeedback('✓ 核准成功 · '+m.first+' '+m.last+'（'+m.role+'）的專屬購買連結已發送（測試）。');reviewEl('reviewFeedback').tabIndex=-1;reviewEl('reviewFeedback').focus();
+    });
+    reviewEl('closeReview').addEventListener('click',closeReview);
+    reviewEl('saveReview').addEventListener('click',()=>{saveReview();openReview(selectedMember);reviewFeedback('已儲存審核表單，尚未核准。');});
+    reviewEl('rejectReview').addEventListener('click',()=>{const m=reviewMembers[selectedMember];if(m.status!=='Pending')return;saveReview();m.status='Rejected';closeReview();renderRegistrants();reviewFeedback(m.first+' '+m.last+' 的申請已拒絕（測試）。');});
+    document.querySelectorAll('.review-tabs button').forEach(b=>b.addEventListener('click',()=>{reviewFilter=b.dataset.status;closeReview();renderRegistrants();}));
+    reviewEl('resetReview').addEventListener('click',()=>{reviewMembers.forEach(m=>Object.assign(m,{status:'Pending',source:'Agent referral',note:'',link:'',updated:false}));reviewFilter='Pending';reviewEl('reviewFeedback').hidden=true;renderRegistrants();openReview(0);});
+    document.addEventListener('keydown',e=>{if(reviewEl('payLinkOverlay').hidden)return;if(e.key==='Escape'){e.preventDefault();setPayLinkOpen(false);}if(e.key==='Tab'){const items=[...reviewEl('payLinkOverlay').querySelectorAll('button,input')];const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+    renderRegistrants();openReview(0);
 
   </script>
 </body>
