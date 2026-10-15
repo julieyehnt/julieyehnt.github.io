@@ -1303,7 +1303,102 @@
     @media(max-width:800px){.review-nav{display:none}.review-list{padding:20px}.register-drawer{width:78%;min-width:0}.review-form-card{padding:16px}.review-drawer-body{padding:14px}.review-person-head{grid-template-columns:1fr}.review-tabs{gap:12px}.review-stats>div{min-width:0;flex:1}.register-drawer footer{padding:14px}.review-btn{padding:10px 15px}}
     @media(max-width:500px){.register-drawer{width:100%}.review-stage{min-height:730px}.pay-link-overlay{padding:12px}.pay-link-modal{padding:20px}.pay-link-actions{flex-direction:column}.review-table-wrap{overflow:auto}}
 
-  </style>
+  .shopify-config-tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:22px}
+.shopify-config-tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:12px 16px;font:inherit;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer}
+.shopify-config-tabs button[aria-selected="true"]{color:var(--brand-dark);border-bottom-color:var(--brand)}
+#payment-proposal-panel{font-size:14px;line-height:1.7;color:var(--text)}
+#payment-proposal-panel[hidden],#shopify-current-panel[hidden],#pp-overlay[hidden],#pp-link-group[hidden],#pp-feedback[hidden],#pp-error[hidden]{display:none}
+#payment-proposal-panel h3,#payment-proposal-panel h4,#payment-proposal-panel p{margin:0}
+#payment-proposal-panel h3{font-size:26px;line-height:1.4;letter-spacing:-.5px;margin:8px 0 12px}
+#payment-proposal-panel h4{font-size:16px;line-height:1.5}
+.pp-kicker{color:var(--brand-dark);font-size:11px;font-weight:800;letter-spacing:.5px}
+.pp-intro{max-width:800px;margin-bottom:24px}.pp-intro p{color:#586575}
+.pp-compare{display:grid;grid-template-columns:1fr 1fr;gap:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:26px}
+.pp-compare h4{margin:4px 0 9px!important}.pp-compare p{color:#66717d;font-size:13px;margin-bottom:10px!important}.pp-compare strong{font-size:12px;color:var(--brand-dark)}
+.pp-demo-label{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.pp-demo-label span,.pp-small{font-size:12px;color:var(--muted)}
+.pp-demo-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px;background:#f7f9f8;border-radius:10px}
+.pp-demo-controls fieldset{border:0;margin:0;padding:0}.pp-demo-controls legend{font-size:11px;color:#647267;margin-bottom:6px}.pp-demo-controls label{display:inline-flex;gap:5px;align-items:center;margin-right:16px;font-size:13px;font-weight:700}
+#payment-proposal-panel input[type="radio"],#payment-proposal-panel input[type="checkbox"]{accent-color:var(--brand-dark)}
+.pp-small{margin-top:8px!important;line-height:1.7}
+.pp-btn{background:#fff;border:1px solid #d9e0dc;border-radius:7px;padding:9px 13px;color:#3e4a43;font:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:normal;line-height:1.5}
+.pp-btn:hover{background:#f3f6f4}.pp-btn.pp-primary{background:var(--brand);border-color:var(--brand);color:white}.pp-btn.pp-primary:hover{background:var(--brand-dark);border-color:var(--brand-dark)}.pp-btn:disabled,.pp-btn:disabled:hover{background:#f0f2f1;border-color:#e0e4e1;color:#949c97;cursor:default}.pp-btn.pp-quiet{background:transparent}.pp-btn.pp-reject{color:#b64738}
+.pp-order{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:20px;border:1px solid #d4e8d9;border-radius:12px;margin-top:20px;background:#f7fcf8}.pp-order h4{margin-top:4px!important}.pp-order p{font-size:12px;color:#647267;margin-top:6px!important}.pp-order-action{display:flex;flex-direction:column;gap:10px;align-items:flex-end;max-width:300px}
+.pp-badge{font-size:11px;font-weight:700;color:#52635a;padding:3px 8px;background:#e8efea;border-radius:5px;display:inline-block}.pp-badge.pp-sent{background:#e5f5e9;color:#26783a}.pp-badge.pp-pending{background:#fff4df;color:#855d16}.pp-badge.pp-rejected{background:#f5eae6;color:#914d3b}
+.pp-order-hint{font-size:12px;color:#5c6c61;margin-top:8px!important}.pp-review-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 10px}.pp-review-toolbar p{font-size:12px;color:#65726a}
+.pp-table-wrap{overflow:auto}.pp-table{width:100%;border-collapse:collapse;min-width:740px;text-align:left}.pp-table th{font-size:11px;color:#7b877f;font-weight:700;padding:10px 12px;border-bottom:1px solid var(--line);background:#f8faf9}.pp-table td{padding:15px 12px;border-bottom:1px solid var(--line);font-size:12px;vertical-align:middle}.pp-table td:first-child{font-size:14px;font-weight:700}.pp-table small{display:block;font-size:11px;color:#7d8981;font-weight:400;margin-top:3px}.pp-row-actions{display:flex;gap:6px;align-items:center}.pp-row-actions span{font-size:11px;color:#7e8982}
+.pp-feedback{background:#edf8ef;border-left:3px solid var(--brand);padding:12px 16px;margin-top:16px;color:#26763a;font-size:13px;overflow-wrap:anywhere}.pp-rules{margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}.pp-rules ol{padding-left:22px;color:#5d695f;font-size:13px}.pp-rules li{padding-left:3px;margin:12px 0}.pp-rules strong{color:#34483b}
+.pp-overlay{position:fixed;inset:0;z-index:150;display:flex;justify-content:center;align-items:center;padding:22px;background:#202b2580;backdrop-filter:blur(2px)}.pp-modal{background:white;padding:28px;border-radius:16px;width:620px;max-width:100%;max-height:calc(100vh - 44px);overflow:auto;box-shadow:0 20px 70px #15251c33}.pp-modal header{display:flex;align-items:center;justify-content:space-between;gap:10px}.pp-close{border:0;background:none;font:inherit;font-size:28px;cursor:pointer;color:#89948c}.pp-modal h3{font-size:22px!important}.pp-modal>p{font-size:13px;color:#657368}.pp-modal dl{background:#f5f8f6;border-radius:9px;padding:16px;margin:18px 0;font-size:13px;display:grid;grid-template-columns:90px 1fr;gap:9px 12px}.pp-modal dt{color:#748077}.pp-modal dd{margin:0;overflow-wrap:anywhere}.pp-modal #pp-link-group>label:first-child{display:block;font-size:13px;font-weight:700;margin:18px 0 8px}.pp-modal input[type="url"]{font:inherit;font-size:14px;padding:12px;border:1px solid #bbc9bf;border-radius:7px;width:100%;box-sizing:border-box}.pp-modal input:focus-visible,.pp-btn:focus-visible,.shopify-config-tabs button:focus-visible{outline:2px solid var(--brand-dark);outline-offset:3px}.pp-check{font-size:12px;display:flex;gap:8px;align-items:flex-start;margin-top:15px;color:#52665a}.pp-check input{margin-top:4px}.pp-modal footer{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.pp-error{color:#b1372b;font-size:12px;margin-top:12px!important}
+@media(max-width:700px){.pp-compare{grid-template-columns:1fr;gap:22px}.pp-order{align-items:flex-start;flex-direction:column}.pp-order-action{align-items:flex-start;max-width:none;width:100%}.pp-overlay{padding:12px}.pp-modal{padding:20px;max-height:calc(100vh - 24px)}.pp-modal dl{grid-template-columns:75px 1fr}.pp-modal footer{flex-wrap:wrap}.pp-demo-controls label{margin-bottom:5px}}
+
+  .pp-plan-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px;padding:6px;background:#f1f5f2;border-radius:10px}
+.pp-plan-tabs button{background:transparent;border:1px solid transparent;border-radius:7px;padding:11px 15px;font:inherit;font-size:13px;font-weight:750;line-height:1.5;text-align:left;color:#68776c;cursor:pointer}
+.pp-plan-tabs button[aria-selected="true"]{background:white;border-color:#d5e4d9;color:var(--brand-dark);box-shadow:0 1px 3px #14251a0a}
+.pp-plan-tabs small{display:block;font-size:11px;color:#7a8b7e;font-weight:400;margin-top:2px}
+#payment-proposal-panel>.pp-plans-intro{margin:0 0 14px;font-size:13px;color:#637269}
+.pp-plan-panel[hidden],#bp-overlay[hidden],#bp-feedback[hidden],#bp-error[hidden],#bp-complete-label[hidden],.bp-actions button[hidden],.bp-table th[hidden]{display:none}
+.pp-flow-figure{margin:0 0 28px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pp-flow-figure figcaption{font-size:13px;font-weight:750;color:#435c4b;margin-bottom:16px}
+.pp-flow{display:grid;grid-template-columns:1fr 20px 1fr 20px 1fr 20px 1fr;gap:9px;align-items:center}
+.pp-flow-step{align-self:stretch;padding:15px 12px;background:#f5f9f6;border:1px solid #dfe9e1;border-radius:9px}
+.pp-flow-step>span{display:block;font-size:10px;font-weight:750;color:#6e8977;letter-spacing:.3px}.pp-flow-step>strong{display:block;font-size:13px;line-height:1.5;margin:7px 0;color:#30503b}.pp-flow-step>small{display:block;font-size:11px;line-height:1.8;color:#6c7d71}
+.pp-flow-arrow{color:#6b9276;font-size:20px;text-align:center}.pp-record-stack{font-size:10px;line-height:1.8;margin-top:10px;border-top:1px solid #dfe9e1;padding-top:7px;color:#647e6c}
+.pp-flow-figure>p{font-size:12px;line-height:1.7;color:#6b7b70;margin-top:13px!important}
+.bp-limits{display:flex;gap:7px;flex-direction:column;border-left:3px solid #dca850;background:#fff9ed;padding:14px 16px;margin-bottom:24px;color:#80602e;font-size:12px;line-height:1.7}.bp-limits strong{font-size:13px}
+.bp-guide{margin-top:18px;padding:13px 0;font-size:12px;color:#536d5d}.bp-guide strong{display:block;color:#375840}.bp-guide span{display:block;margin-top:3px}
+.bp-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:12px 0}.bp-actions>div{display:flex;gap:7px;flex-wrap:wrap}
+.bp-selection{padding:12px 14px;background:#f3f7f4;border-radius:7px;color:#52705b;font-size:12px;margin:12px 0}.bp-selection.bp-invalid{color:#a05723;background:#fff5e9}
+.bp-table{min-width:920px}.bp-table td:first-child{width:50px;font-size:12px}.bp-table td:nth-child(2){font-size:13px;font-weight:700}.bp-table input[type="checkbox"]{width:16px;height:16px;accent-color:var(--brand-dark)}
+.bp-table .bp-sent-row{background:#f8faf8}.bp-table .pp-row-actions{flex-wrap:wrap}.bp-table small.bp-meta{color:#587965}.bp-change-list{padding-left:22px;color:#5d695f;font-size:13px}.bp-change-list li{padding-left:3px;margin:10px 0}.bp-change-list+h4{margin-top:22px!important}
+.bp-input-label{display:block;font-size:13px;font-weight:700;margin:18px 0 8px}
+.pp-plan-tabs button:focus-visible{outline:2px solid var(--brand-dark);outline-offset:2px}
+@media(max-width:800px){.pp-flow{grid-template-columns:1fr;gap:7px}.pp-flow-arrow{transform:rotate(90deg);line-height:1}.pp-flow-step{padding:13px 15px}.pp-flow-step>strong{margin:4px 0}.pp-flow-step>small br{display:none}.pp-record-stack br{display:none}.pp-plan-tabs button{flex:1;min-width:200px}}
+
+#bp-link-confirm-label[hidden]{display:none}
+#tp-overlay[hidden],#tp-feedback[hidden],#tp-sent-banner[hidden],#tp-link-confirm-label[hidden],#tp-error[hidden]{display:none}
+.tp-front-note{padding:17px 20px;background:#f4f8f5;border:1px solid #dce9df;border-radius:10px;margin-bottom:24px}.tp-front-note strong{display:block;font-size:14px;margin:6px 0;color:#35513f}.tp-front-note p{font-size:12px;color:#708074;line-height:1.8}
+.tp-demo-guide{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin:15px 0;padding:16px;background:#f7f9f8;border-radius:9px}.tp-demo-guide strong{font-size:13px;color:#385d45}.tp-demo-guide p{font-size:12px;line-height:1.8;color:#6c7d72;margin-top:5px!important}.tp-demo-guide button{flex-shrink:0}
+.tp-summary{font-size:12px;color:#577562;line-height:1.8;padding:12px 0;margin-bottom:7px}
+.tp-table{min-width:1000px}.tp-table td:first-child{width:155px}.tp-table td:nth-child(2){width:165px}.tp-table td:nth-child(3){width:235px;font-variant-numeric:tabular-nums}.tp-table .tp-ts{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;white-space:nowrap}.tp-table small{line-height:1.6}.tp-table .tp-locked-row{background:#f6f9f6}.tp-table .tp-independent{color:#366b85;background:#eaf3f7}.tp-table td:last-child{width:125px}
+.tp-sent-banner{background:#edf6ef;border:1px solid #cfe2d4;color:#356341;padding:12px 14px;border-radius:8px;font-size:12px;line-height:1.8;margin-top:16px}
+.tp-modal-note{color:#607366;font-size:12px}
+#tp-link:disabled{background:#f2f5f3;color:#748179;opacity:1}
+@media(max-width:700px){.tp-demo-guide{flex-direction:column;gap:10px}}
+
+.shopify-context-header{display:grid;grid-template-columns:minmax(205px,.8fr) minmax(0,2fr);gap:24px;align-items:start;margin-bottom:22px}
+.shopify-context-header>.backend-block-head{margin:0;padding-top:5px}
+.shopify-context-header .backend-block-head p{max-width:230px}
+.tw-context{border:1px solid #d9e5dc;border-radius:12px;background:#fafcfb;padding:18px 20px;color:#526159;font-size:12px;line-height:1.85}
+.tw-context-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.tw-context-heading h3{font-size:15px;font-weight:800;color:#2f6440;margin:0}
+.tw-context-heading>span{font-size:10px;color:#809087}
+.tw-context ol{margin:12px 0 0;padding-left:19px}
+.tw-context li{padding-left:3px;margin:0 0 11px}
+.tw-context li strong{color:#3c5144}
+.tw-shared-goal{border-top:1px solid #e0e9e3;margin-top:13px;padding-top:13px}
+.tw-shared-goal>strong{font-size:12px;color:#2e7543}
+.tw-shared-goal p{margin:5px 0 6px;font-size:12px;line-height:1.85;color:#586b5f}
+.tw-shared-goal b{font-weight:700;color:#345e42}
+.tw-shared-goal>span{font-size:11px;color:#7a8b80}
+@media(max-width:800px){.shopify-context-header{grid-template-columns:1fr;gap:16px}.shopify-context-header .backend-block-head p{max-width:none}.tw-context{padding:16px}}
+
+.shopify-context-header{position:relative;display:block;margin-bottom:22px}
+.shopify-context-header>.backend-block-head{margin:0}
+.shopify-context-header .backend-block-head p{max-width:none}
+.shopify-title-line{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.shopify-title-line h2{margin:0}
+.tw-context-details{display:block}
+.tw-context-details>summary{list-style:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1px solid #c9ddce;color:#338248;background:#f1f8f3;cursor:pointer;font:bold 16px Georgia,serif;user-select:none}
+.tw-context-details>summary::-webkit-details-marker{display:none}
+.tw-context-details>summary:hover,.tw-context-details[open]>summary{background:#e3f1e7;border-color:#8dbb99;color:#256837}
+.tw-context-details>summary:focus-visible,.tw-context-close:focus-visible{outline:2px solid var(--brand-dark);outline-offset:3px}
+.tw-context-details>.tw-context{position:absolute;left:0;top:calc(100% + 8px);width:min(680px,100%);max-height:min(65vh,560px);overflow:auto;z-index:80;box-shadow:0 12px 36px #1a352325}
+.tw-context-details:not([open])>.tw-context{display:none}
+.tw-context-heading{justify-content:flex-start;gap:10px}
+.tw-context-close{margin-left:auto;border:0;border-radius:5px;background:transparent;color:#7b8e81;font:inherit;font-size:24px;line-height:1;width:30px;height:30px;cursor:pointer}
+.tw-context-close:hover{background:#edf3ef;color:#385c43}
+@media(max-width:800px){.shopify-context-header{display:block}.tw-context-details>.tw-context{width:100%;max-height:65vh}}
+
+</style>
 </head>
 <body>
   <div class="top-line"></div>
@@ -1555,7 +1650,33 @@
       <div class="backend-combined-wrap">
 
         <section class="backend-block">
-          <div class="backend-block-head"><span class="backend-block-no">1</span><div><h2>Shopify 配置方式</h2><p>方案二 · 審核個別成員時填入專屬購買連結，再核准並發送。</p></div></div>
+          <div class="shopify-context-header">
+  <div class="backend-block-head">
+    <span class="backend-block-no">1</span>
+    <div>
+      <div class="shopify-title-line">
+        <h2>Shopify 配置方式</h2>
+        <details id="tw-context-details" class="tw-context-details">
+          <summary aria-label="查看台灣現況" aria-controls="tw-context-note" title="台灣現況"><span aria-hidden="true">i</span></summary>
+          <aside id="tw-context-note" class="tw-context" aria-labelledby="tw-context-title">
+    <div class="tw-context-heading"><h3 id="tw-context-title">台灣現況</h3><span>方案比較的業務背景</span><button type="button" id="tw-context-close" class="tw-context-close" aria-label="關閉台灣現況">×</button></div>
+    <ol>
+      <li><strong>目前主要透過少數 Agent 人工聯繫。</strong>大約只有 1–3 位 Agent 會聯繫 TW Sales Team。TG 目前只與 Agent 聯絡；部分 Agent 會把 Shopify 付款連結轉交客戶，部分則會幫客戶付掉。</li>
+      <li><strong>使用頻率低，流程需簡單。</strong>依目前業務說明，這裡的台灣 Agent 與美國持有 license 的 Agent 不同，平時可能另有其他工作。台灣老闆講座一年一次；流程若太複雜，Agent 可能仍會選擇人工聯繫 TW Sales Team。</li>
+    </ol>
+    <div class="tw-shared-goal"><strong>三個方案都符合付款情境</strong><p>都能支援 Agent 代客付款，或把連結交給客戶自行付款。比較重點在於 <b>UI／UX 是否容易使用</b>，以及 <b>Staff 是否能更清楚、快速地核對資料</b>。</p><span>核對重點：報名者、Agent、付款對象、報名時間及通知狀態。</span></div>
+  </aside>
+        </details>
+      </div>
+      <p>現有審核示意與三種付款通知方案比較。</p>
+    </div>
+  </div>
+</div>
+          <div class="shopify-config-tabs" role="tablist" aria-label="Shopify 配置方案">
+            <button type="button" role="tab" id="shopify-current-tab" aria-selected="true" aria-controls="shopify-current-panel">目前審核示意</button>
+            <button type="button" role="tab" id="payment-proposal-tab" aria-selected="false" aria-controls="payment-proposal-panel" tabindex="-1">付款與發送方案（建議）</button>
+          </div>
+          <div id="shopify-current-panel" role="tabpanel" aria-labelledby="shopify-current-tab">
           <div id="reviewScene" class="review-scene">
             <div id="reviewStage" class="review-stage">
               <aside class="review-nav"><strong>TransGlobal</strong><span class="selected">▦ Events</span><span>Campaigns</span><span>Tracking</span><span>Tickets</span><span>Scan QR Code</span><span>Forms</span><span>CMS</span><span>Settings</span></aside>
@@ -1579,6 +1700,173 @@
             </div>
             <div id="payLinkOverlay" class="pay-link-overlay" hidden><section class="pay-link-modal" role="dialog" aria-modal="true" aria-labelledby="payLinkTitle" aria-describedby="payLinkHint"><header><h3 id="payLinkTitle">通過審核並提供購買連結</h3><button type="button" id="closePayLink" class="review-icon" aria-label="關閉購買連結視窗">×</button></header><div class="pay-link-member"><span class="review-avatar" aria-hidden="true">♙</span><div><strong id="payLinkMember"></strong><span id="payLinkIdentity"></span></div></div><form id="payLinkForm"><label for="shopifyPayLink">Shopify pay link / Marketplace Link（非必填）</label><input id="shopifyPayLink" type="url" placeholder="https://example.com/product/unique123" aria-describedby="payLinkHint payLinkError"><p id="payLinkHint">若填寫 link，將發送給該成員，請確認為該成員的專屬購買連結；未填寫也可通過審核。</p><p id="payLinkError" class="pay-link-error" role="alert" hidden></p><div class="pay-link-actions"><button type="button" id="cancelPayLink" class="review-btn">取消</button><button type="submit" class="review-btn send">Approval ＆Send link</button></div></form></section></div>
           </div>
+          </div>
+          <section id="payment-proposal-panel" role="tabpanel" aria-labelledby="payment-proposal-tab" hidden>
+  <p class="pp-plans-intro">三種方案擇一實作：方案一以訂單歸組；方案二人工勾選後批次核准並發送；方案三在混合名單中以 Agent 與 timestamp 自動防止重複發送。</p>
+  <div class="pp-plan-tabs" role="tablist" aria-label="付款與發送方案比較">
+    <button type="button" role="tab" id="pp-grouped-tab" aria-controls="pp-grouped-panel" aria-selected="true">方案一 · 訂單歸組<small>系統帶出完整名單，需新增訂單關聯</small></button>
+    <button type="button" role="tab" id="pp-batch-tab" aria-controls="pp-batch-panel" aria-selected="false" tabindex="-1">方案二 · 批次核准並發送<small>改動較小，名單是否選齊需人工確認</small></button>
+    <button type="button" role="tab" id="pp-timestamp-tab" aria-controls="pp-timestamp-panel" aria-selected="false" tabindex="-1">方案三 · timestamp 共用發送狀態<small>兩種付款資料放一起，首筆寄出後同批停用</small></button>
+  </div>
+  <section id="pp-grouped-panel" class="pp-plan-panel" role="tabpanel" aria-labelledby="pp-grouped-tab">
+
+  <div class="pp-intro">
+    <span class="pp-kicker">方案一 · 新增訂單歸組</span>
+    <h3>五筆報名紀錄，一筆付款任務。</h3>
+    <p>付款方式沿用前台整筆訂單的選擇。每位客戶各自審核，付款通知則依「Agent 統一付款」或「全部人自行付款」決定收件人與發送次數。</p>
+  </div>
+
+  <figure class="pp-flow-figure">
+    <figcaption>方案一示意圖 · 以訂單自動帶出完整名單</figcaption>
+    <div class="pp-flow" role="img" aria-label="五筆客戶紀錄歸於同一報名訂單，各自審核，完成全單審核後只寄一封給 Agent，整筆訂單共用發送紀錄。">
+      <div class="pp-flow-step"><span>01 · 自動歸組</span><strong>一筆訂單，五位客戶</strong><small>共用訂單編號<br>系統知道完整名單</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>02 · 各自審核</span><strong>全單都有審核結果</strong><small>只計入通過者<br>未完成前不發送</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>03 · 訂單發送</span><strong>1 封 → Agent</strong><small>訂單層級付款入口<br>連結涵蓋所有通過者</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>04 · 共用狀態</span><strong>整筆訂單記錄已發送</strong><small>客戶列不單獨發送<br>需要新增訂單關聯</small></div>
+    </div>
+  </figure>
+  <div class="pp-compare">
+    <article><span class="pp-kicker">情境 01</span><h4>Agent 統一付款</h4><p>五人分別審核 → 整筆訂單確認付款範圍 → 只寄一封給 Agent。</p><strong>訂單層級發送 · 客戶列沒有發送按鈕</strong></article>
+    <article><span class="pp-kicker">情境 02</span><h4>全部人自行付款</h4><p>每人審核通過 → 確認該客戶付款連結 → 各寄一封給本人。</p><strong>報名者層級發送 · 各自記錄通知狀態</strong></article>
+  </div>
+  <div class="pp-demo-label"><h4>操作示意</h4><span>僅本機模擬，不會寄信或建立 Shopify 訂單</span></div>
+  <div class="pp-demo-controls">
+    <fieldset><legend>切換前台選擇的付款情境（示意）</legend><label><input type="radio" name="pp-mode" value="agent" checked> Agent 統一付款</label><label><input type="radio" name="pp-mode" value="individual"> 全部人自行付款</label></fieldset>
+    <button type="button" class="pp-btn pp-quiet" id="pp-reset">重設此情境</button>
+  </div>
+  <p class="pp-small">兩個示意情境各自保留操作狀態；實際後台只顯示前台選定的付款方式，不提供任意切換。</p>
+  <div class="pp-order" aria-labelledby="pp-order-title">
+    <div><span class="pp-kicker">報名訂單</span><h4 id="pp-order-title"></h4><p id="pp-order-meta"></p></div>
+    <div class="pp-order-action"><span id="pp-order-status" class="pp-badge"></span><button type="button" class="pp-btn pp-primary" id="pp-order-send"></button></div>
+  </div>
+  <p id="pp-order-hint" class="pp-order-hint"></p>
+  <div class="pp-review-toolbar"><p id="pp-progress"></p><button type="button" class="pp-btn" id="pp-approve-all">全部核准（示意）</button></div>
+  <div class="pp-table-wrap"><table class="pp-table"><thead><tr><th>報名者</th><th>審核狀態</th><th>付款通知</th><th>操作</th></tr></thead><tbody id="pp-rows"></tbody></table></div>
+  <div id="pp-feedback" class="pp-feedback" role="status" aria-live="polite" hidden></div>
+  <div class="pp-rules"><h4>建議規則與邊界情境</h4>
+    <ol>
+      <li><strong>以訂單歸組，不挑其中一位客戶當「主紀錄」。</strong>所有客戶列都顯示相同訂單編號、付款方式及 Agent。統一付款的發送紀錄屬於整筆訂單，不依附某位客戶，避免主紀錄被拒絕或移除後失去依據。</li>
+      <li><strong>統一付款先完成整筆名單審核。</strong>仍有待審核者時，只能審核、不能發送。全部有結果後，以通過者為付款範圍；拒絕者不計費。發送前顯示姓名、人數及示意總額，核對 Shopify link 的品項、數量與金額。</li>
+      <li><strong>審核不需要付款連結。</strong>「僅核准報名」不寄信，可先完成審核後補 link；只有主動按「發送付款連結」時，才需填入有效連結。</li>
+      <li><strong>每個付款任務只首次發送一次。</strong>Agent 統一付款以「訂單＋付款批次」記錄；自行付款以「報名者＋付款批次」記錄。系統需共用發送紀錄並鎖定同一任務，連點或兩位管理者同時操作仍只建立一次發送工作。示意版僅展示本頁狀態。</li>
+      <li><strong>發送狀態與付款狀態分開。</strong>未發送／發送中／已發送／發送失敗，與待付款／已付款分別記錄；寄信失敗只重試原任務，已發送後預設停用。重寄需獨立入口、二次確認及操作紀錄。</li>
+      <li><strong>發送後變更名單或付款方式，需另行處理。</strong>原付款範圍先鎖定；加人、取消、改付款方式或更換 link，先檢查既有付款狀態與舊連結是否仍可用，再建立新批次。不能直接解鎖原按鈕重寄。</li>
+    </ol>
+    <p class="pp-small">開發確認項目：Shopify link 如何對應整筆訂單或單一報名者、金額如何校驗、舊連結如何停用、付款回寫及寄信失敗如何處理。此頁不假設上述串接已完成。</p>
+  </div>
+  <div id="pp-overlay" class="pp-overlay" hidden>
+    <section class="pp-modal" role="dialog" aria-modal="true" aria-labelledby="pp-modal-title" aria-describedby="pp-modal-hint" tabindex="-1">
+      <header><span id="pp-modal-kicker" class="pp-kicker"></span><button type="button" class="pp-close" id="pp-modal-close" aria-label="關閉方案彈窗">×</button></header>
+      <h3 id="pp-modal-title"></h3><p id="pp-modal-hint"></p>
+      <dl id="pp-modal-summary"></dl>
+      <form id="pp-modal-form" novalidate>
+        <div id="pp-link-group"><label for="pp-link">Shopify pay link / Marketplace Link</label><input id="pp-link" type="url" placeholder="https://example.com/payment/order-1029" aria-describedby="pp-link-note pp-error"><p id="pp-link-note" class="pp-small">審核可先完成，不需填 link；選擇發送時請提供與上方付款範圍相符的連結。</p><label class="pp-check"><input type="checkbox" id="pp-link-confirm"> 已核對收件人、付款名單、數量與金額符合此連結。</label></div>
+        <p id="pp-error" class="pp-error" role="alert" hidden></p>
+        <footer><button type="button" class="pp-btn" id="pp-modal-cancel">取消</button><button type="submit" class="pp-btn pp-primary" id="pp-modal-submit"></button></footer>
+      </form>
+    </section>
+  </div>
+
+  </section>
+<section id="pp-batch-panel" class="pp-plan-panel" role="tabpanel" aria-labelledby="pp-batch-tab" hidden>
+  <div class="pp-intro">
+    <span class="pp-kicker">方案二 · 沿用報名紀錄，改動較小</span>
+    <h3>一次確認，同時核准與通知。</h3>
+    <p>沿用現有「核准時即可發送」的邏輯，不新增訂單或固定群組。Agent 統一付款時，勾選同次付款的待審核名單，填一個連結後按「核准並發送」，一次核准所選客戶，只寄一封給 Agent。</p>
+  </div>
+  <div class="bp-limits"><strong>名單是否選齊，需人工確認。</strong><span>系統可擋不同活動、不同 Agent、不同付款方式及重複發送，但沒有歸組資訊，就無法知道同次報名是否還有其他人漏選。</span></div>
+  <figure class="pp-flow-figure">
+    <figcaption>方案二示意圖 · 五位客戶由 Agent 統一付款</figcaption>
+    <div class="pp-flow" role="img" aria-label="五筆獨立待審核報名，人工選齊名單並填付款連結，一次按核准並發送即可核准五人及寄一封給 Agent，五筆各自記錄已核准與已通知。">
+      <div class="pp-flow-step"><span>01 · 待審核名單</span><strong>五筆獨立資料</strong><small>沒有訂單編號<br>不必先逐筆核准</small><div class="pp-record-stack" aria-hidden="true">客戶 A　客戶 B　客戶 C<br>客戶 D　客戶 E</div></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>02 · 勾選與確認</span><strong>選齊名單、填入連結</strong><small>同活動／Agent／付款方式<br>確認五人都符合核准條件</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>03 · 核准並發送</span><strong>核准五人＋寄 1 封</strong><small>一次確認完成兩個動作<br>付款連結只寄給 Agent</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>04 · 回寫紀錄</span><strong>已核准／已通知 Agent</strong><small>所選五筆各自標記<br>已通知者不可重複操作</small></div>
+    </div>
+    <p>若全部人自行付款：按該列「核准並發送給本人」，一次核准該客戶並寄出其付款連結。連結維持非必填，留空時只核准、不寄付款通知，之後可補發。</p>
+  </figure>
+  <div class="pp-demo-label"><h4>操作示意</h4><span>僅本機模擬，不寄信、不串接 Shopify</span></div>
+  <div class="pp-demo-controls">
+    <fieldset><legend>切換前台選擇的付款情境（示意）</legend><label><input type="radio" name="bp-mode" value="agent" checked> Agent 統一付款</label><label><input type="radio" name="bp-mode" value="individual"> 全部人自行付款</label></fieldset>
+    <button type="button" class="pp-btn pp-quiet" id="bp-reset">重設此情境</button>
+  </div>
+  <p class="pp-small" id="bp-mode-note"></p>
+  <div class="bp-guide"><strong>試試一次核准五人，只寄一封給 Agent</strong><span>按「勾選前五位」，再按綠色「核准並發送」按鈕，在彈窗填入連結並確認即可。不需先核准。下方另有不同 Agent／活動的紀錄，可勾選測試限制。</span></div>
+  <div class="bp-actions">
+    <div><button type="button" class="pp-btn" id="bp-select-five">勾選前五位（示意）</button><button type="button" class="pp-btn pp-quiet" id="bp-clear">清除勾選</button></div>
+    <button type="button" class="pp-btn pp-primary" id="bp-batch-send" disabled>核准並發送給 Agent</button>
+  </div>
+  <div class="bp-selection" id="bp-selection" role="status" aria-live="polite"></div>
+  <div class="pp-table-wrap"><table class="pp-table bp-table"><thead><tr><th id="bp-select-heading">勾選</th><th>報名者／紀錄</th><th>活動／Agent</th><th>付款方式</th><th>審核／通知</th><th>操作</th></tr></thead><tbody id="bp-rows"></tbody></table></div>
+  <div id="bp-feedback" class="pp-feedback" role="status" aria-live="polite" hidden></div>
+  <div class="pp-rules"><h4>這個方案需要改什麼？</h4>
+    <ul class="bp-change-list"><li><strong>保留每筆報名資料：</strong>活動、Agent 身分及 Email、前台付款方式。現有欄位可沿用，缺少的資訊才補上。</li><li><strong>沿用核准時發送的邏輯：</strong>統一付款使用列表的「核准並發送給 Agent」，自行付款使用該列的「核准並發送給本人」。有填 link 時，一次確認即核准並建立一次付款通知。</li><li><strong>每筆增加通知紀錄：</strong>審核結果、通知狀態、收件人、連結、時間與操作者。寄信紀錄保留本次所選的報名紀錄，供查詢及失敗重試；不建立訂單生命週期。</li></ul>
+    <h4>發送規則</h4>
+    <ol><li><strong>勾選待審核名單，核准與發送一起完成。</strong>同一次勾選須為同活動、同一 Agent 身分及相同付款方式。確認所選者均符合資格後，按一次即核准所選者並建立一封通知；不符合者請排除或先拒絕。</li><li><strong>確認所選人數與收件人。</strong>彈窗顯示完整名單、示意總額及 Agent Email。付款連結須涵蓋這些人；發送給 Agent 的只有一封，不逐位寄給客戶。</li><li><strong>連結非必填，留空只核准。</strong>有填有效 link 時同時寄送；未填時只更新為已核准／尚未通知，不顯示發送成功。可稍後選取已核准、尚未通知的紀錄補發，無需重新核准。</li><li><strong>不等待無法辨識的其他紀錄。</strong>未選者維持原狀。管理者需確認名單選齊；同一 Agent 有多次報名時，不能直接把他的全部紀錄當作同一批。</li><li><strong>核准與發送工作需防止重複。</strong>後端須鎖住所選紀錄，在同一次操作寫入核准結果與一筆寄送工作；寄信成功再標記已通知。寄信失敗保留核准結果，只重試原通知工作。已通知或寄送中的紀錄不可再次提交；此示意僅展示本頁的成功結果。</li><li><strong>已通知不等於已付款。</strong>付款狀態另外記錄。若之後補選漏掉的人，系統無法判斷是否同次付款，可能再寄一封；需先人工核對既有付款連結、名單與通知紀錄。</li></ol>
+    <p class="pp-small">只修改方案二。此方案保留核准可同步發送及連結非必填的邏輯；批次操作、通知鎖定與寄送紀錄仍需 RD 評估。</p>
+  </div>
+  <div id="bp-overlay" class="pp-overlay" hidden>
+    <section class="pp-modal" role="dialog" aria-modal="true" aria-labelledby="bp-modal-title" aria-describedby="bp-modal-hint" tabindex="-1">
+      <header><span id="bp-modal-kicker" class="pp-kicker"></span><button type="button" class="pp-close" id="bp-modal-close" aria-label="關閉核准與發送彈窗">×</button></header>
+      <h3 id="bp-modal-title"></h3><p id="bp-modal-hint"></p>
+      <dl id="bp-modal-summary"></dl>
+      <form id="bp-modal-form" novalidate>
+        <label class="bp-input-label" for="bp-link">Shopify pay link / Marketplace Link（非必填）</label><input id="bp-link" type="url" placeholder="https://example.com/payment/selected-customers" aria-describedby="bp-link-note bp-error"><p id="bp-link-note" class="pp-small">填入有效連結：核准與寄送同時完成。留空：只核准，不寄付款通知。按取消則不變更審核或通知狀態。</p>
+        <label class="pp-check" id="bp-complete-label"><input type="checkbox" id="bp-complete"> 我已確認所選者皆符合核准條件，且已選齊這次由 Agent 付款的名單。</label>
+        <label class="pp-check" id="bp-link-confirm-label" hidden><input type="checkbox" id="bp-link-confirm"> 已核對收件人、付款名單、數量與連結金額。</label>
+        <p id="bp-error" class="pp-error" role="alert" hidden></p>
+        <footer><button type="button" class="pp-btn" id="bp-modal-cancel">取消，不變更</button><button type="submit" class="pp-btn pp-primary" id="bp-modal-submit"></button></footer>
+      </form>
+    </section>
+  </div>
+</section>
+
+<section id="pp-timestamp-panel" class="pp-plan-panel" role="tabpanel" aria-labelledby="pp-timestamp-tab" hidden>
+  <div class="pp-intro">
+    <span class="pp-kicker">方案三 · 單一名單，以 timestamp 防止重複發送</span>
+    <h3>第一筆寄出，同批其他筆顯示已發送。</h3>
+    <p>前台不提供切換付款情境的控制，後台把 Agent 統一付款與自行付款放在同一份名單。點開每筆審核／付款彈窗時，自動依這筆資料的付款對象決定收件人及發送限制。</p>
+  </div>
+  <div class="tp-front-note"><span class="pp-kicker">前台 · 單一報名入口</span><strong>不新增「Agent 統一付款／全部人自行付款」切換鈕</strong><p>付款對象由現有報名資料或既有流程帶入；後台仍須知道這筆是「Agent 付款」或「本人付款」，才能讓自行付款者不受共用限制影響。本方案不新增訂單模型。</p></div>
+  <figure class="pp-flow-figure">
+    <figcaption>方案三示意圖 · 開啟每筆彈窗時，自動檢查是否已發送</figcaption>
+    <div class="pp-flow" role="img" aria-label="兩種付款資料共用一份名單。Agent 統一付款在同活動內比對 Agent ID 與完整報名 timestamp，任一筆寄出一封後，其餘同批的發送按鈕停用，各筆審核狀態保持獨立。自行付款只判斷自己的發送紀錄。">
+      <div class="pp-flow-step"><span>01 · 同一份名單</span><strong>兩種付款紀錄放一起</strong><small>前台不切換情境<br>後台保留付款對象標記</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>02 · 打開單筆彈窗</span><strong>先判斷付款對象</strong><small>Agent：比對身分＋timestamp<br>本人：只查這筆發送紀錄</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>03 · 首筆發送</span><strong>1 封付款通知 → Agent</strong><small>核准當前這筆並寄出<br>其餘報名者不會自動核准</small></div><span class="pp-flow-arrow" aria-hidden="true">→</span>
+      <div class="pp-flow-step"><span>04 · 其他筆再開啟</span><strong>已發送過 · 按鈕停用</strong><small>保留各自審核狀態<br>自行付款者完全獨立</small></div>
+    </div>
+  </figure>
+  <div class="pp-compare"><article><span class="pp-kicker">Agent 統一付款</span><h4>同 Agent＋相同 timestamp，只能首次發送一次</h4><p>同活動內，任一位同批報名者寄出後，其他筆的付款彈窗共用「已發送過」狀態，只保留審核功能。</p></article><article><span class="pp-kicker">本人自行付款</span><h4>一人一筆通知，不套用 timestamp 限制</h4><p>即使 Agent 和 timestamp 完全相同，也能各自核准、各寄一封給本人，不會被 Agent 那批鎖住。</p></article></div>
+  <div class="pp-demo-label"><h4>操作示意 · 混合名單，無情境切換</h4><span>本機模擬，不寄信、不串接 Shopify</span></div>
+  <div class="tp-demo-guide"><div><strong>試試第一位寄出，再開第二位</strong><p>先開「立利 閻」填入連結並送出，再開「陳小安」，可看到發送已停用，審核狀態仍維持獨立。接著開「張可欣」，相同 Agent 與 timestamp 的自行付款者仍可正常發送。</p></div><button type="button" id="tp-reset" class="pp-btn pp-quiet">重設方案三</button></div>
+  <div id="tp-summary" class="tp-summary" role="status" aria-live="polite"></div>
+  <div class="pp-table-wrap"><table class="pp-table tp-table"><thead><tr><th>報名者／付款對象</th><th>活動／Agent</th><th>報名 timestamp</th><th>審核／發送狀態</th><th>操作</th></tr></thead><tbody id="tp-rows"></tbody></table></div>
+  <div id="tp-feedback" class="pp-feedback" role="status" aria-live="polite" hidden></div>
+  <div class="pp-rules"><h4>方案三判斷規則</h4><ol>
+    <li><strong>只對 Agent 統一付款套用共用限制。</strong>在同一活動內，以 Agent 的識別碼及報名的完整 timestamp 比對；姓名相同不代表同一個 Agent。不同 Agent、不同 timestamp 或不同活動不互相鎖住。</li>
+    <li><strong>首筆寄出後，其他筆顯示已發送過。</strong>記錄收件 Agent、發送時間及從哪筆報名發起。打開同批其他筆彈窗時，顯示這些資訊並停用發送按鈕，各筆審核狀態保持獨立。</li>
+    <li><strong>核准各自處理，不會自動核准同批全部人。</strong>發送前顯示同批名單、待審核人數與示意付款總額；需人工確認付款範圍及資格。首筆寄出後才拒絕、取消或新增客戶，應先核對既有連結，不自動重寄。</li>
+    <li><strong>自行付款只查這筆紀錄。</strong>不讀取、不更新 Agent 的共用發送狀態；每位報名者各寄給本人，彼此不影響。已自行發送的該筆仍會停用，以防本人收到重複通知。</li>
+    <li><strong>完整 timestamp 必須能代表同次提交。</strong>同次送出的客戶資料需共用同一個原始報名 timestamp，不能用寄信時間、逐列寫入時間或畫面四捨五入後的秒數。若現有 timestamp 無法保證這點，需先調整其寫入方式；若不同次提交仍可能完全相同，也需補充識別依據。</li>
+    <li><strong>彈窗開啟與送出時都檢查。</strong>實際後端須以「活動＋Agent ID＋原始 timestamp」鎖定同一發送工作。寄送中也停用；失敗只重試原工作，避免多位管理者同時操作重複寄出。本頁示意只展示成功後的共用狀態，不代表已完成後端鎖定。</li>
+  </ol><p class="pp-small">連結維持非必填：留空只核准目前這筆，不建立已發送紀錄，也不鎖住其他人。前台不增加付款情境切換，但資料仍需保留付款對象來源，否則無法區分自行付款者。方案一、二保留原樣供比較。</p></div>
+  <div id="tp-overlay" class="pp-overlay" hidden><section class="pp-modal" role="dialog" aria-modal="true" aria-labelledby="tp-modal-title" aria-describedby="tp-modal-hint" tabindex="-1">
+    <header><span id="tp-modal-kicker" class="pp-kicker"></span><button type="button" class="pp-close" id="tp-modal-close" aria-label="關閉 timestamp 付款彈窗">×</button></header>
+    <h3 id="tp-modal-title"></h3><p id="tp-modal-hint"></p>
+    <div id="tp-sent-banner" class="tp-sent-banner" role="status" hidden></div>
+    <dl id="tp-modal-summary"></dl>
+    <form id="tp-modal-form" novalidate>
+      <label class="bp-input-label" for="tp-link">Shopify pay link / Marketplace Link（非必填）</label><input id="tp-link" type="url" placeholder="https://example.com/payment/agent-customers" aria-describedby="tp-link-note tp-error"><p id="tp-link-note" class="pp-small"></p>
+      <label class="pp-check" id="tp-link-confirm-label" hidden><input type="checkbox" id="tp-link-confirm"> 已確認付款名單與資格、收件人及連結金額；其他待審核者不會自動核准。</label>
+      <p id="tp-error" class="pp-error" role="alert" hidden></p>
+      <footer><button type="button" class="pp-btn" id="tp-modal-cancel">取消，不變更</button><button type="submit" class="pp-btn pp-primary" id="tp-modal-submit"></button></footer>
+    </form>
+  </section></div>
+</section>
+
+</section>
+
         </section>
 
         <section class="backend-block">
@@ -2270,5 +2558,295 @@
     renderRegistrants();openReview(0);
 
   </script>
+<script>
+// Proposal only: all actions are in memory; no email, network or Shopify requests.
+(() => {
+  const el=id=>document.getElementById(id), root=el('pp-grouped-panel');
+  const tabs=[...document.querySelectorAll('.shopify-config-tabs [role="tab"]')];
+  function selectTab(button){tabs.forEach(t=>{const active=t===button;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;el(t.getAttribute('aria-controls')).hidden=!active;});}
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>selectTab(t));t.addEventListener('keydown',e=>{let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();selectTab(tabs[next]);tabs[next].focus();}});});
+  const names=['立利 閻','陳小安','林雅婷','王建宏','李怡君'];
+  const emails=['lili.yen@example.com','ann.chen@example.com','yating.lin@example.com','ch.wang@example.com','yijun.li@example.com'];
+  const makeOrder=mode=>({mode,id:mode==='agent'?'REG-20261015-001':'REG-20261015-002',agent:'Wade Warren',email:'wade.warren@example.com',price:1200,delivery:'unsent',sentAt:'',members:names.map((name,i)=>({name,email:emails[i],status:'pending',delivery:'unsent',sentAt:''}))});
+  const orders={agent:makeOrder('agent'),individual:makeOrder('individual')};
+  let mode='agent', context=null, returnFocus=null;
+  const order=()=>orders[mode], approved=o=>o.members.filter(m=>m.status==='approved'), pending=o=>o.members.filter(m=>m.status==='pending').length;
+  const money=n=>'NT$ '+n.toLocaleString('en-US');
+  const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const badge=(text,kind='')=>'<span class="pp-badge '+kind+'">'+escape(text)+'</span>';
+  function notice(message){el('pp-feedback').textContent=message;el('pp-feedback').hidden=false;}
+  function render(){
+    const o=order(), a=approved(o), n=pending(o), agent=mode==='agent', sent=o.delivery==='sent';
+    el('pp-order-title').textContent=o.id+' · '+(agent?'Agent 統一付款':'全部人自行付款');
+    el('pp-order-meta').textContent='前台付款方式：'+(agent?'Agent 一次付清':'轉交全部報名者自行付款')+'｜Agent：'+o.agent+'｜共 5 位報名者｜示意票價 '+money(o.price)+'／人';
+    el('pp-order-status').textContent=agent?(sent?'已發送 1 封給 Agent · '+o.sentAt:'尚未發送給 Agent'):'已發送 '+o.members.filter(m=>m.delivery==='sent').length+' / '+a.length+' 位通過者';
+    el('pp-order-status').classList.toggle('pp-sent',sent);
+    el('pp-order-send').hidden=!agent;el('pp-order-send').disabled=sent||n>0||!a.length;
+    el('pp-order-send').textContent=sent?'已發送給 Agent':n?'等待全部名單審核完成':'發送付款連結給 Agent';
+    el('pp-order-hint').textContent=agent?(sent?'整筆訂單共用同一次發送紀錄。所有客戶列只顯示狀態，不再提供發送入口；付款狀態仍為待付款。':n?'尚有 '+n+' 人待審核。先完成名單審核，再依通過人數提供整筆付款連結；不會因單人核准而寄信。':a.length?'付款範圍：'+a.length+' 位通過者，示意總額 '+money(a.length*o.price)+'；只寄給 '+o.email+'。':'此訂單無通過者，不產生付款任務。'):'每位通過者獨立發送，只寄給本人；已發送者停用按鈕，其餘報名者仍可操作。';
+    el('pp-progress').textContent='通過 '+a.length+' 人 · 待審核 '+n+' 人 · 拒絕 '+o.members.filter(m=>m.status==='rejected').length+' 人';
+    el('pp-approve-all').disabled=!n||sent;
+    el('pp-rows').innerHTML=o.members.map((m,i)=>{
+      let notification='審核通過後處理', actions='';
+      if(m.status==='rejected')notification='不需付款通知';
+      else if(agent)notification=sent?'訂單已通知 Agent':'由訂單統一發送';
+      else if(m.delivery==='sent')notification='已發送給本人';
+      else if(m.status==='approved')notification='尚未發送';
+      if(m.status==='pending')actions='<button type="button" class="pp-btn" data-pp-action="approve" data-member="'+i+'">核准</button><button type="button" class="pp-btn pp-reject" data-pp-action="reject" data-member="'+i+'">拒絕</button>';
+      else if(m.status==='approved'&&!agent)actions='<button type="button" class="pp-btn pp-primary" data-pp-action="send" data-member="'+i+'" '+(m.delivery==='sent'?'disabled':'')+'>'+(m.delivery==='sent'?'已發送':'發送付款連結')+'</button>';
+      else actions='<span>'+(m.status==='rejected'?'審核已完成':'付款由訂單統一處理')+'</span>';
+      return '<tr><td>'+escape(m.name)+'<small>'+escape(m.email)+'</small></td><td>'+badge({pending:'待審核',approved:'已通過',rejected:'已拒絕'}[m.status],m.status==='pending'?'pp-pending':m.status==='rejected'?'pp-rejected':'pp-sent')+'</td><td>'+escape(notification)+(m.status==='approved'?'<small>付款狀態：待付款'+(agent&&sent?' · 通知時間 '+escape(o.sentAt):m.sentAt?' · '+escape(m.sentAt):'')+'</small>':'')+'</td><td><div class="pp-row-actions">'+actions+'</div></td></tr>';
+    }).join('');
+  }
+  function closeModal(){const focus=returnFocus;el('pp-overlay').hidden=true;context=null;[...root.children].forEach(n=>{if(n.id!=='pp-overlay')n.inert=false;});if(focus?.isConnected&&!focus.disabled)focus.focus();else el('pp-grouped-tab').focus();}
+  function openModal(action,index=null){
+    const o=order(),m=index===null?null:o.members[index],agent=mode==='agent',isReview=action!=='send';
+    if(!isReview&&(agent?(o.delivery==='sent'||pending(o)||!approved(o).length):(!m||m.status!=='approved'||m.delivery==='sent')))return;
+    if(isReview&&(!m||m.status!=='pending'||o.delivery==='sent'))return;
+    returnFocus=document.activeElement;context={action,index,mode};
+    el('pp-modal-form').reset();el('pp-error').hidden=true;el('pp-link-group').hidden=isReview;
+    el('pp-modal-kicker').textContent=isReview?'報名審核 · 不觸發付款通知':agent?'狀態 01 · 整筆訂單付款':'狀態 02 · 個人付款';
+    el('pp-modal-title').textContent=isReview?(action==='approve'?'僅核准這位報名者':'拒絕這位報名者'):(agent?'發送整筆訂單付款連結':'發送個人付款連結');
+    el('pp-modal-hint').textContent=isReview?'此動作只更新這位報名者的審核結果，不需要填寫付款連結，也不會寄出付款通知。':agent?'這封信只會寄給 Agent，請使用涵蓋以下全部通過者的付款連結。其他客戶紀錄將共用同一次發送狀態。':'這封信只會寄給這位報名者，請使用僅涵蓋本人的付款連結，不會寄給 Agent 或其他客戶。';
+    let values=[['報名訂單',o.id],['付款方式',agent?'Agent 統一付款':'全部人自行付款']];
+    if(isReview)values.push(['報名者',m.name],['付款通知','不發送']);
+    else{const list=agent?approved(o):[m];values.push(['寄送對象',agent?o.agent+'（Agent）':m.name+'（本人）'],['收件 Email',agent?o.email:m.email],['付款名單',list.map(x=>x.name).join('、')],['付款範圍',list.length+' 人 × '+money(o.price)+' = '+money(list.length*o.price)+'（示意）'],['預計通知','1 封 · 目前尚未發送']);}
+    el('pp-modal-summary').innerHTML=values.map(([k,v])=>'<dt>'+escape(k)+'</dt><dd>'+escape(v)+'</dd>').join('');
+    el('pp-modal-submit').textContent=isReview?(action==='approve'?'僅核准報名':'確認拒絕'):agent?'發送給 Agent（1 封）':'發送給此報名者（1 封）';
+    el('pp-modal-cancel').textContent=isReview?'取消':'關閉，稍後填寫';
+    [...root.children].forEach(n=>{if(n.id!=='pp-overlay')n.inert=true;});el('pp-overlay').hidden=false;
+    (isReview?el('pp-modal-submit'):el('pp-link')).focus();
+  }
+  el('pp-rows').addEventListener('click',e=>{const b=e.target.closest('[data-pp-action]');if(b&&!b.disabled)openModal(b.dataset.ppAction,Number(b.dataset.member));});
+  el('pp-order-send').addEventListener('click',()=>openModal('send'));
+  el('pp-approve-all').addEventListener('click',()=>{const o=order();if(o.delivery==='sent')return;o.members.forEach(m=>{if(m.status==='pending')m.status='approved';});render();notice('已核准全部待審核者（示意）。沒有寄出任何付款通知；請另外操作發送。');});
+  el('pp-reset').addEventListener('click',()=>{orders[mode]=makeOrder(mode);el('pp-feedback').hidden=true;render();});
+  document.querySelectorAll('input[name="pp-mode"]').forEach(r=>r.addEventListener('change',()=>{mode=r.value;el('pp-feedback').hidden=true;render();}));
+  ['pp-modal-close','pp-modal-cancel'].forEach(id=>el(id).addEventListener('click',closeModal));
+  el('pp-overlay').addEventListener('click',e=>{if(e.target===el('pp-overlay'))closeModal();});
+  el('pp-overlay').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeModal();}if(e.key==='Tab'){const items=[...el('pp-overlay').querySelectorAll('button,input')].filter(n=>!n.disabled&&!n.closest('[hidden]'));const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  ['pp-link','pp-link-confirm'].forEach(id=>el(id).addEventListener('input',()=>{el('pp-error').hidden=true;}));
+  el('pp-modal-form').addEventListener('submit',e=>{
+    e.preventDefault();if(!context||context.mode!==mode)return;
+    const {action,index}=context,o=order(),m=index===null?null:o.members[index];
+    if(action!=='send'){
+      if(!m||m.status!=='pending'||o.delivery==='sent')return;
+      m.status=action==='approve'?'approved':'rejected';closeModal();render();notice(m.name+' 已'+(action==='approve'?'通過審核':'拒絕')+'；未發送付款通知。');return;
+    }
+    const agent=mode==='agent';
+    if(agent?(o.delivery==='sent'||pending(o)||!approved(o).length):(!m||m.status!=='approved'||m.delivery==='sent'))return;
+    const link=el('pp-link').value.trim();let valid=false;
+    try{const url=new URL(link);valid=['https:','http:'].includes(url.protocol)&&!!url.hostname;}catch{}
+    if(!valid||!el('pp-link-confirm').checked){el('pp-error').textContent=!valid?'請填入有效的 http / https 購買連結。審核已儲存，可關閉後稍後再填。':'請先核對收件人與連結的付款範圍。';el('pp-error').hidden=false;return;}
+    const task=agent?o:m;task.delivery='sent';task.link=link;task.sentAt=new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+    closeModal();render();notice(agent?'模擬已發送 1 封給 '+o.email+'，涵蓋 '+approved(o).length+' 位通過者。其他客戶紀錄不會各自發送；尚未收到付款。':'模擬已發送 1 封給 '+m.email+'。其餘報名者維持原狀，尚未收到付款。');
+  });
+  render();
+})();
+
+</script>
+<script>
+// Scheme two: approve and optionally send in one confirmation; local simulation only.
+(() => {
+  const el=id=>document.getElementById(id), root=el('pp-batch-panel');
+  const planTabs=[...document.querySelectorAll('.pp-plan-tabs [role="tab"]')];
+  function selectPlan(tab){planTabs.forEach(t=>{const on=t===tab;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;el(t.getAttribute('aria-controls')).hidden=!on;});}
+  planTabs.forEach((t,i)=>{t.addEventListener('click',()=>selectPlan(t));t.addEventListener('keydown',e=>{let n;if(e.key==='ArrowRight')n=(i+1)%planTabs.length;if(e.key==='ArrowLeft')n=(i+planTabs.length-1)%planTabs.length;if(e.key==='Home')n=0;if(e.key==='End')n=planTabs.length-1;if(n!==undefined){e.preventDefault();selectPlan(planTabs[n]);planTabs[n].focus();}});});
+  const names=['立利 閻','陳小安','林雅婷','王建宏','李怡君'];
+  const emails=['lili.yen@example.com','ann.chen@example.com','yating.lin@example.com','ch.wang@example.com','yijun.li@example.com'];
+  function makeRecords(mode){
+    const base=names.map((name,i)=>({id:'R-'+(mode==='agent'?'100':'200')+(i+1),name,email:emails[i],eventId:'seminar-taipei',event:'台北講座 11/29',agentId:'agent-wade',agent:'Wade Warren',agentEmail:'wade.warren@example.com',mode,price:1200,status:'pending',delivery:'unsent',sentAt:''}));
+    if(mode==='agent'){
+      base.push({...base[0],id:'R-1006',name:'黃子晴',email:'ziching.huang@example.com',agentId:'agent-alex',agent:'Alex Chen',agentEmail:'alex.chen@example.com'});
+      base.push({...base[0],id:'R-1007',name:'周家豪',email:'chiahao.chou@example.com',eventId:'seminar-kaohsiung',event:'高雄講座 12/06'});
+      base.push({...base[0],id:'R-1008',name:'許心怡',email:'hsinyi.hsu@example.com',mode:'individual'});
+    }
+    return base;
+  }
+  const records={agent:makeRecords('agent'),individual:makeRecords('individual')}, selections={agent:new Set(),individual:new Set()};
+  let mode='agent',context=null,returnFocus=null;
+  const rows=()=>records[mode],selected=()=>rows().filter(r=>selections[mode].has(r.id));
+  const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const money=n=>'NT$ '+n.toLocaleString('en-US');
+  function eligible(r){return ['pending','approved'].includes(r.status)&&r.delivery==='unsent'&&r.mode==='agent';}
+  function invalid(list){
+    if(!list.length)return '請先勾選待審核名單，或已核准但尚未通知的紀錄。';
+    if(list.some(r=>!eligible(r)))return '只能勾選 Agent 統一付款、待審核或已核准且尚未通知的紀錄。';
+    if(list.some(r=>r.eventId!==list[0].eventId))return '不同活動不能在同一次發送，請調整勾選名單。';
+    if(list.some(r=>r.agentId!==list[0].agentId||r.agentEmail!==list[0].agentEmail))return '不同 Agent 不能在同一次發送，請調整勾選名單。';
+    if(!list[0].agentEmail)return '所選 Agent 缺少 Email，請先補齊資料。';
+    return '';
+  }
+  function notice(message){el('bp-feedback').textContent=message;el('bp-feedback').hidden=false;}
+  function render(){
+    [...selections[mode]].forEach(id=>{if(!rows().some(r=>r.id===id&&eligible(r)))selections[mode].delete(id);});
+    const agent=mode==='agent',list=selected(),error=invalid(list),toApprove=list.filter(r=>r.status==='pending').length;
+    el('bp-mode-note').textContent=agent?'示意資料：前五位屬於同次付款，但系統沒有歸組資料。另放入不同 Agent、不同活動及自行付款紀錄供測試。':'此情境每位客戶自行付款；不使用勾選批次寄給 Agent。兩個情境各自保留示意狀態。';
+    el('bp-select-heading').hidden=!agent;el('bp-batch-send').hidden=!agent;el('bp-select-five').hidden=!agent;el('bp-clear').hidden=!agent;
+    el('bp-batch-send').disabled=!!error;el('bp-clear').disabled=!list.length;
+    el('bp-batch-send').textContent=list.length&&!toApprove?'補發付款連結給 Agent':'核准並發送給 Agent';
+    el('bp-select-five').disabled=!rows().slice(0,5).some(eligible);
+    el('bp-selection').classList.toggle('bp-invalid',agent&&list.length>0&&!!error);
+    el('bp-selection').textContent=agent?(list.length?(error?'已勾選 '+list.length+' 人 · '+error:'已勾選 '+list.length+' 人 · 待核准 '+toApprove+' 人 · '+list[0].agent+' · 示意總額 '+money(list.reduce((s,r)=>s+r.price,0))+' · 填入連結後一次核准並寄 1 封給 Agent'):'勾選待審核名單後，可一次核准並發送；已核准但尚未通知者可選取補發。已拒絕、已通知或自行付款者不可加入批次。'):'按該列「核准並發送給本人」一次完成。連結留空只核准，之後顯示補發入口；已通知者停用按鈕。';
+    const guide=root.querySelector('.bp-guide');guide.hidden=!agent;
+    el('bp-rows').innerHTML=rows().map(r=>{
+      const status={pending:'待審核',approved:'已通過',rejected:'已拒絕'}[r.status];
+      const delivery=r.delivery==='sent'?(r.mode==='agent'?'已通知 Agent':'已通知本人'):(r.status==='rejected'?'不需通知':'尚未通知');
+      let actions='';
+      if(r.status==='pending')actions=(r.mode==='individual'?'<button type="button" class="pp-btn pp-primary" data-bp-action="approve-send" data-record="'+r.id+'">核准並發送給本人</button>':'<span>勾選後由上方核准並發送</span>')+'<button type="button" class="pp-btn pp-reject" data-bp-action="reject" data-record="'+r.id+'">拒絕</button>';
+      else if(r.status==='approved'&&r.mode==='individual')actions='<button type="button" class="pp-btn pp-primary" data-bp-action="send" data-record="'+r.id+'" '+(r.delivery==='sent'?'disabled':'')+'>'+(r.delivery==='sent'?'已核准並通知':'補發付款連結給本人')+'</button>';
+      else actions='<span>'+(r.status==='rejected'?'審核完成':r.delivery==='sent'?'已核准並通知 Agent':'勾選後補發付款連結')+'</span>';
+      return '<tr class="'+(r.delivery==='sent'?'bp-sent-row':'')+'">'+(agent?'<td><input type="checkbox" aria-label="勾選 '+escape(r.name)+' '+r.id+'" data-bp-select="'+r.id+'" '+(selections[mode].has(r.id)?'checked ':'')+(!eligible(r)?'disabled':'')+'></td>':'')+'<td>'+escape(r.name)+'<small>'+escape(r.email)+'</small><small class="bp-meta">報名紀錄 '+r.id+'</small></td><td>'+escape(r.event)+'<small>'+escape(r.agent)+'</small></td><td>'+(r.mode==='agent'?'Agent 統一付款':'本人自行付款')+'</td><td><span class="pp-badge '+(r.status==='pending'?'pp-pending':r.status==='rejected'?'pp-rejected':'pp-sent')+'">'+status+'</span><small>'+delivery+(r.sentAt?' · '+escape(r.sentAt):'')+'</small>'+(r.delivery==='sent'?'<small>付款狀態：待付款</small>':'')+'</td><td><div class="pp-row-actions">'+actions+'</div></td></tr>';
+    }).join('');
+  }
+  function closeModal(){const focus=returnFocus;context=null;el('bp-overlay').hidden=true;[...root.children].forEach(n=>{if(n.id!=='bp-overlay')n.inert=false;});if(focus?.isConnected&&!focus.disabled)focus.focus();else el('pp-batch-tab').focus();}
+  function refreshSubmit(){
+    if(!context)return;
+    const list=rows().filter(r=>context.ids.includes(r.id)),n=list.filter(r=>r.status==='pending').length,hasLink=!!el('bp-link').value.trim(),batch=context.kind==='batch';
+    el('bp-link-confirm-label').hidden=!hasLink;
+    el('bp-modal-submit').disabled=!n&&!hasLink;
+    el('bp-modal-submit').textContent=hasLink?(n?(batch?'核准 '+n+' 人並寄 1 封給 Agent':'核准並寄 1 封給本人'):(batch?'補發 1 封給 Agent':'補發 1 封給本人')):n?(batch?'僅核准 '+n+' 人（不寄送）':'僅核准（不寄送）'):'請填入連結以補發';
+  }
+  function openModal(kind,id=null){
+    const list=kind==='batch'?selected():rows().filter(r=>r.id===id),error=kind==='batch'?invalid(list):(!list.length||!['pending','approved'].includes(list[0].status)||list[0].delivery!=='unsent'||list[0].mode!=='individual'?'此報名紀錄目前無法核准或發送。':'');
+    if(error){notice(error);return;}
+    context={mode,kind,ids:list.map(r=>r.id)};returnFocus=document.activeElement;
+    const batch=kind==='batch',receiver=batch?list[0].agentEmail:list[0].email,n=list.filter(r=>r.status==='pending').length;
+    el('bp-modal-form').reset();el('bp-error').hidden=true;el('bp-complete-label').hidden=!batch;
+    el('bp-modal-kicker').textContent=n?'方案二 · 一次完成核准與發送':'方案二 · 已核准紀錄補發';
+    el('bp-modal-title').textContent=n?(batch?'核准並發送付款連結給 Agent':'核准並發送付款連結給本人'):(batch?'補發付款連結給 Agent':'補發付款連結給本人');
+    el('bp-modal-hint').textContent=batch?'填入連結並確認後，一次核准所選待審核者、只寄 1 封給 Agent。系統不會自動找出其他客戶；請人工確認名單及核准資格。':'填入連結並確認後，同時核准這位報名者、只寄 1 封給本人，不會發送給 Agent 或其他客戶。';
+    if(!n)el('bp-modal-hint').textContent=batch?'所選紀錄已核准但尚未通知。本次只補發 1 封給 Agent，不重新核准；請確認付款名單已選齊。':'此報名者已核准但尚未通知，本次只補發付款連結，不重新核准。';
+    const values=[['活動',list[0].event],['審核變更',n?'本次核准 '+n+' 人；另 '+(list.length-n)+' 人先前已核准':'全部已核准，本次僅補發'],['收件人',batch?list[0].agent+'（Agent）':list[0].name+'（本人）'],['收件 Email',receiver],['所選名單',list.map(r=>r.name+'（'+r.id+'）').join('、')],['付款範圍',list.length+' 人 · 示意總額 '+money(list.reduce((s,r)=>s+r.price,0))],['通知規則','有連結：1 封；留空：不發送']];
+    el('bp-modal-summary').innerHTML=values.map(([k,v])=>'<dt>'+escape(k)+'</dt><dd>'+escape(v)+'</dd>').join('');
+    refreshSubmit();
+    [...root.children].forEach(n=>{if(n.id!=='bp-overlay')n.inert=true;});el('bp-overlay').hidden=false;el('bp-link').focus();
+  }
+  el('bp-rows').addEventListener('change',e=>{const b=e.target.closest('[data-bp-select]');if(!b||b.disabled)return;const r=rows().find(r=>r.id===b.dataset.bpSelect);if(!r||!eligible(r))return;if(b.checked)selections[mode].add(r.id);else selections[mode].delete(r.id);render();});
+  el('bp-rows').addEventListener('click',e=>{const b=e.target.closest('[data-bp-action]');if(!b||b.disabled)return;const r=rows().find(r=>r.id===b.dataset.record);if(!r)return;if(['send','approve-send'].includes(b.dataset.bpAction)){openModal('individual',r.id);return;}if(b.dataset.bpAction!=='reject'||r.status!=='pending')return;r.status='rejected';selections[mode].delete(r.id);render();notice(r.name+' 已拒絕；沒有發送付款通知。');});
+  el('bp-select-five').addEventListener('click',()=>{selections[mode].clear();rows().slice(0,5).filter(eligible).forEach(r=>selections[mode].add(r.id));render();});
+  el('bp-clear').addEventListener('click',()=>{selections[mode].clear();render();});
+  el('bp-batch-send').addEventListener('click',()=>openModal('batch'));
+  el('bp-reset').addEventListener('click',()=>{records[mode]=makeRecords(mode);selections[mode].clear();el('bp-feedback').hidden=true;render();});
+  document.querySelectorAll('input[name="bp-mode"]').forEach(r=>r.addEventListener('change',()=>{mode=r.value;el('bp-feedback').hidden=true;render();}));
+  ['bp-modal-close','bp-modal-cancel'].forEach(id=>el(id).addEventListener('click',closeModal));
+  el('bp-overlay').addEventListener('click',e=>{if(e.target===el('bp-overlay'))closeModal();});
+  el('bp-overlay').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeModal();return;}if(e.key==='Tab'){const items=[...el('bp-overlay').querySelectorAll('button,input')].filter(n=>!n.disabled&&!n.closest('[hidden]'));const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  ['bp-link','bp-complete','bp-link-confirm'].forEach(id=>el(id).addEventListener('input',()=>{el('bp-error').hidden=true;refreshSubmit();}));
+  el('bp-modal-form').addEventListener('submit',e=>{
+    e.preventDefault();if(!context||context.mode!==mode)return;
+    const {kind,ids}=context,list=rows().filter(r=>ids.includes(r.id));
+    const invalidState=list.length!==ids.length||(kind==='batch'?!!invalid(list):list.some(r=>!['pending','approved'].includes(r.status)||r.delivery!=='unsent'||r.mode!=='individual'));
+    if(invalidState){el('bp-error').textContent='紀錄狀態已變更，請關閉並重新選取，避免重複通知。';el('bp-error').hidden=false;return;}
+    const link=el('bp-link').value.trim(),n=list.filter(r=>r.status==='pending').length;let valid=!link;try{const u=new URL(link);valid=['http:','https:'].includes(u.protocol)&&!!u.hostname;}catch{}
+    const error=!valid?'請輸入有效的 http / https 購買連結，或清空欄位以只核准。':!link&&!n?'這些紀錄已核准，請填入連結才能補發。':kind==='batch'&&!el('bp-complete').checked?'請先確認核准資格與本次付款名單已選齊。':link&&!el('bp-link-confirm').checked?'請先核對收件人、數量與連結金額。':'';
+    if(error){el('bp-error').textContent=error;el('bp-error').hidden=false;return;}
+    const time=new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}),recipient=kind==='batch'?list[0].agentEmail:list[0].email;
+    list.forEach(r=>{r.status='approved';if(link){r.delivery='sent';r.sentAt=time;r.recipient=recipient;r.link=link;}selections[mode].delete(r.id);});
+    render();closeModal();notice(link?((n?'已核准 '+n+' 人，':'補發完成，')+'模擬已寄 1 封給 '+recipient+'；所選 '+list.length+' 筆皆為已核准／已通知。未選紀錄保持原狀，尚未收到付款。'):('已核准 '+n+' 人；未填入付款連結，沒有寄送付款通知。所選紀錄為已核准／尚未通知，可稍後補發。'));
+  });
+  render();
+})();
+
+</script>
+<script>
+// Scheme three is a local prototype: no network requests, persistent locks or email.
+(() => {
+  const el=id=>document.getElementById(id),root=el('pp-timestamp-panel');
+  const timestamp=Date.parse('2026-10-15T13:31:24.128+08:00');
+  const names=['立利 閻','陳小安','林雅婷','王建宏','李怡君'];
+  function makeRecords(){
+    const base=names.map((name,i)=>({id:'T-'+(1001+i),name,email:['lili.yen','ann.chen','yating.lin','ch.wang','yijun.li'][i]+'@example.com',agentId:'agent-wade',agent:'Wade Warren',agentEmail:'wade.warren@example.com',eventId:'taipei-1129',event:'台北講座 11/29',timestamp,payer:'agent',status:'pending',price:1200}));
+    base.push({...base[0],id:'T-1006',name:'張可欣',email:'kexin.chang@example.com',payer:'individual'});
+    base.push({...base[0],id:'T-1007',name:'黃子晴',email:'ziching.huang@example.com',agentId:'agent-alex',agent:'Alex Chen',agentEmail:'alex.chen@example.com'});
+    base.push({...base[0],id:'T-1008',name:'周家豪',email:'chiahao.chou@example.com',timestamp:timestamp+1});
+    base.push({...base[0],id:'T-1009',name:'許心怡',email:'hsinyi.hsu@example.com',eventId:'kaohsiung-1206',event:'高雄講座 12/06'});
+    base.push({...base[0],id:'T-1010',name:'鄭宜庭',email:'yting.cheng@example.com',payer:'individual'});
+    return base;
+  }
+  let records=makeRecords(),context=null,returnFocus=null;
+  const deliveries=new Map();
+  const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const money=n=>'NT$ '+n.toLocaleString('en-US');
+  const stamp=value=>new Date(value+8*3600000).toISOString().slice(0,23).replace('T',' ')+' +08:00';
+  const key=r=>r.payer==='individual'?'person:'+r.id:JSON.stringify([r.eventId,r.agentId,r.timestamp]);
+  const receipt=r=>deliveries.get(key(r));
+  const scope=r=>r.payer==='individual'?[r]:records.filter(x=>x.payer==='agent'&&key(x)===key(r));
+  function notice(message){el('tp-feedback').textContent=message;el('tp-feedback').hidden=false;}
+  function render(){
+    const sentKeys=[...deliveries.keys()],agentKeys=sentKeys.filter(k=>!k.startsWith('person:')).length;
+    el('tp-summary').textContent='同一份名單共 '+records.length+' 筆 · Agent 付款通知 '+agentKeys+' 封 · 本人付款通知 '+(sentKeys.length-agentKeys)+' 封 · 前五位共用同一 Agent 與 timestamp；張可欣、鄭宜庭為獨立自行付款者。';
+    el('tp-rows').innerHTML=records.map(r=>{
+      const sent=receipt(r),individual=r.payer==='individual',status={pending:'待審核',approved:'已核准',rejected:'已拒絕'}[r.status];
+      let extra=individual?'不套用 Agent 的共用限制':r.id==='T-1007'?'相同時間，不同 Agent':r.id==='T-1008'?'相同 Agent，timestamp 相差 1 毫秒':r.id==='T-1009'?'相同 Agent／時間，不同活動':'前五位為同批 Agent 統一付款';
+      return '<tr class="'+(sent?'tp-locked-row':'')+'"><td>'+escape(r.name)+'<small>'+r.id+' · '+escape(r.email)+'</small><small><span class="pp-badge '+(individual?'tp-independent':'')+'">'+(individual?'本人自行付款':'Agent 統一付款')+'</span></small></td><td>'+escape(r.event)+'<small>'+escape(r.agent)+'</small><small>'+escape(extra)+'</small></td><td><span class="tp-ts">'+stamp(r.timestamp)+'</span><small>原始值 '+r.timestamp+'</small></td><td><span class="pp-badge '+(r.status==='pending'?'pp-pending':'pp-sent')+'">'+status+'</span><small>'+(sent?(individual?'已發送給本人':'已發送過 · 同批共用'):'尚未發送')+'</small>'+(sent?'<small>首筆 '+escape(sent.sourceId)+' · 付款狀態：待付款</small>':'')+'</td><td><button type="button" class="pp-btn" data-tp-open="'+r.id+'">'+(sent?'查看審核／付款':'審核／付款')+'</button></td></tr>';
+    }).join('');
+  }
+  function current(){return records.find(r=>r.id===context?.id);}
+  function refreshSubmit(){
+    const r=current();if(!r)return;
+    const sent=receipt(r),hasLink=!!el('tp-link').value.trim(),pending=r.status==='pending';
+    el('tp-link').disabled=!!sent;el('tp-link-confirm-label').hidden=!!sent||!hasLink;
+    el('tp-modal-submit').disabled=!!sent||(!pending&&!hasLink);
+    el('tp-modal-submit').textContent=sent?'已發送過':hasLink?(pending?'核准並發送'+(r.payer==='agent'?'給 Agent（1 封）':'給本人（1 封）'):'發送付款連結（1 封）'):pending?'核准（不寄送）':'請填入連結以發送';
+  }
+  function fillModal(){
+    const r=current();if(!r)return;const sent=receipt(r),list=scope(r),individual=r.payer==='individual';
+    el('tp-modal-kicker').textContent='方案三 · '+(individual?'本人付款，獨立處理':'Agent 付款，timestamp 共用狀態');
+    el('tp-modal-title').textContent=sent?'付款連結已發送過':r.status==='pending'?'核准並提供付款連結':'提供付款連結';
+    el('tp-modal-hint').textContent=individual?'只處理這位報名者。即使 timestamp 及 Agent 相同，也不讀取或影響其他人的發送狀態。':'同一活動、Agent ID 與完整 timestamp 的 Agent 付款紀錄共用一次發送。此操作只核准目前這位，其他人的審核狀態不變。';
+    el('tp-sent-banner').hidden=!sent;
+    if(sent)el('tp-sent-banner').textContent='已發送過 · '+sent.at+' · 從 '+sent.sourceName+'（'+sent.sourceId+'）寄 1 封給 '+sent.recipient+'。'+(individual?'此筆不可重複寄送。':'這一批其他報名者皆停用發送，並保留各自的審核狀態。');
+    const values=[['目前紀錄',r.name+'（'+r.id+'）'],['審核狀態',r.status==='pending'?'待審核，尚未核准':'已核准'],['活動',r.event],['Agent',r.agent+' / '+r.agentId],['報名時間',stamp(r.timestamp)],['原始 timestamp',String(r.timestamp)],['通知對象',individual?r.name+'（本人）':r.agent+'（Agent）'],['收件 Email',individual?r.email:r.agentEmail],['判斷範圍',individual?'僅此報名紀錄，不套用 timestamp 共用限制':'同活動＋同 Agent ID＋相同完整 timestamp'],['付款名單',list.map(x=>x.name+'（'+(x.status==='pending'?'待審核':'已核准')+'）').join('、')],['示意範圍',list.length+' 人 · '+money(list.reduce((s,x)=>s+x.price,0))+'；請核對連結涵蓋的名單']];
+    el('tp-modal-summary').innerHTML=values.map(([k,v])=>'<dt>'+escape(k)+'</dt><dd>'+escape(v)+'</dd>').join('');
+    el('tp-link-note').textContent=sent?'此連結已寄送，僅供查閱，不可再次發送。':individual?'連結非必填。填入後核准此人並寄給本人；留空只核准，不記為已發送。':'連結須涵蓋同批付款範圍。填入後核准目前這位並寄 1 封給 Agent；留空只核准這位，不鎖住其他筆。';
+    if(sent)el('tp-link').value=sent.link;
+    refreshSubmit();
+  }
+  function openModal(id){
+    const r=records.find(r=>r.id===id);if(!r)return;
+    context={id};returnFocus=document.activeElement;el('tp-modal-form').reset();el('tp-link').disabled=false;el('tp-error').hidden=true;fillModal();
+    [...root.children].forEach(n=>{if(n.id!=='tp-overlay')n.inert=true;});el('tp-overlay').hidden=false;
+    (receipt(r)?el('tp-modal-close'):el('tp-link')).focus();
+  }
+  function closeModal(){const focus=returnFocus;context=null;el('tp-overlay').hidden=true;[...root.children].forEach(n=>{if(n.id!=='tp-overlay')n.inert=false;});if(focus?.isConnected&&!focus.disabled)focus.focus();else el('pp-timestamp-tab').focus();}
+  el('tp-rows').addEventListener('click',e=>{const b=e.target.closest('[data-tp-open]');if(b)openModal(b.dataset.tpOpen);});
+  ['tp-modal-close','tp-modal-cancel'].forEach(id=>el(id).addEventListener('click',closeModal));
+  el('tp-overlay').addEventListener('click',e=>{if(e.target===el('tp-overlay'))closeModal();});
+  el('tp-overlay').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeModal();return;}if(e.key==='Tab'){const items=[...el('tp-overlay').querySelectorAll('button,input')].filter(n=>!n.disabled&&!n.closest('[hidden]'));const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  el('tp-link').addEventListener('input',()=>{el('tp-error').hidden=true;refreshSubmit();});
+  el('tp-link-confirm').addEventListener('input',()=>{el('tp-error').hidden=true;});
+  el('tp-modal-form').addEventListener('submit',e=>{
+    e.preventDefault();const r=current();if(!r)return;
+    // Check the shared receipt again at submit, including a previously opened dialog.
+    if(receipt(r)){el('tp-error').textContent='已發送過，不能重複寄送。';el('tp-error').hidden=false;fillModal();return;}
+    const link=el('tp-link').value.trim(),pending=r.status==='pending';let valid=!link;
+    try{const u=new URL(link);valid=['http:','https:'].includes(u.protocol)&&!!u.hostname;}catch{}
+    const error=!valid?'請填入有效的 http / https 連結，或留空以僅核准。':!link&&!pending?'此筆已核准，請填入付款連結才能發送。':link&&!el('tp-link-confirm').checked?'請先核對同批付款範圍、收件人及連結金額。':'';
+    if(error){el('tp-error').textContent=error;el('tp-error').hidden=false;return;}
+    r.status='approved';
+    if(link){
+      const recipient=r.payer==='individual'?r.email:r.agentEmail;
+      deliveries.set(key(r),{link,recipient,sourceId:r.id,sourceName:r.name,at:new Date().toLocaleTimeString('zh-TW',{timeZone:'Asia/Taipei',hour:'2-digit',minute:'2-digit',second:'2-digit'})});
+      render();closeModal();notice('已核准 '+r.name+'，模擬寄 1 封給 '+recipient+'。'+(r.payer==='agent'?'相同活動、Agent 及 timestamp 的其他 Agent 付款紀錄已停用發送，但不會自動核准；自行付款者不受影響。':'只記錄這位自行付款者，其他人的通知與審核狀態不變。'));
+    }else{render();closeModal();notice('已核准 '+r.name+'；未填連結，沒有發送，也沒有鎖住同批其他筆。');}
+  });
+  el('tp-reset').addEventListener('click',()=>{records=makeRecords();deliveries.clear();el('tp-feedback').hidden=true;render();});
+  render();
+})();
+
+</script>
+<script>
+// Native details provides click and keyboard disclosure; optional dismissal helpers.
+(() => {
+  const details=document.getElementById('tw-context-details');
+  const trigger=details.querySelector('summary');
+  function close(restoreFocus=false){details.open=false;if(restoreFocus)trigger.focus();}
+  document.getElementById('tw-context-close').addEventListener('click',()=>close(true));
+  document.addEventListener('click',e=>{if(details.open&&!details.contains(e.target))close();});
+  details.addEventListener('keydown',e=>{if(e.key==='Escape'&&details.open){e.preventDefault();close(true);}});
+})();
+
+</script>
 </body>
 </html>
