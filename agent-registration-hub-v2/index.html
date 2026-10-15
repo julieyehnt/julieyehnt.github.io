@@ -82,6 +82,16 @@
       .decision-grid{grid-template-columns:1fr}
       .scope-head{display:block}.date-chip{margin-top:12px}
     }
+    /* Course documentation is retained for reference; development is skipped. */
+    .menu-btn[data-view="course"]{background:#f3f3f3;color:#858585;filter:grayscale(1)}
+    .menu-btn[data-view="course"]:hover{background:#eaeaea}
+    .menu-btn[data-view="course"].active{background:#e6e6e6;color:#555;box-shadow:inset 3px 0 #999}
+    .menu-btn[data-view="course"] .menu-copy span,
+    .menu-btn[data-view="course"].active .menu-copy span{color:#777}
+    #view-course.active{display:flex;flex-direction:column}
+    .course-reference-notice{flex:0 0 auto;padding:14px 22px;background:#eee;border-bottom:1px solid #d3d3d3;color:#555;font-size:13px;line-height:1.6}
+    .course-reference-notice strong{font-weight:800}
+    #view-course iframe{flex:1;min-height:0;height:0}
   </style>
 </head>
 <body>
@@ -104,7 +114,7 @@
         </button>
         <button class="menu-btn" data-view="course">
           <span class="num">03</span>
-          <span class="menu-copy"><strong>Agent 代客報名 Course CPA / EA</strong><span>Course registration prototype</span></span>
+          <span class="menu-copy"><strong>Agent 代客報名 Course CPA / EA</strong><span>目前不開發 · 可跳過此頁（Skip）<br>文件保留供參考</span></span>
         </button>
       </nav>
       <div class="sidebar-foot">Prototype Hub · 2026</div>
@@ -167,7 +177,7 @@
                       </tr>
                       <tr>
                         <td>Course－CPA / EA</td>
-                        <td><span class="later">延後至下一次售票前</span></td>
+                        <td><span class="no">❌ 不適用</span></td>
                         <td>需要保留客戶個資、執照號碼、agent 介紹來源，並給學分。</td>
                       </tr>
                       <tr>
@@ -202,13 +212,12 @@
 
                 <div class="green-box" style="margin-top:0;">
                   <ul style="margin-top:0;">
-                    <li>Phase 2 與 Phase 3 目前活動舉辦週期較長，約半年一次或單月一次，影響人數相對較小，因此可往後排。</li>
-                    <li>若強趕 10/29 上線，短期內也不會馬上使用到；此外，目前初步規劃完成的 Scope 不包含在原先預估範圍內，需要 RD 另外估時，並採分階段上線。</li>
+                    <li>Paid Seminar 活動舉辦週期較長，約半年一次或單月一次，影響人數相對較小，因此安排於 Phase 2 上線。</li>
+                    <li>Paid Seminar 短期內尚無立即使用需求，無須趕在 10/29 上線；此外，相關功能不在原先預估範圍內，需要 RD 另行估時，因此採分階段上線。</li>
                   </ul>
                   <ol>
                     <li><strong>10/29｜Phase 1</strong>：涵蓋基本 Seminar 代客報名。</li>
-                    <li><strong>11 月底前｜Phase 2</strong>：涵蓋 Course 代客報名。</li>
-                    <li><strong>12 月底前｜Phase 3</strong>：涵蓋 Paid Seminar 代客報名。</li>
+                    <li><strong>12 月底前｜Phase 2</strong>：涵蓋 Paid Seminar 代客報名。</li>
                   </ol>
                 </div>
               </div>
@@ -217,10 +226,11 @@
         </section>
 
         <section class="view" id="view-paid">
-          <iframe src="paid.html?v=20261014-approval-send-link" title="Agent 代客報名 Paid Seminar"></iframe>
+          <iframe src="paid.html?v=20261015-v4" title="Agent 代客報名 Paid Seminar"></iframe>
         </section>
 
         <section class="view" id="view-course">
+          <div class="course-reference-notice" role="note"><strong>目前不開發 · 可跳過此頁（Skip）</strong><br>Course CPA / EA 文件保留於此，供後續查閱與討論。</div>
           <iframe src="course.html?v=20261006-1402" title="Agent 代客報名 Course CPA EA"></iframe>
         </section>
       </div>
